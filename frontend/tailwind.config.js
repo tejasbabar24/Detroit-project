@@ -8,7 +8,7 @@ export default {
     extend: {
       fontFamily :{
         myFont:['ubuntu','serif'],
-        
+        myFont2:["Bowlby One SC", 'serif']
       }
     },
   },

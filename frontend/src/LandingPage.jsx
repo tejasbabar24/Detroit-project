@@ -1,20 +1,29 @@
-import React from 'react';
-import logo from './Assets/detroitLogo.jpg';
-import filter1 from './Assets/filter1.jpg';
-import filter2 from './Assets/filter2.jpg';
-import { Slide , Zoom , Fade } from 'react-slideshow-image';
-import 'react-slideshow-image/dist/styles.css';
+import React from "react";
+import logo from "./Assets/detroitLogo.jpg";
+import filter1 from "./Assets/filter1.jpg";
+import filter2 from "./Assets/filter2.jpg";
+import filter3 from "./Assets/filter3.jpg";
+import { motion } from "framer-motion";
+import { MdHome,MdOutlineProductionQuantityLimits } from "react-icons/md";
+import { TiContacts } from "react-icons/ti"
+import { HiUserGroup } from "react-icons/hi2";
+import { Slide, Zoom, Fade } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
 
 function LandingPage() {
   const slideImages = [
     {
       img: filter1,
-      caption: 'Slide 1',
+      caption: `More Than Just a Filter – We Deliver Reliable Performance, Superior Protection, and Cleaner Air for Your Engine, Mile After Mile.`,
     },
     {
       img: filter2,
-      caption: 'Slide 2',
+      caption: "For every mile, drive in style, with filters that last and go the extra mile.",
     },
+    {
+        img: filter3,
+        caption: "Breathe Clean, Live Clean – Air Filters That Protect What Matters.",
+      },
   ];
 
   return (
@@ -23,15 +32,23 @@ function LandingPage() {
         {/* Header Section */}
         <header className="flex items-center justify-between p-4 h-20 shadow-lg font-myFont text-xl">
           <img src={logo} className="h-16 ml-16" alt="Company Logo" />
-          <div className="flex flex-row gap-16 items-center pr-16">
-            <a href="#home" className="hover:underline">Home</a>
-            <a href="#products" className="hover:underline">Products</a>
-            <a href="#about" className="hover:underline">About</a>
-            <a href="#contact" className="hover:underline">Contact Us</a>
+          <div className="hidden sm:flex flex-row gap-16 items-center pr-16 text-blue-900">
+            <a href="#home" className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500">
+             <MdHome size={30} /> Home
+            </a>
+            <a href="#products" className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500">
+              <MdOutlineProductionQuantityLimits     size={30}/>  Products
+            </a>
+            <a href="#about" className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500">
+             <HiUserGroup size={30} /> About
+            </a>
+            <a href="#contact" className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500">
+                <TiContacts size={30}/>  Contact Us
+            </a>
           </div>
         </header>
 
-        {/* Slideshow Section */}
+        {/* Slideshow image animation */}
         <div id="bgImg" className="h-full w-full">
           <Slide
             autoplay={true}
@@ -40,15 +57,41 @@ function LandingPage() {
             infinite={true}
           >
             {slideImages.map((slideImage, index) => (
-              <div key={index} className="h-screen w-full flex items-center justify-center">
+              <div
+                key={index}
+                className="h-screen w-full flex  justify-center "
+              >
                 <div
-                  className="h-full w-full bg-cover bg-center"
+                  className=" w-full bg-cover bg-center "
                   style={{
                     backgroundImage: `url(${slideImage.img})`,
+                    height: "calc(100% - 64px)",
                   }}
                 >
-                  <div className="flex items-center justify-center h-full bg-black bg-opacity-40">
-                    <span className="text-white text-3xl font-bold">{slideImage.caption}</span>
+                  <div className="flex items-top flex-col h-full bg-black bg-opacity-40 text-white p-14">
+                    {/* this our slogan display                  */}
+                    <div class="flex flex-col gap-2 items-start  text-xl">
+                      <motion.p
+                        initial={{opacity:0 , y:-100}}
+                        animate={{opacity:1 , y:0}}
+                        transition={{duration:1 , ease:"easeOut" , delay:0.2   ,  }} //repeatDelay:3 , repeatType:"loop"  , repeat:Infinity
+                        className=" text-3xl sm:text-5xl text-blue-900 font-myFont2 mt-10 ">
+                        DETROIT
+                        <span className=" text-red-500"> AUTOMOTIVE</span>
+                      </motion.p>
+                      <div className=" flex flex-row  justify-start gap-2 mt-2">
+                        <div class="w-24 h-3 rounded-lg bg-red-500"></div>
+                        <div class="w-16 h-3 rounded-lg bg-white"></div>
+                      </div>
+                    </div>
+                    <div className=" flex justify-start ">
+                      <motion.p initial={{opacity:0 , y:100}}
+                        animate={{opacity:1 , y:0}}
+                        transition={{duration:1 , ease:"easeOut" , delay:0.2}} 
+                        className=" text-xl sm:text-2xl  mt-2  sm:w-2/6 font-bold text-white">{slideImage.caption}
+
+                      </motion.p>
+                    </div>
                   </div>
                 </div>
               </div>
