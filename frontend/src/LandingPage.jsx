@@ -1,14 +1,26 @@
 import React from "react";
+//image importing
 import logo from "./Assets/detroitLogo.jpg";
 import filter1 from "./Assets/filter1.jpg";
 import filter2 from "./Assets/filter2.jpg";
 import filter3 from "./Assets/filter3.jpg";
+import filter4 from "./Assets/filter4.jpg";
+import filter5 from "./Assets/filter5.jpg";
+import filter6 from "./Assets/filter6.jpg";
+
+// framer imported
 import { motion } from "framer-motion";
+// react icons
 import { MdHome,MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { TiContacts } from "react-icons/ti"
 import { HiUserGroup } from "react-icons/hi2";
+
+// react slider-images
 import { Slide, Zoom, Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
+import ProductSlider from "./components/ProductSlider";
+
+
 
 function LandingPage() {
   const slideImages = [
@@ -43,7 +55,7 @@ function LandingPage() {
              <HiUserGroup size={30} /> About
             </a>
             <a href="#contact" className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500">
-                <TiContacts size={30}/>  Contact Us
+                <TiContacts size={30}/>  Contact Us 
             </a>
           </div>
         </header>
@@ -59,13 +71,13 @@ function LandingPage() {
             {slideImages.map((slideImage, index) => (
               <div
                 key={index}
-                className="h-screen w-full flex  justify-center "
+                className=" h-screen w-full flex  justify-center "                
               >
                 <div
                   className=" w-full bg-cover bg-center "
                   style={{
                     backgroundImage: `url(${slideImage.img})`,
-                    height: "calc(100% - 64px)",
+                    height: "calc(100% - 80px)",
                   }}
                 >
                   <div className="flex items-top flex-col h-full bg-black bg-opacity-40 text-white p-14">
@@ -99,6 +111,50 @@ function LandingPage() {
           </Slide>
         </div>
       </section>
+    
+      {/* Our Products Section */}
+      <section className="  flex flex-col items-center justify-center" id="products">
+      <div className=" flex mt-4 items-center gap-2"> 
+        <div className=" flex flex-row  justify-start gap-2 mt-2">
+              <div class="w-20 h-2 rounded-lg bg-red-500"></div>
+              <div class="w-10 h-2 rounded-lg bg-blue-500"></div>
+        </div>
+            <p className=" text-2xl font-myFont   ">Categories </p>
+      </div>
+      <div id="imgContainer" className="flex flex-row w-full  overflow-hidden">
+            <img
+              src={filter4}
+              alt="Filter 4"
+              className="flex-1 h-full w-[120px] "  
+            />
+            <img
+              src={filter1}
+              alt="Filter 1"
+              className="flex-1 h-full w-[120px] "
+            />
+            <img
+              src={filter5}
+              alt="Filter 5"
+              className="flex-1 h-full w-[120px] "
+            />
+            <img
+              src={filter6}
+              alt="Filter 6"
+              className="flex-1 h-full w-[120px] "
+            />
+      </div>
+
+      <div className=" flex mt-4 items-center gap-2"> 
+        <div className=" flex flex-row  justify-start gap-2 mt-2">
+              <div class="w-20 h-2 rounded-lg bg-red-500"></div>
+              <div class="w-10 h-2 rounded-lg bg-blue-500"></div>
+        </div>
+            <p className=" text-2xl font-myFont   ">Products </p>
+      </div>
+      <div id="imgContainer" className="flex flex-row w-full h-[500px] overflow-hidden"></div>
+        <ProductSlider/>
+      </section>
+
     </>
   );
 }
