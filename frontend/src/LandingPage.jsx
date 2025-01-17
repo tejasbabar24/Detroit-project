@@ -119,7 +119,7 @@ function LandingPage() {
               <div class="w-20 h-2 rounded-lg bg-red-500"></div>
               <div class="w-10 h-2 rounded-lg bg-blue-500"></div>
         </div>
-            <p className=" text-2xl font-myFont   ">Categories </p>
+            <p className=" text-2xl font-myFont ">Categories </p>
       </div>
       <div id="imgContainer" className="flex flex-row w-full  overflow-hidden">
             <img
