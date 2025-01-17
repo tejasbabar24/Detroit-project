@@ -113,7 +113,7 @@ function LandingPage() {
       </section>
     
       {/* Our Products Section */}
-      <section className="  flex flex-col items-center justify-center" id="products">
+      <section className=" h-screen flex flex-col items-center justify-center bg-blue-950" id="products">
       <div className=" flex mt-4 items-center gap-2"> 
         <div className=" flex flex-row  justify-start gap-2 mt-2">
               <div class="w-20 h-2 rounded-lg bg-red-500"></div>
@@ -121,7 +121,7 @@ function LandingPage() {
         </div>
             <p className=" text-2xl font-myFont ">Categories </p>
       </div>
-      <div id="imgContainer" className="flex flex-row w-full  overflow-hidden">
+      <div id="imgContainer" className=" mt-2 h-full flex flex-row w-full  overflow-hidden">
             <img
               src={filter4}
               alt="Filter 4"
@@ -152,9 +152,12 @@ function LandingPage() {
             <p className=" text-2xl font-myFont   ">Products </p>
       </div>
             
-        <ProductSlider/>
+      </section>
+      <section>
+
       </section>
 
+        <ProductSlider/>
     </>
   );
 }
