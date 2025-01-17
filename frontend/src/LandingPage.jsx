@@ -113,11 +113,11 @@ function LandingPage() {
       </section>
     
       {/* Our Products Section */}
-      <section className=" h-screen flex flex-col items-center justify-center bg-blue-950" id="products">
+      <section className=" h-screen flex flex-col items-center justify-center" id="products">
       <div className=" flex mt-4 items-center gap-2"> 
         <div className=" flex flex-row  justify-start gap-2 mt-2">
-              <div class="w-20 h-2 rounded-lg bg-red-500"></div>
-              <div class="w-10 h-2 rounded-lg bg-blue-500"></div>
+              <div className="w-20 h-2 rounded-lg bg-red-500"></div>
+              <div className="w-10 h-2 rounded-lg bg-blue-500"></div>
         </div>
             <p className=" text-2xl font-myFont ">Categories </p>
       </div>
@@ -146,8 +146,8 @@ function LandingPage() {
 
       <div className=" flex mt-4 items-center gap-2"> 
         <div className=" flex flex-row  justify-start gap-2 mt-2">
-              <div class="w-20 h-2 rounded-lg bg-red-500"></div>
-              <div class="w-10 h-2 rounded-lg bg-blue-500"></div>
+              <div className="w-20 h-2 rounded-lg bg-red-500"></div>
+              <div className="w-10 h-2 rounded-lg bg-blue-500"></div>
         </div>
             <p className=" text-2xl font-myFont   ">Products </p>
       </div>
