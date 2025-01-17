@@ -66,7 +66,7 @@ function ProductSlider() {
           <img src={filter5} alt="Filter 5" className="rounded-lg shadow-lg " />
         </SwiperSlide>
         <SwiperSlide>
-          <img src={filter6} alt="Filter 6" className="rounded-lg shadow-lg " />
+          <img src={filter2} alt="Filter 6" className="rounded-lg shadow-lg " />
         </SwiperSlide>
       </Swiper>
     </div>

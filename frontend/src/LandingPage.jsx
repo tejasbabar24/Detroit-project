@@ -151,7 +151,7 @@ function LandingPage() {
         </div>
             <p className=" text-2xl font-myFont   ">Products </p>
       </div>
-      <div id="imgContainer" className="flex flex-row w-full h-[500px] overflow-hidden"></div>
+            
         <ProductSlider/>
       </section>
 
