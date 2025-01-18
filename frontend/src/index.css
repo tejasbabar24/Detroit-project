@@ -10,6 +10,10 @@
     height:100%;
     overflow: hidden;
   }
+
+  #custom-bg{
+    background-image: url(../src/Assets/aboutUsBg.png);
+  }
   
   #imgContainer img {
     flex: 1;

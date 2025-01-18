@@ -7,6 +7,10 @@ import filter3 from "./Assets/filter3.jpg";
 import filter4 from "./Assets/filter4.jpg";
 import filter5 from "./Assets/filter5.jpg";
 import filter6 from "./Assets/filter6.jpg";
+import aboutImg from "./Assets/aboutUsBg.png";
+import containerLogo  from "./Assets/containerImg.png";
+
+
 
 // framer imported
 import { motion } from "framer-motion";
@@ -143,21 +147,72 @@ function LandingPage() {
               className="flex-1 h-full w-[120px] "
             />
       </div>
+      </section>
 
-      <div className=" flex mt-4 items-center gap-2"> 
-        <div className=" flex flex-row  justify-start gap-2 mt-2">
-              <div className="w-20 h-2 rounded-lg bg-red-500"></div>
-              <div className="w-10 h-2 rounded-lg bg-blue-500"></div>
-        </div>
-            <p className=" text-2xl font-myFont   ">Products </p>
-      </div>
+
+            {/* About Us section */}
+
+      <section className={`bg-cover sm:h-full  mt-64 sm:mt-0 `}>
+        <div id="custom-bg" className=" flex justify-center items-center relative bg-center h-screen  ">
+          {/* <!-- Main container --> */}
+          <div className="flex flex-col sm:flex-row justify-around  p-6 lg:p-10 gap-5 items-center sm:items-start">
             
-      </section>
-      <section>
+            {/* <!-- Left side --> */}
+            <div className="flex items-center w-96 relative pr-0 sm:ml-64 p-0">
+              {/* <!-- Floating box --> */}
+              <div className="absolute z-10 -left-31 sm:-left-40 top-1/2 transform -translate-y-1/2 sm:mt-64 mt-52">
+                <div className="flex flex-col justify-center items-center w-52   h-52 sm:w-64 sm:h-56  p-4 gap-4 border-2 bg-white shadow-lg">
+                  <img src={containerLogo} alt="Icon" className="h-8 sm:h-12 lg:h-20" />
+                  <p className="text-md font-semibold">Lorem ipsum</p>
+                  <p className=" text-sm opacity-70 text-center">
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                  </p>
+                </div>
+              </div>
+              {/* <!-- Background image --> */}
+              <img src={filter3} alt="Portrait" className="absolute inset-0 z-0 sm:h-96 h-72 w-full " />
+            </div>
 
+            {/* <!-- Right side --> */}
+            <div className="mt-96 sm:mt-0 w-full lg:w-1/2 flex flex-col justify-center items-center sm:items-start gap-6">
+              {/* <!-- Title Section --> */}
+              <div className="flex flex-row gap-2 items-center text-xl">
+                <div className="w-12 h-2 rounded-lg bg-red-500"></div>
+                <div className="w-4 h-2 rounded-lg bg-blue-500"></div>
+                <span className="text-blue-500  font-myFont2">Our Services</span>
+              </div>
+              {/* <!-- Headline --> */}
+              <p className="text-2xl lg:text-3xl font-bold leading-snug font-myFont">
+                We have provided more <br /> than 10+ years
+              </p>
+              {/* <!-- Description --> */}
+              <p className="text-base leading-relaxed opacity-60 font-myFont">
+                With 20+ years of experience and over 100 clients, our organization has deep insight and expertise in managing 
+                the financial requirements and challenges of clients across industries. Our aim is to help them focus on their core expertise 
+                and thereby become efficient value creators in the business sector. No matter the organizational changes or team movements, 
+                we ensure that processes and systems work with uninterrupted flow and precision. Our offerings, backed by a team with years 
+                of expertise, are well-positioned to fill in the gap of CFOs.
+              </p>
+              <p className=" flex justify-start items-center gap-3 text-blue-600 font-semibold text-xl"><img src="Group 406.svg" alt="" className=" rotate-90" /> How we work</p>
+            </div>
+          </div>
+        </div>
       </section>
 
-        <ProductSlider/>
+
+
+      <section className=" h-screen flex gap-12 items-center flex-col ">
+
+        <div className=" flex mt-6 items-center gap-2 "> 
+          <div className=" flex flex-row  justify-start gap-2 mt-2">
+                <div className="w-20 h-2 rounded-lg bg-red-500"></div>
+                <div className="w-10 h-2 rounded-lg bg-blue-500"></div>
+          </div>
+              <p className=" text-2xl font-myFont   ">Products </p>
+        </div>
+          <ProductSlider/>
+      </section>
+
     </>
   );
 }
