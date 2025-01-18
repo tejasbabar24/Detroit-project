@@ -18,6 +18,7 @@ import { motion } from "framer-motion";
 import { MdHome,MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { TiContacts } from "react-icons/ti"
 import { HiUserGroup } from "react-icons/hi2";
+import { IoLocation } from "react-icons/io5";
 
 // react slider-images
 import { Slide, Zoom, Fade } from "react-slideshow-image";
@@ -117,14 +118,14 @@ function LandingPage() {
       </section>
     
       {/* Our Products Section */}
-      <section className=" h-screen flex flex-col items-center justify-center" id="products">
-      <div className=" flex mt-4 items-center gap-2"> 
-        <div className=" flex flex-row  justify-start gap-2 mt-2">
-              <div className="w-20 h-2 rounded-lg bg-red-500"></div>
-              <div className="w-10 h-2 rounded-lg bg-blue-500"></div>
+      <section className=" h-fit sm:h-screen flex flex-col items-center justify-center" id="products">
+      <div className=" flex mt-6 items-center gap-2 "> 
+          <div className=" flex flex-row items-center  justify-start gap-2 mt-2">
+                <div className="w-20 h-2.5 rounded-lg bg-red-500"></div>
+                <p className=" text-2xl font-myFont2   "> Categories </p>
+                <div className="w-16 h-2.5 rounded-lg bg-blue-500"></div>
+          </div>
         </div>
-            <p className=" text-2xl font-myFont ">Categories </p>
-      </div>
       <div id="imgContainer" className=" mt-2 h-full flex flex-row w-full  overflow-hidden">
             <img
               src={filter4}
@@ -152,10 +153,10 @@ function LandingPage() {
 
             {/* About Us section */}
 
-      <section className={`bg-cover sm:h-full  mt-64 sm:mt-0 `}>
+      <section className=" h-screen  ">
         <div id="custom-bg" className=" flex justify-center items-center relative bg-center h-screen  ">
           {/* <!-- Main container --> */}
-          <div className="flex flex-col sm:flex-row justify-around  p-6 lg:p-10 gap-5 items-center sm:items-start">
+          <div className="flex flex-col sm:flex-row sm:justify-around  sm:p-6 lg:p-10 gap-5 items-center sm:items-start">
             
             {/* <!-- Left side --> */}
             <div className="flex items-center w-96 relative pr-0 sm:ml-64 p-0">
@@ -170,30 +171,32 @@ function LandingPage() {
                 </div>
               </div>
               {/* <!-- Background image --> */}
-              <img src={filter3} alt="Portrait" className="absolute inset-0 z-0 sm:h-96 h-72 w-full " />
+              <img src={filter3} alt="Portrait" className="absolute inset-0 z-0 sm:h-96 h-72 w-[320px] sm:w-full mt-8 " />
             </div>
 
             {/* <!-- Right side --> */}
-            <div className="mt-96 sm:mt-0 w-full lg:w-1/2 flex flex-col justify-center items-center sm:items-start gap-6">
+            <div className=" mt-80 sm:mt-0 w-full lg:w-1/2 flex flex-col justify-center items-center sm:items-start gap-6">
               {/* <!-- Title Section --> */}
-              <div className="flex flex-row gap-2 items-center text-xl">
-                <div className="w-12 h-2 rounded-lg bg-red-500"></div>
-                <div className="w-4 h-2 rounded-lg bg-blue-500"></div>
-                <span className="text-blue-500  font-myFont2">Our Services</span>
+              <div className=" flex mt-6 items-center gap-2 "> 
+                <div className=" flex flex-row items-center  justify-start gap-2 mt-2">
+                      <div className="w-20 h-2.5 rounded-lg bg-red-500"></div>
+                      <p className=" text-2xl font-myFont2   ">About Us </p>
+                      <div className="w-16 h-2.5 rounded-lg bg-blue-500"></div>
+                </div>
               </div>
               {/* <!-- Headline --> */}
               <p className="text-2xl lg:text-3xl font-bold leading-snug font-myFont">
                 We have provided more <br /> than 10+ years
               </p>
               {/* <!-- Description --> */}
-              <p className="text-base leading-relaxed opacity-60 font-myFont">
+              <p className=" leading-relaxed opacity-60 font-myFont text-sm">
                 With 20+ years of experience and over 100 clients, our organization has deep insight and expertise in managing 
                 the financial requirements and challenges of clients across industries. Our aim is to help them focus on their core expertise 
                 and thereby become efficient value creators in the business sector. No matter the organizational changes or team movements, 
                 we ensure that processes and systems work with uninterrupted flow and precision. Our offerings, backed by a team with years 
                 of expertise, are well-positioned to fill in the gap of CFOs.
               </p>
-              <p className=" flex justify-start items-center gap-3 text-blue-600 font-semibold text-xl"><img src="Group 406.svg" alt="" className=" rotate-90" /> How we work</p>
+              <p className=" flex justify-start items-center gap-3 font-semibold hover:text-red-500 "><img src="Group 406.svg" alt="" className=" rotate-90" /><span className=" text-2xl "> <IoLocation/> </span> Lorem, ipsum. Lorem ipsum dolor sit amet. </p>
             </div>
           </div>
         </div>
@@ -204,11 +207,11 @@ function LandingPage() {
       <section className=" h-screen flex gap-12 items-center flex-col ">
 
         <div className=" flex mt-6 items-center gap-2 "> 
-          <div className=" flex flex-row  justify-start gap-2 mt-2">
-                <div className="w-20 h-2 rounded-lg bg-red-500"></div>
-                <div className="w-10 h-2 rounded-lg bg-blue-500"></div>
+          <div className=" flex flex-row items-center  justify-start gap-2 mt-2">
+                <div className="w-20 h-2.5 rounded-lg bg-red-500"></div>
+                <p className=" text-2xl font-myFont2   ">Products </p>
+                <div className="w-16 h-2.5 rounded-lg bg-blue-500"></div>
           </div>
-              <p className=" text-2xl font-myFont   ">Products </p>
         </div>
           <ProductSlider/>
       </section>
