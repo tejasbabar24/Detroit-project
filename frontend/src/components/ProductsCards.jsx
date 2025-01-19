@@ -1,11 +1,13 @@
-import React from 'react'
+    import React from 'react'
 
-function ProductsCards() {
-  return (
-    <div>
-      
-    </div>
-  )
-}
 
-export default ProductsCards
+
+    function ProductsCards() {
+    return (
+        <div>
+            
+        </div>
+    )
+    }
+
+    export default ProductsCards

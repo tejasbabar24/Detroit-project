@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 //image importing
 import logo from "./Assets/detroitLogo.jpg";
 import filter1 from "./Assets/filter1.jpg";
@@ -22,7 +22,10 @@ import { motion } from "framer-motion";
 import { MdHome,MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { TiContacts } from "react-icons/ti"
 import { HiUserGroup } from "react-icons/hi2";
-import { IoLocation ,IoNavigate } from "react-icons/io5";
+import { IoLocation ,IoNavigate, IoCloseSharp ,IoMenuSharp } from "react-icons/io5";
+import { RiAdminFill } from "react-icons/ri";
+
+
 
 // react slider-images
 import { Slide, Zoom, Fade } from "react-slideshow-image";
@@ -32,6 +35,7 @@ import ProductSlider from "./components/ProductSlider";
 
 
 function LandingPage() {
+  const [isDrawerOpen, setDrawerOpen] =useState(false); // State for right drawer
   const slideImages = [
     {
       img: filter1,
@@ -53,7 +57,7 @@ function LandingPage() {
         {/* Header Section */}
         <header className="flex items-center justify-between p-4 h-20 shadow-lg font-myFont text-xl">
           <img src={logo} className="h-16 ml-16" alt="Company Logo" />
-          <div className="hidden sm:flex flex-row gap-16 items-center pr-16 text-blue-900">
+          <div className="hidden sm:flex flex-row gap-16 items-center  text-blue-900  ">
             <a href="#home" className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500">
              <MdHome size={30} /> Home
             </a>
@@ -61,13 +65,53 @@ function LandingPage() {
               <MdOutlineProductionQuantityLimits     size={30}/>  Products
             </a>
             <a href="#about" className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500">
-             <HiUserGroup size={30} /> About
+             <HiUserGroup size={30} /> About Us
             </a>
             <a href="#contact" className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500">
                 <TiContacts size={30}/>  Contact Us 
             </a>
+            <button className="flex flex-row gap-2 hover:underline  hover:text-red-500" > <RiAdminFill size={30}/> Admin Login</button>  
+
+          </div>
+          <div className=" sm:hidden" >
+            <IoMenuSharp onClick={  ()=>setDrawerOpen(!isDrawerOpen) }/>
           </div>
         </header>
+
+
+      <div
+        className={`fixed inset-y-0 right-0 z-40 w-64 bg-white shadow-2xl transition-transform duration-300 transform ${
+          isDrawerOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+          <div className="p-4">
+            <IoCloseSharp className='text-[#4A5C6A] hover:text-[#253745] cursor-pointer' size={25} onClick={()=>setDrawerOpen(!isDrawerOpen)} />
+          
+            <div className="flex justify-center flex-col items-center mt-4 relative">
+              
+              <div className="flex flex-col gap-8 justify-start items-start pr-16 text-blue-900  ">
+                  <a href="#home" className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500">
+                  <MdHome size={30} /> Home
+                  </a>
+                  <a href="#products" className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500">
+                    <MdOutlineProductionQuantityLimits     size={30}/>  Products
+                  </a>
+                  <a href="#about" className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500">
+                  <HiUserGroup size={30} /> About Us
+                  </a>
+                  <a href="#contact" className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500">
+                      <TiContacts size={30}/>  Contact Us 
+                  </a>
+                  
+              </div>
+              <button className="flex gap-1 items-center justify-center mt-32 h-10 w-32 border-2 border-red-500 bg-red-300 rounded-full  " > <RiAdminFill size={20}/> Admin Login</button>  
+              </div>
+          </div>
+
+
+      </div>
+            
+        
 
         {/* Slideshow image animation */}
         <div id="bgImg" className="h-full w-full">
@@ -147,7 +191,7 @@ function LandingPage() {
               alt="Filter 4"
               className="flex-1 h-full w-[120px] "  
             />
-            <h1 className=" flex flex-col justify-center  items-center z-10 absolute font-myFont2  text-3xl  " >  Oil  filter <br /> <br /><br />  <span  className="  mt-12 text-center flex items-center justify-center"> <IoNavigate size={32}/> </span></h1>
+            <h1 className=" flex flex-col justify-center  items-center z-10 absolute font-myFont2  text-3xl  " >  Oil  filter <br /> <br /><br />  <span  className="  mt-12 text-center flex items-center justify-center "> <IoNavigate size={32} color="s"/> </span></h1>
 
           </div>
           <div className=" flex flex-row relative z-0 justify-center items-center ">
@@ -174,7 +218,7 @@ function LandingPage() {
 
             {/* About Us section */}
 
-      <section className=" h-screen  ">
+      <section className=" h-screen  " id="about">
         <div id="custom-bg" className=" flex justify-center items-center relative bg-center h-screen  ">
           {/* <!-- Main container --> */}
           <div className="flex flex-col sm:flex-row sm:justify-around  sm:p-6 lg:p-10 gap-5 items-center sm:items-start">
