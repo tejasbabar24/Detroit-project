@@ -7,7 +7,11 @@ import filter3 from "./Assets/filter3.jpg";
 import filter4 from "./Assets/filter4.jpg";
 import filter5 from "./Assets/filter5.jpg";
 import filter6 from "./Assets/filter6.jpg";
-import aboutImg from "./Assets/aboutUsBg.png";
+import airFilter from "./Assets/airFilter.jpg";
+import cabinFilter from "./Assets/cabinFilter.webp";
+import fuelFilter from "./Assets/fuelFilter.jpg";
+import oilFilter from "./Assets/oilFilter.jpg";
+
 import containerLogo  from "./Assets/containerImg.png";
 
 
@@ -18,7 +22,7 @@ import { motion } from "framer-motion";
 import { MdHome,MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { TiContacts } from "react-icons/ti"
 import { HiUserGroup } from "react-icons/hi2";
-import { IoLocation } from "react-icons/io5";
+import { IoLocation ,IoNavigate } from "react-icons/io5";
 
 // react slider-images
 import { Slide, Zoom, Fade } from "react-slideshow-image";
@@ -127,26 +131,43 @@ function LandingPage() {
           </div>
         </div>
       <div id="imgContainer" className=" mt-2 h-full flex flex-row w-full  overflow-hidden">
+          
+          <div className=" flex flex-row relative z-0 justify-center items-center overflow-hidden ">
             <img
-              src={filter4}
+              src={airFilter}
               alt="Filter 4"
               className="flex-1 h-full w-[120px] "  
             />
+            <h1 className=" flex flex-col justify-center  items-center z-10 absolute font-myFont2  sm:text-3xl    " >  Air  filter <br /> <br /><br />  <span  className="  mt-12 text-center flex items-center justify-center"> <IoNavigate size={32}/> </span></h1>
+
+          </div>
+          <div className=" flex flex-row relative z-0 justify-center items-center ">
             <img
-              src={filter1}
-              alt="Filter 1"
-              className="flex-1 h-full w-[120px] "
+              src={oilFilter}
+              alt="Filter 4"
+              className="flex-1 h-full w-[120px] "  
             />
+            <h1 className=" flex flex-col justify-center  items-center z-10 absolute font-myFont2  text-3xl  " >  Oil  filter <br /> <br /><br />  <span  className="  mt-12 text-center flex items-center justify-center"> <IoNavigate size={32}/> </span></h1>
+
+          </div>
+          <div className=" flex flex-row relative z-0 justify-center items-center ">
             <img
-              src={filter5}
-              alt="Filter 5"
-              className="flex-1 h-full w-[120px] "
-            />
+              src={fuelFilter}
+              alt="Filter 4"
+              className="flex-1 h-full w-[120px] "  
+            />  
+            <h1 className=" flex flex-col justify-center  items-center z-10 absolute font-myFont2  text-3xl  " >  Fuel  filter <br /> <br /><br />  <span  className="  mt-12 text-center flex items-center justify-center"> <IoNavigate size={32}/> </span></h1>
+            
+          </div>
+          <div className=" flex flex-row relative z-0 justify-center items-center ">
             <img
-              src={filter6}
-              alt="Filter 6"
-              className="flex-1 h-full w-[120px] "
+              src={cabinFilter}
+              alt="Filter 4"
+              className="flex-1 h-full w-[120px] "  
             />
+          <h1 className=" flex flex-col justify-center  items-center z-10 absolute font-myFont2  text-3xl  " >  Cabin  filter <br /> <br /><br />  <span  className="  mt-12  flex items-center justify-center"> <IoNavigate size={32}/> </span></h1>
+
+          </div>
       </div>
       </section>
 
