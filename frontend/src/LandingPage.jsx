@@ -135,7 +135,7 @@ function LandingPage() {
                 >
                   <div className="flex items-top flex-col h-full bg-black bg-opacity-40 text-white p-14">
                     {/* this our slogan display                  */}
-                    <div class="flex flex-col gap-2 items-start  text-xl">
+                    <div className="flex flex-col gap-2 items-start  text-xl">
                       <motion.p
                         initial={{opacity:0 , y:-100}}
                         animate={{opacity:1 , y:0}}
@@ -145,8 +145,8 @@ function LandingPage() {
                         <span className=" text-red-500"> AUTOMOTIVE</span>
                       </motion.p>
                       <div className=" flex flex-row  justify-start gap-2 mt-2">
-                        <div class="w-24 h-3 rounded-lg bg-red-500"></div>
-                        <div class="w-16 h-3 rounded-lg bg-white"></div>
+                        <div className="w-24 h-3 rounded-lg bg-red-500"></div>
+                        <div className="w-16 h-3 rounded-lg bg-white"></div>
                       </div>
                     </div>
                     <div className=" flex justify-start ">

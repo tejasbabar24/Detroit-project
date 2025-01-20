@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import airFilter from '../Assets/airFilter.jpg'
 import { IoIosArrowForward ,IoIosSquare} from "react-icons/io";
+import ProductsCards from './ProductsCards';
 
 
 
@@ -28,7 +29,7 @@ return (
         </div>
         
         {/* Product  Cards section     */}
-        <div className=' flex sm:flex-col  ' >
+        <div className=' flex sm:flex-row flex-col  ' >
             {/* left side */}
             <div  className=' flex flex-col w-full sm:w-1/3 border-r-2 border-gray-200  justify-center items-center p-8 sm:p-12  ' >
                 <div className=' bg-blue-100 rounded-lg w-full justify-center font-myFont items-center text-center gap-8 sm:p-12 p-2 sm:text-xl '>
@@ -41,7 +42,9 @@ return (
                 </div>
             </div>
             {/* right side  */}
-            <div></div>
+            <div className= ' p-6'>
+                <ProductsCards/>
+            </div>
         </div>
     </div>
     
