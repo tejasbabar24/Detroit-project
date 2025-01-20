@@ -14,8 +14,8 @@ import oilFilter from "./Assets/oilFilter.jpg";
 
 import containerLogo  from "./Assets/containerImg.png";
 
-
-
+import ContactHeader from "./components/ContactHeader/ContactHeader";
+import ContactForm from "./components/ContactForm/ContactForm";
 // framer imported
 import { motion } from "framer-motion";
 // react icons
@@ -280,7 +280,10 @@ function LandingPage() {
         </div>
           <ProductSlider/>
       </section>
-
+      <section className="h-screen" id="contact">
+      <ContactHeader/>
+      <ContactForm/>
+    </section>
     </>
   );
 }
