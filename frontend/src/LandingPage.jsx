@@ -24,7 +24,7 @@ import { TiContacts } from "react-icons/ti"
 import { HiUserGroup } from "react-icons/hi2";
 import { IoLocation ,IoNavigate, IoCloseSharp ,IoMenuSharp } from "react-icons/io5";
 import { RiAdminFill } from "react-icons/ri";
-
+import AdminLogin from "./components/AdminLogin";
 
 
 // react slider-images
@@ -36,6 +36,7 @@ import ProductSlider from "./components/ProductSlider";
 
 function LandingPage() {
   const [isDrawerOpen, setDrawerOpen] =useState(false); // State for right drawer
+  const [modalLoginOpen,setModalLoginOpen] = useState(false);
   const slideImages = [
     {
       img: filter1,
@@ -51,6 +52,9 @@ function LandingPage() {
       },
   ];
 
+  const handleLoginSubmit = (userData) =>{
+
+  }
   return (
     <>
       <section className="h-screen" id="home">
@@ -70,7 +74,7 @@ function LandingPage() {
             <a href="#contact" className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500">
                 <TiContacts size={30}/>  Contact Us 
             </a>
-            <button className="flex flex-row gap-2 hover:underline  hover:text-red-500" > <RiAdminFill size={30}/> Admin Login</button>  
+            <button className="flex flex-row gap-2 hover:underline  hover:text-red-500" onClick={()=>setModalLoginOpen(true)}> <RiAdminFill size={30}/> Admin Login</button>  
 
           </div>
           <div className=" sm:hidden" >
@@ -104,13 +108,16 @@ function LandingPage() {
                   </a>
                   
               </div>
-              <button className="flex gap-1 items-center justify-center mt-32 h-10 w-32 border-2 border-red-500 bg-red-300 rounded-full  " > <RiAdminFill size={20}/> Admin Login</button>  
+              <button className="flex gap-1 items-center justify-center mt-32 h-10 w-32 border-2 border-red-500 bg-red-300 rounded-full  " onClick={()=>setModalLoginOpen(true)}> <RiAdminFill size={20}/> Admin Login</button>  
               </div>
           </div>
-
-
       </div>
-            
+          {modalLoginOpen && (
+        <AdminLogin
+          onClose={() => setModalLoginOpen(false)}
+          onSubmit={handleLoginSubmit}
+        />
+      )}
         
 
         {/* Slideshow image animation */}
