@@ -9,8 +9,8 @@ function App() {
 
   return (
     <>
-      {/* <LandingPage/> */}
-      <DetailedProduct/>
+      <LandingPage/>
+      {/* <DetailedProduct/> */}
       {/* <ProductsPage/> */}
     </>
   )

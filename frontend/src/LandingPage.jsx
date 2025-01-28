@@ -19,7 +19,7 @@ import ContactForm from "./components/ContactForm/ContactForm";
 // framer imported
 import { motion } from "framer-motion";
 // react icons
-import { MdHome, MdOutlineProductionQuantityLimits } from "react-icons/md";
+import { MdHome, MdOutlineProductionQuantityLimits ,MdEmail } from "react-icons/md";
 import { TiContacts } from "react-icons/ti";
 import { HiUserGroup } from "react-icons/hi2";
 import {
@@ -29,7 +29,8 @@ import {
   IoMenuSharp,
 } from "react-icons/io5";
 import { RiAdminFill } from "react-icons/ri";
-
+import { PiPhoneCallFill } from "react-icons/pi";
+import { FaMapLocationDot } from "react-icons/fa6";
 
 
 // react slider-images
@@ -395,6 +396,34 @@ function LandingPage() {
         <ContactHeader />
         <ContactForm />
       </section>
+
+      {/* footer is here  */}
+      <footer className=" bg-black h-[500px] " >
+        <div className=" p-10 pt-0  ">
+          <div className=" flex  border-t-8 border-green-500 pt-12 p-2 justify-evenly border-b-2 border-b-gray-200 border-b-opacity-50 ">
+              <div className=" p-4 text-white  flex gap-4 border-r-2 justify-center items-center " ><PiPhoneCallFill size={64} className="opacity-50 " /> 
+                  <div gap-2 className=" flex flex-col gap-2 ">
+                   <span className="opacity-50 text-xl" >Call  Us </span>
+                   <span className=" text-2xl font-bold ">+91-129-4281000 </span>
+                  </div> 
+              </div>
+              <div className=" p-4 text-white  flex gap-4 border-r-2 justify-center items-center " ><MdEmail size={64} className="opacity-50 " /> 
+                  <div gap-2 className=" flex flex-col gap-2 ">
+                   <span className="opacity-50 text-xl" >Need  Support </span>
+                   <span className=" text-2xl font-bold "> detroit@gmail.com </span>
+                  </div> 
+              </div>
+              <div className=" p-4 text-white  flex gap-4  justify-center items-center " ><FaMapLocationDot size={64} className="opacity-50 " /> 
+                  <div gap-2 className=" flex flex-col gap-2 ">
+                   <span className="opacity-50 text-xl" >Head Office </span>
+                   <span className=" text-2xl font-bold ">+91-129-4281000 </span>
+                  </div> 
+              </div>
+              <div></div>
+              <div></div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }
