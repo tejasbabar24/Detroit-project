@@ -10,3 +10,9 @@
   .contact_section p {
     font-weight: 500;
   }
+
+  @media screen and (max-width:1024px) {
+    .contact_section{
+      padding: 0 50px ;
+    }
+  }

@@ -50,3 +50,12 @@
   .contact_image{
     align-self: flex-start;
   }
+
+  @media screen and (max-width:1024px) {
+    .contact_image{
+      display: none;
+    }
+    .container{
+      justify-content: center;
+    }
+  }
