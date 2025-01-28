@@ -30,13 +30,15 @@ import {
 } from "react-icons/io5";
 import { RiAdminFill } from "react-icons/ri";
 
+
+
 // react slider-images
 import { Slide, Zoom, Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import ProductSlider from "./components/ProductSlider";
 
 function LandingPage() {
-  const [isDrawerOpen, setDrawerOpen] = useState(false); // State for right drawer
+  const [isDrawerOpen, setDrawerOpen] =useState(false); // State for right drawer
   const slideImages = [
     {
       img: filter1,
@@ -54,6 +56,9 @@ function LandingPage() {
     },
   ];
 
+  const handleLoginSubmit = (userData) =>{
+
+  }
   return (
     <>
       <section className="h-screen" id="home">
@@ -85,10 +90,8 @@ function LandingPage() {
             >
               <TiContacts size={30} /> Contact Us
             </a>
-            <button className="flex flex-row gap-2 hover:underline  hover:text-red-500">
-              {" "}
-              <RiAdminFill size={30} /> Admin Login
-            </button>
+            <button className="flex flex-row gap-2 hover:underline  hover:text-red-500" > <RiAdminFill size={30}/> Admin Login</button>  
+
           </div>
           <div className=" sm:hidden">
             <IoMenuSharp onClick={() => setDrawerOpen(!isDrawerOpen)} />
@@ -134,13 +137,14 @@ function LandingPage() {
                   <TiContacts size={30} /> Contact Us
                 </a>
               </div>
-              <button className="flex gap-1 items-center justify-center mt-32 h-10 w-32 border-2 border-red-500 bg-red-300 rounded-full  ">
-                {" "}
-                <RiAdminFill size={20} /> Admin Login
-              </button>
-            </div>
+              <button className="flex gap-1 items-center justify-center mt-32 h-10 w-32 border-2 border-red-500 bg-red-300 rounded-full  " > <RiAdminFill size={20}/> Admin Login</button>  
+              </div>
           </div>
-        </div>
+
+
+      </div>
+            
+        
 
         {/* Slideshow image animation */}
         <div id="bgImg" className="h-full w-full">
