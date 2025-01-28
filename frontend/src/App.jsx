@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import LandingPage from './LandingPage'
 import ProductsPage from './components/ProductsPage'
+import DetailedProduct from './DetailedProduct'
 
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
 
   return (
     <>
-      <LandingPage/>
+      {/* <LandingPage/> */}
+      <DetailedProduct/>
       {/* <ProductsPage/> */}
     </>
   )
