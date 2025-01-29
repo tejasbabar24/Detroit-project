@@ -13,7 +13,7 @@ import fuelFilter from "./Assets/fuelFilter.jpg";
 import oilFilter from "./Assets/oilFilter.jpg";
 
 import containerLogo from "./Assets/containerImg.png";
-
+import AdminLogin from "./components/AdminLogin"
 import ContactHeader from "./components/ContactHeader/ContactHeader";
 import ContactForm from "./components/ContactForm/ContactForm";
 // framer imported
@@ -40,6 +40,8 @@ import ProductSlider from "./components/ProductSlider";
 
 function LandingPage() {
   const [isDrawerOpen, setDrawerOpen] =useState(false); // State for right drawer
+  const [modalOpen, setModalOpen] = useState(false); 
+
   const slideImages = [
     {
       img: filter1,
@@ -91,7 +93,7 @@ function LandingPage() {
             >
               <TiContacts size={30} /> Contact Us
             </a>
-            <button className="flex flex-row gap-2 hover:underline  hover:text-red-500" > <RiAdminFill size={30}/> Admin Login</button>  
+            <button className="flex flex-row gap-2 hover:underline  hover:text-red-500" onClick={()=>setModalOpen(true)}> <RiAdminFill size={30}/> Admin Login</button>  
 
           </div>
           <div className=" sm:hidden">
@@ -138,14 +140,19 @@ function LandingPage() {
                   <TiContacts size={30} /> Contact Us
                 </a>
               </div>
-              <button className="flex gap-1 items-center justify-center mt-32 h-10 w-32 border-2 border-red-500 bg-red-300 rounded-full  " > <RiAdminFill size={20}/> Admin Login</button>  
+              <button className="flex gap-1 items-center justify-center mt-32 h-10 w-32 border-2 border-red-500 bg-red-300 rounded-full  " onClick={()=>setModalOpen(true)}> <RiAdminFill size={20}/> Admin Login</button>  
               </div>
           </div>
 
 
       </div>
             
-        
+      {modalOpen && (
+        <AdminLogin
+          onClose={() => setModalOpen(false)}
+          onSubmit={handleLoginSubmit}
+        />
+      )}
 
         {/* Slideshow image animation */}
         <div id="bgImg" className="h-full w-full">
