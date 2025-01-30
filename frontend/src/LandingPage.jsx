@@ -37,10 +37,12 @@ import { FaMapLocationDot } from "react-icons/fa6";
 import { Slide, Zoom, Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import ProductSlider from "./components/ProductSlider";
+import { NavLink, useNavigate } from "react-router-dom";
 
 function LandingPage() {
   const [isDrawerOpen, setDrawerOpen] =useState(false); // State for right drawer
   const [modalOpen, setModalOpen] = useState(false); 
+  const navigate = useNavigate();
 
   const slideImages = [
     {
@@ -233,7 +235,8 @@ function LandingPage() {
           id="imgContainer"
           className=" mt-2 h-full flex flex-row w-full  overflow-hidden"
         >
-          <div className=" flex flex-row relative z-0 justify-center items-center overflow-hidden ">
+        
+          <div className=" flex flex-row relative z-0 justify-center items-center overflow-hidden " onClick={() => navigate(`/category`)}>
             <img
               src={airFilter}
               alt="Filter 4"
@@ -249,7 +252,7 @@ function LandingPage() {
               </span>
             </h1>
           </div>
-          <div className=" flex flex-row relative z-0 justify-center items-center ">
+          <div className=" flex flex-row relative z-0 justify-center items-center " onClick={() => navigate(`/category`)}>
             <img
               src={oilFilter}
               alt="Filter 4"
@@ -265,7 +268,7 @@ function LandingPage() {
               </span>
             </h1>
           </div>
-          <div className=" flex flex-row relative z-0 justify-center items-center ">
+          <div className=" flex flex-row relative z-0 justify-center items-center " onClick={() => navigate(`/category`)}>
             <img
               src={fuelFilter}
               alt="Filter 4"
@@ -281,7 +284,7 @@ function LandingPage() {
               </span>
             </h1>
           </div>
-          <div className=" flex flex-row relative z-0 justify-center items-center ">
+          <div className=" flex flex-row relative z-0 justify-center items-center " onClick={() => navigate(`/category`)}>
             <img
               src={cabinFilter}
               alt="Filter 4"
@@ -399,15 +402,18 @@ function LandingPage() {
         </div>
         <ProductSlider />
       </section>
+      
       <section className="h-screen" id="contact">
         <ContactHeader />
         <ContactForm />
       </section>
 
       {/* footer is here  */}
+      <section>
+
       <footer className=" bg-black h-[500px] " >
         <div className=" p-10 pt-0  ">
-          <div className=" flex  border-t-8 border-green-500 pt-12 p-2 justify-evenly border-b-2 border-b-gray-200 border-b-opacity-50 ">
+          <div className=" flex flex-col sm:flex-row  border-t-8 border-green-500 pt-12 p-2 justify-evenly border-b-2 border-b-gray-200 border-b-opacity-50 ">
               <div className=" p-4 text-white  flex gap-4 border-r-2 justify-center items-center " ><PiPhoneCallFill size={64} className="opacity-50 " /> 
                   <div gap-2 className=" flex flex-col gap-2 ">
                    <span className="opacity-50 text-xl" >Call  Us </span>
@@ -431,6 +437,7 @@ function LandingPage() {
           </div>
         </div>
       </footer>
+      </section>
     </>
   );
 }
