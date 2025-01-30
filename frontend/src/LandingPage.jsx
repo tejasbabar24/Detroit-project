@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 //image importing
 import logo from "./Assets/detroitLogo.jpg";
+import LogoPng from './Assets/LogoPng.png'
 import filter1 from "./Assets/filter1.jpg";
 import filter2 from "./Assets/filter2.jpg";
 import filter3 from "./Assets/filter3.jpg";
@@ -30,7 +31,7 @@ import {
 } from "react-icons/io5";
 import { RiAdminFill } from "react-icons/ri";
 import { PiPhoneCallFill } from "react-icons/pi";
-import { FaMapLocationDot } from "react-icons/fa6";
+import { FaMapLocationDot  , FaSquareFacebook, FaSquareInstagram, FaLinkedin , FaSquareYoutube} from "react-icons/fa6";
 
 
 // react slider-images
@@ -43,6 +44,7 @@ function LandingPage() {
   const [isDrawerOpen, setDrawerOpen] =useState(false); // State for right drawer
   const [modalOpen, setModalOpen] = useState(false); 
   const navigate = useNavigate();
+  let isScreenSmall = window.innerWidth;
 
   const slideImages = [
     {
@@ -66,7 +68,8 @@ function LandingPage() {
   }
   return (
     <>
-      <section className="h-screen" id="home">
+
+      <section className="h-screen " id="home">
         {/* Header Section */}
         <header className="flex items-center justify-between p-4 h-20 shadow-lg font-myFont text-xl">
           <img src={logo} className="h-16 ml-16" alt="Company Logo" />
@@ -219,93 +222,9 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* Our Products Section */}
-      <section
-        className=" h-fit sm:h-screen flex flex-col items-center justify-center"
-        id="products"
-      >
-        <div className=" flex mt-6 items-center gap-2 ">
-          <div className=" flex flex-row items-center  justify-start gap-2 mt-2">
-            <div className="w-20 h-2.5 rounded-lg bg-red-500"></div>
-            <p className=" text-2xl font-myFont2   "> Categories </p>
-            <div className="w-16 h-2.5 rounded-lg bg-blue-500"></div>
-          </div>
-        </div>
-        <div
-          id="imgContainer"
-          className=" mt-2 h-full flex flex-row w-full  overflow-hidden"
-        >
-        
-          <div className=" flex flex-row relative z-0 justify-center items-center overflow-hidden " onClick={() => navigate(`/category`)}>
-            <img
-              src={airFilter}
-              alt="Filter 4"
-              className="flex-1 h-full w-[120px] "
-            />
-            <h1 className=" flex flex-col justify-center  items-center z-10 absolute font-myFont2  sm:text-3xl    ">
-              {" "}
-              Air filter <br /> <br />
-              <br />{" "}
-              <span className="  mt-12 text-center flex items-center justify-center">
-                {" "}
-                <IoNavigate size={32} />{" "}
-              </span>
-            </h1>
-          </div>
-          <div className=" flex flex-row relative z-0 justify-center items-center " onClick={() => navigate(`/category`)}>
-            <img
-              src={oilFilter}
-              alt="Filter 4"
-              className="flex-1 h-full w-[120px] "
-            />
-            <h1 className=" flex flex-col justify-center  items-center z-10 absolute font-myFont2  text-3xl  ">
-              {" "}
-              Oil filter <br /> <br />
-              <br />{" "}
-              <span className="  mt-12 text-center flex items-center justify-center ">
-                {" "}
-                <IoNavigate size={32} color="s" />{" "}
-              </span>
-            </h1>
-          </div>
-          <div className=" flex flex-row relative z-0 justify-center items-center " onClick={() => navigate(`/category`)}>
-            <img
-              src={fuelFilter}
-              alt="Filter 4"
-              className="flex-1 h-full w-[120px] "
-            />
-            <h1 className=" flex flex-col justify-center  items-center z-10 absolute font-myFont2  text-3xl  ">
-              {" "}
-              Fuel filter <br /> <br />
-              <br />{" "}
-              <span className="  mt-12 text-center flex items-center justify-center">
-                {" "}
-                <IoNavigate size={32} />{" "}
-              </span>
-            </h1>
-          </div>
-          <div className=" flex flex-row relative z-0 justify-center items-center " onClick={() => navigate(`/category`)}>
-            <img
-              src={cabinFilter}
-              alt="Filter 4"
-              className="flex-1 h-full w-[120px] "
-            />
-            <h1 className=" flex flex-col justify-center  items-center z-10 absolute font-myFont2  text-3xl  ">
-              {" "}
-              Cabin filter <br /> <br />
-              <br />{" "}
-              <span className="  mt-12  flex items-center justify-center">
-                {" "}
-                <IoNavigate size={32} />{" "}
-              </span>
-            </h1>
-          </div>
-        </div>
-      </section>
+       {/* About Us section */}
 
-      {/* About Us section */}
-
-      <section className=" h-screen  " id="about">
+       <section className=" h-screen " id="about">
         <div
           id="custom-bg"
           className=" flex justify-center items-center relative bg-center h-screen  "
@@ -392,7 +311,98 @@ function LandingPage() {
         </div>
       </section>
 
-      <section className=" h-screen flex gap-12 items-center flex-col ">
+
+      {/* Our Products Section */}
+      <section
+        className=" h-fit sm:h-screen flex flex-col items-center justify-center"
+        id="products"
+      >
+        <div className=" flex mt-6 items-center gap-2 ">
+          <div className=" flex flex-row items-center  justify-start gap-2 mt-2">
+            <div className="w-20 h-2.5 rounded-lg bg-red-500"></div>
+            <p className=" text-2xl font-myFont2   "> Categories </p>
+            <div className="w-16 h-2.5 rounded-lg bg-blue-500"></div>
+          </div>
+        </div>
+        <div
+          id="imgContainer"
+          className=" mt-2 h-full flex flex-row w-full  overflow-hidden"
+        >
+        
+          <div className=" flex flex-row relative z-0 justify-center items-center overflow-hidden " onClick={() => navigate(`/category`)}>
+            <img
+              src={airFilter}
+              alt="Filter 4"
+              className="flex-1 h-full w-[120px] "
+            />
+            <h1 className=" flex flex-col justify-center  items-center z-10 absolute font-myFont2  sm:text-3xl    ">
+              {" "}
+              Air filter <br /> <br />
+              <br />{" "}
+              <span className="  mt-12 text-center flex items-center justify-center">
+                {" "}
+                <IoNavigate size={32} />{" "}
+              </span>
+            </h1>
+          </div>
+          <div className=" flex flex-row relative z-0 justify-center items-center " onClick={() => navigate(`/category`)}>
+            <img
+              src={oilFilter}
+              alt="Filter 4"
+              className="flex-1 h-full w-[120px] "
+            />
+            <h1 className=" flex flex-col justify-center  items-center z-10 absolute font-myFont2  text-3xl  ">
+              {" "}
+              Oil filter <br /> <br />
+              <br />{" "}
+              <span className="  mt-12 text-center flex items-center justify-center ">
+                {" "}
+                <IoNavigate size={32} color="s" />{" "}
+              </span>
+            </h1>
+          </div>
+          <div className=" flex flex-row relative z-0 justify-center items-center " onClick={() => navigate(`/category`)}>
+            <img
+              src={fuelFilter}
+              alt="Filter 4"
+              className="flex-1 h-full w-[120px] "
+            />
+            <h1 className=" flex flex-col justify-center  items-center z-10 absolute font-myFont2  text-3xl  ">
+              {" "}
+              Fuel filter <br /> <br />
+              <br />{" "}
+              <span className="  mt-12 text-center flex items-center justify-center">
+                {" "}
+                <IoNavigate size={32} />{" "}
+              </span>
+            </h1>
+          </div>
+          <div className=" flex flex-row relative z-0 justify-center items-center " onClick={() => navigate(`/category`)}>
+            <img
+              src={cabinFilter}
+              alt="Filter 4"
+              className="flex-1 h-full w-[120px] "
+            />
+            <h1 className=" flex flex-col justify-center  items-center z-10 absolute font-myFont2  text-3xl  ">
+              {" "}
+              Cabin filter <br /> <br />
+              <br />{" "}
+              <span className="  mt-12  flex items-center justify-center">
+                {" "}
+                <IoNavigate size={32} />{" "}
+              </span>
+            </h1>
+          </div>
+        </div>
+      </section>
+
+                  
+      <section className="h-screen" id="contact">
+        <ContactHeader />
+        <ContactForm />
+      </section>
+
+      <section className=" h-screen flex gap-12 items-center flex-col bg-[rgba(244,215,147,0.78)]  ">
         <div className=" flex mt-6 items-center gap-2 ">
           <div className=" flex flex-row items-center  justify-start gap-2 mt-2">
             <div className="w-20 h-2.5 rounded-lg bg-red-500"></div>
@@ -402,38 +412,74 @@ function LandingPage() {
         </div>
         <ProductSlider />
       </section>
-      
-      <section className="h-screen" id="contact">
-        <ContactHeader />
-        <ContactForm />
-      </section>
+
 
       {/* footer is here  */}
       <section>
 
       <footer className=" bg-black h-[500px] " >
         <div className=" p-10 pt-0  ">
-          <div className=" flex flex-col sm:flex-row  border-t-8 border-green-500 pt-12 p-2 justify-evenly border-b-2 border-b-gray-200 border-b-opacity-50 ">
-              <div className=" p-4 text-white  flex gap-4 border-r-2 justify-center items-center " ><PiPhoneCallFill size={64} className="opacity-50 " /> 
+          <div className=" flex flex-col gap-3 sm:gap-0 sm:flex-row  border-t-8 border-green-500 pt-12 p-2 justify-evenly border-b-2 border-b-gray-200 border-b-opacity-50 ">
+              <div className="  sm:p-4 text-white  flex gap-4 sm:border-r-2 justify-center items-center " ><PiPhoneCallFill size={isScreenSmall>640 ? 64:32} className="opacity-50 transition-transform duration-300 hover:scale-110" /> 
                   <div gap-2 className=" flex flex-col gap-2 ">
-                   <span className="opacity-50 text-xl" >Call  Us </span>
-                   <span className=" text-2xl font-bold ">+91-129-4281000 </span>
+                   <span className="text-sm opacity-50 sm:text-xl" >Call  Us </span>
+                   <span className="text-sm sm:text-2xl font-bold ">+91-129-4281000 </span>
                   </div> 
               </div>
-              <div className=" p-4 text-white  flex gap-4 border-r-2 justify-center items-center " ><MdEmail size={64} className="opacity-50 " /> 
+              <div className="  sm:p-4 text-white  flex gap-4 sm:border-r-2 justify-center items-center " ><MdEmail size={isScreenSmall>640 ? 64:32} className="opacity-50 transition-transform duration-300 hover:scale-110" /> 
                   <div gap-2 className=" flex flex-col gap-2 ">
-                   <span className="opacity-50 text-xl" >Need  Support </span>
-                   <span className=" text-2xl font-bold "> detroit@gmail.com </span>
+                   <span className=" text-sm opacity-50 sm:text-xl" >Need  Support </span>
+                   <span className=" text-sm sm:text-2xl font-bold "> detroit@gmail.com </span>
                   </div> 
               </div>
-              <div className=" p-4 text-white  flex gap-4  justify-center items-center " ><FaMapLocationDot size={64} className="opacity-50 " /> 
+              <div className=" sm:p-4 text-white  flex gap-4  justify-center items-center " ><FaMapLocationDot size={isScreenSmall>640 ? 64:32} className="opacity-50 transition-transform duration-300 hover:scale-110 " /> 
                   <div gap-2 className=" flex flex-col gap-2 ">
-                   <span className="opacity-50 text-xl" >Head Office </span>
-                   <span className=" text-2xl font-bold ">+91-129-4281000 </span>
+                   <span className="text-sm opacity-50 sm:text-xl" >Head Office </span>
+                   <span className="text-sm sm:text-2xl font-bold ">+91-129-4281000 </span>
                   </div> 
               </div>
               <div></div>
               <div></div>
+          </div>
+          <div>
+            {/* logo and social media icons  */}
+            <div className="flex sm:flex-col  gap-4">
+              {/* Logo */}
+              <img
+                src={LogoPng}
+                className="h-16 w-32 sm:h-36 sm:w-64 transition-transform duration-300 hover:scale-105"
+                alt="Logo"
+              />
+
+              {/* Social Icons */}
+              <div className="flex justify-center sm:justify-start items-center gap-4 opacity-70 text-gray-400">
+                <a
+                  href="#"
+                  className="transition-transform duration-300 hover:text-blue-500 hover:-translate-y-2"
+                >
+                  <FaSquareFacebook size={isScreenSmall>640 ? 42 :22 } />
+                </a>
+                <a
+                  href="#"
+                  className="transition-transform duration-300 hover:text-pink-500 hover:-translate-y-2"
+                >
+                  <FaSquareInstagram size={isScreenSmall>640 ? 42 :22} />
+                </a>
+                <a
+                  href="#"
+                  className="transition-transform duration-300 hover:text-blue-500 hover:-translate-y-2"
+                >
+                  <FaLinkedin size={isScreenSmall>640 ? 42 :22} />
+                </a>
+                <a
+                  href="#"
+                  className="transition-transform duration-300 hover:text-red-600 hover:-translate-y-2"
+                >
+                  <FaSquareYoutube size={isScreenSmall>640 ? 42 :22} />
+                </a>
+              </div>
+
+          </div>
           </div>
         </div>
       </footer>

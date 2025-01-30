@@ -10,8 +10,6 @@ function App() {
   return (
     <>
       <LandingPage/>
-      {/* <DetailedProduct/> */}
-      {/* <ProductsPage/> */}
     </>
   )
 }
