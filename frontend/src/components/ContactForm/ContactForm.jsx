@@ -1,7 +1,6 @@
 import Button from "../Button/Button";
-import { MdMessage } from "react-icons/md";
-import { FaPhoneAlt } from "react-icons/fa";
-import { HiMail } from "react-icons/hi";
+import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
+import { HiMail } from "react-icons/hi";  
 import { useState } from "react";
 const ContactForm = () => {
   const [name, setName] = useState("");
@@ -15,20 +14,42 @@ const ContactForm = () => {
     setEmail(event.target[1].value);
     setText(event.target[2].value);
   };
-
+  const onViaCall = () =>{
+    alert('Call')
+  }
+  const onViaWp = () =>{
+    alert('whatsapp')
+  }
+  const onViaEmail = () =>{
+    alert('Mail')
+  }
   return (
+<>
+    <div className="max-w-full sm:max-w-[1000px] mx-auto">
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold max-w-full sm:max-w-[80%]">CONTACT US</h1>
+      <p className="text-base pt-3 sm:text-lg md:text-xl font-medium">
+        LET’S CONNECT: WE’RE HERE TO HELP, AND WE’D LOVE TO HEAR FROM YOU!
+        WHETHER YOU HAVE A QUESTION, COMMENT, OR JUST WANT TO CHAT , YOU CAN
+        REACH OUT TO US THROUGH THE CONTACT FORM OF THIS PAGE, OR BY PHONE,
+        EMAIL, OR SOCIAL MEDIA.{" "}
+      </p>
+    </div>
+
     <section className="box-border flex flex-col sm:flex-row max-w-full sm:max-w-[1000px] mx-auto mt-10 items-end">
+      
       <div className="flex flex-col gap-6">
         <div className="flex gap-8">
           <Button
-            text="VIA SUPPORT CHAT"
-            icon={<MdMessage fontSize="24px" />}
+            text="VIA WHATSAPP"
+            clickAction={onViaWp}
+            icon={<FaWhatsapp fontSize="28px"/>}
           />
-          <Button text="VIA CALL" icon={<FaPhoneAlt fontSize="24px" />} />
+          <Button text="VIA CALL" clickAction={onViaCall} icon={<FaPhoneAlt fontSize="24px" />} />
         </div>
         <Button
           isOutline={true}
           text="VIA EMAIL FORM"
+          clickAction={onViaEmail}
           icon={<HiMail fontSize="24px" />}
         />
 
@@ -61,6 +82,7 @@ const ContactForm = () => {
         <img src="/images/contact.svg" alt="contact image" />
       </div>
     </section>
+    </>
   );
 };
 
