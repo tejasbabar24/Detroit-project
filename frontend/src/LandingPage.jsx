@@ -397,7 +397,7 @@ function LandingPage() {
       </section>
 
                   
-      <section className="h-screen" id="contact">
+      <section className="h-screen pt-5 box-border" id="contact">
         <ContactHeader />
         <ContactForm />
       </section>
