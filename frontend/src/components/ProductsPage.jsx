@@ -6,6 +6,8 @@ import oilFilter from "../Assets/oilFilter.jpg";
 
 import { IoIosArrowForward ,IoIosSquare} from "react-icons/io";
 import ProductsCards from './ProductsCards';
+import Footer from './Footer/Footer';
+import Header from './Header/Header';
 
 
 
@@ -15,6 +17,8 @@ function ProductsPage() {
         const activeCategory = 'Air Filters'
 
 return (
+    <>
+    <Header/>
     <div>
         {/* Banner  section */}
         <div
@@ -47,7 +51,7 @@ return (
             </div>
             {/* right side  */}
             
-            <div className="grid sm:grid-cols-2 grid-cols-1 gap-4 p-6 place-items-center ml-12">
+            <div className="grid sm:grid-cols-1  grid-cols-1 md:grid-cols-2 gap-4 p-6 place-items-center  sm:ml-12">
                 <ProductsCards title="product 1" img={airFilter} />
                 <ProductsCards title="product 2" img={oilFilter} />
                 <ProductsCards title="product 3" img={cabinFilter} />
@@ -58,7 +62,8 @@ return (
         </div>
     </div>
     
-
+    <Footer/>
+    </>
 )
 }
 

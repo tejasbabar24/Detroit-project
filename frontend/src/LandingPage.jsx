@@ -39,9 +39,10 @@ import { Slide, Zoom, Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import ProductSlider from "./components/ProductSlider";
 import { NavLink, useNavigate } from "react-router-dom";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 
 function LandingPage() {
-  const [isDrawerOpen, setDrawerOpen] =useState(false); // State for right drawer
   const [modalOpen, setModalOpen] = useState(false); 
   const navigate = useNavigate();
   let isScreenSmall = window.innerWidth;
@@ -71,86 +72,8 @@ function LandingPage() {
 
       <section className="h-screen " id="home">
         {/* Header Section */}
-        <header className="flex items-center justify-between p-4 h-20 shadow-lg font-myFont text-xl">
-          <img src={logo} className="h-16 ml-16" alt="Company Logo" />
-          <div className="hidden sm:flex flex-row gap-16 items-center  text-blue-900  ">
-            <a
-              href="#home"
-              className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500"
-            >
-              <MdHome size={30} /> Home
-            </a>
-            <a
-              href="#products"
-              className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500"
-            >
-              <MdOutlineProductionQuantityLimits size={30} /> Products
-            </a>
-            <a
-              href="#about"
-              className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500"
-            >
-              <HiUserGroup size={30} /> About Us
-            </a>
-            <a
-              href="#contact"
-              className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500"
-            >
-              <TiContacts size={30} /> Contact Us
-            </a>
-            <button className="flex flex-row gap-2 hover:underline  hover:text-red-500" onClick={()=>setModalOpen(true)}> <RiAdminFill size={30}/> Admin Login</button>  
-
-          </div>
-          <div className=" sm:hidden">
-            <IoMenuSharp onClick={() => setDrawerOpen(!isDrawerOpen)} />
-          </div>
-        </header>
-
-        <div
-          className={`fixed inset-y-0 right-0 z-40 w-64 bg-white shadow-2xl transition-transform duration-300 transform ${
-            isDrawerOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          <div className="p-4">
-            <IoCloseSharp
-              className="text-[#4A5C6A] hover:text-[#253745] cursor-pointer"
-              size={25}
-              onClick={() => setDrawerOpen(!isDrawerOpen)}
-            />
-
-            <div className="flex justify-center flex-col items-center mt-4 relative">
-              <div className="flex flex-col gap-8 justify-start items-start pr-16 text-blue-900  ">
-                <a
-                  href="#home"
-                  className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500"
-                >
-                  <MdHome size={30} /> Home
-                </a>
-                <a
-                  href="#products"
-                  className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500"
-                >
-                  <MdOutlineProductionQuantityLimits size={30} /> Products
-                </a>
-                <a
-                  href="#about"
-                  className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500"
-                >
-                  <HiUserGroup size={30} /> About Us
-                </a>
-                <a
-                  href="#contact"
-                  className=" flex flex-row  items-center gap-1 hover:underline  hover:text-red-500"
-                >
-                  <TiContacts size={30} /> Contact Us
-                </a>
-              </div>
-              <button className="flex gap-1 items-center justify-center mt-32 h-10 w-32 border-2 border-red-500 bg-red-300 rounded-full  " onClick={()=>setModalOpen(true)}> <RiAdminFill size={20}/> Admin Login</button>  
-              </div>
-          </div>
-
-
-      </div>
+       
+       <Header/>
             
       {modalOpen && (
         <AdminLogin
@@ -417,72 +340,7 @@ function LandingPage() {
       {/* footer is here  */}
       <section>
 
-      <footer className=" bg-black h-[500px] " >
-        <div className=" p-10 pt-0  ">
-          <div className=" flex flex-col gap-3 sm:gap-0 sm:flex-row  border-t-8 border-green-500 pt-12 p-2 justify-evenly border-b-2 border-b-gray-200 border-b-opacity-50 ">
-              <div className="  sm:p-4 text-white  flex gap-4 sm:border-r-2 justify-center items-center " ><PiPhoneCallFill size={isScreenSmall>640 ? 64:32} className="opacity-50 transition-transform duration-300 hover:scale-110" /> 
-                  <div gap-2 className=" flex flex-col gap-2 ">
-                   <span className="text-sm opacity-50 sm:text-xl" >Call  Us </span>
-                   <span className="text-sm sm:text-2xl font-bold ">+91-129-4281000 </span>
-                  </div> 
-              </div>
-              <div className="  sm:p-4 text-white  flex gap-4 sm:border-r-2 justify-center items-center " ><MdEmail size={isScreenSmall>640 ? 64:32} className="opacity-50 transition-transform duration-300 hover:scale-110" /> 
-                  <div gap-2 className=" flex flex-col gap-2 ">
-                   <span className=" text-sm opacity-50 sm:text-xl" >Need  Support </span>
-                   <span className=" text-sm sm:text-2xl font-bold "> detroit@gmail.com </span>
-                  </div> 
-              </div>
-              <div className=" sm:p-4 text-white  flex gap-4  justify-center items-center " ><FaMapLocationDot size={isScreenSmall>640 ? 64:32} className="opacity-50 transition-transform duration-300 hover:scale-110 " /> 
-                  <div gap-2 className=" flex flex-col gap-2 ">
-                   <span className="text-sm opacity-50 sm:text-xl" >Head Office </span>
-                   <span className="text-sm sm:text-2xl font-bold ">+91-129-4281000 </span>
-                  </div> 
-              </div>
-              <div></div>
-              <div></div>
-          </div>
-          <div>
-            {/* logo and social media icons  */}
-            <div className="flex sm:flex-col  gap-4">
-              {/* Logo */}
-              <img
-                src={LogoPng}
-                className="h-16 w-32 sm:h-36 sm:w-64 transition-transform duration-300 hover:scale-105"
-                alt="Logo"
-              />
-
-              {/* Social Icons */}
-              <div className="flex justify-center sm:justify-start items-center gap-4 opacity-70 text-gray-400">
-                <a
-                  href="#"
-                  className="transition-transform duration-300 hover:text-blue-500 hover:-translate-y-2"
-                >
-                  <FaSquareFacebook size={isScreenSmall>640 ? 42 :22 } />
-                </a>
-                <a
-                  href="#"
-                  className="transition-transform duration-300 hover:text-pink-500 hover:-translate-y-2"
-                >
-                  <FaSquareInstagram size={isScreenSmall>640 ? 42 :22} />
-                </a>
-                <a
-                  href="#"
-                  className="transition-transform duration-300 hover:text-blue-500 hover:-translate-y-2"
-                >
-                  <FaLinkedin size={isScreenSmall>640 ? 42 :22} />
-                </a>
-                <a
-                  href="#"
-                  className="transition-transform duration-300 hover:text-red-600 hover:-translate-y-2"
-                >
-                  <FaSquareYoutube size={isScreenSmall>640 ? 42 :22} />
-                </a>
-              </div>
-
-          </div>
-          </div>
-        </div>
-      </footer>
+      <Footer/>
       </section>
     </>
   );

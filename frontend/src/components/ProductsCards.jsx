@@ -1,26 +1,36 @@
-    import React from 'react'
-    import airFilter  from '../Assets/airFilter.jpg'
-import { useNavigate } from 'react-router-dom'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
+function ProductsCards({ img, title }) {
+  const navigate = useNavigate();
 
-    function ProductsCards( { img , title }  ) {
+  return (
+    <div className="text-center border-2 border-black w-full sm:w-80 md:w-96 p-4 rounded-md shadow-lg transition-transform hover:scale-105">
+      <div className="flex flex-col justify-start bg-blue-200 w-full rounded-md overflow-hidden">
+        
+        {/* Image Section */}
+        <div
+          className="relative flex justify-center w-full h-48 bg-cover bg-center"
+          style={{ backgroundImage: `url(${img})` }}
+        ></div>
 
-      const navigate =  useNavigate();
+        {/* Title Section */}
+        <h1 className="font-semibold font-myFont text-xl sm:text-2xl p-2">{title}</h1>
+      </div>
 
-    return (
-        <div className=' text-center border-2 border-black w-96 h-full p-4 rounded-sm ' >
-          <div className=' flex flex-col justify-start text-center bg-blue-200 w-full  ' >
-            <div className="relative flex justify-center h-full  w-full bg-cover bg-center p-32"
-                        style={{
-                        backgroundImage: `url(${img})`,                       
-            }} >
-            </div>
-            <h1 className='  font-semibold  font-myFont text-2xl p-2'> {title} </h1>
-          </div>
-          
-          <a href="" className='text-md text-center opacity-50 underline hover:opacity-80 ' onClick={() => navigate(`/product`)}> Explore More </a>
-        </div>
-    )
-    }
+      {/* Explore More Link */}
+      <a
+        href="#"
+        className="text-md opacity-50 underline hover:opacity-80"
+        onClick={(e) => {
+          e.preventDefault();
+          navigate(`/product`);
+        }}
+      >
+        Explore More
+      </a>
+    </div>
+  );
+}
 
-    export default ProductsCards
+export default ProductsCards;
