@@ -15,7 +15,6 @@ import oilFilter from "./Assets/oilFilter.jpg";
 
 import containerLogo from "./Assets/containerImg.png";
 import AdminLogin from "./components/AdminLogin"
-import ContactHeader from "./components/ContactHeader/ContactHeader";
 import ContactForm from "./components/ContactForm/ContactForm";
 // framer imported
 import { motion } from "framer-motion";
@@ -321,7 +320,6 @@ function LandingPage() {
 
                   
       <section className="h-screen pt-5 box-border" id="contact">
-        <ContactHeader />
         <ContactForm />
       </section>
 
