@@ -20,7 +20,6 @@ import Categories from "./components/Categories/Categories";
 
 function LandingPage() {
   const [modalOpen, setModalOpen] = useState(false); 
-  let isScreenSmall = window.innerWidth;
 
   const slideImages = [
     {
@@ -144,7 +143,7 @@ function LandingPage() {
 
 
       {/* footer is here  */}
-      <Footer/>
+      <Footer setModalOpen={setModalOpen}/>
     </>
   );
 }
