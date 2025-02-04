@@ -1,13 +1,15 @@
-import styles from "./Button.module.css";
-const Button = ({ isOutline,clickAction, icon, text, ...rest }) => {
+const Button = ({ isOutline, clickAction, icon, text, color = "black", ...rest }) => {
+  const colors = {
+    black: "bg-black text-white border-black hover:bg-gray-800",
+    blue: "bg-blue-600 text-white border-blue-600 hover:bg-blue-700",
+    green: "bg-green-600 text-white border-green-600 hover:bg-green-700",
+  };
+
   return (
     <button
       {...rest}
-      className={
-        isOutline
-          ? "px-2 py-4 sm:px-4 sm:py-5 border border-black text-black rounded-md flex items-center gap-2 sm:gap-3 min-w-[220px] text-base sm:text-lg justify-center bg-white w-full cursor-pointer"
-          : "px-2 py-4 bg-black text-white rounded-md flex items-center gap-2 sm:gap-3 min-w-[220px] text-base sm:text-lg justify-center cursor-pointer"
-      }
+      className={`flex items-center gap-3 px-5 py-3 rounded-lg text-lg transition-all duration-300 shadow-md
+        ${isOutline ? `border ${colors[color]} bg-white text-${color}-600 hover:bg-${color}-600 hover:text-white` : colors[color]}`}
       onClick={clickAction}
     >
       {icon}
