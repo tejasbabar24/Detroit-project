@@ -7,7 +7,7 @@ import { PiPhoneCallFill } from "react-icons/pi";
 import { FaMapLocationDot  , FaSquareFacebook, FaSquareInstagram, FaLinkedin , FaSquareYoutube} from "react-icons/fa6";
 
 
-function Footer() {
+function Footer({setModalOpen}) {
   let isScreenSmall = window.innerWidth;
 
   return (
