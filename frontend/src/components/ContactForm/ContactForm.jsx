@@ -20,6 +20,7 @@ const ContactForm = () => {
   const onViaEmail = () => alert("Opening Mail...");
 
   return (
+    <section className="h-screen pt-5 box-border" id="contact">
     <div className="max-w-4xl mx-auto px-5 py-10 bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl shadow-lg">
       {/* Header Section */}
       <div className="text-center">
@@ -89,6 +90,7 @@ const ContactForm = () => {
         </div>
       )}
     </div>
+    </section>
   );
 };
 

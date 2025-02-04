@@ -11,6 +11,7 @@ function Footer() {
   let isScreenSmall = window.innerWidth;
 
   return (
+    <section>
     <footer className=" bg-black h-[500px] " >
     <div className=" p-10 pt-0  ">
       <div className=" flex flex-col gap-3 sm:gap-0 sm:flex-row  border-t-8 border-green-500 pt-12 p-2 justify-evenly border-b-2 border-b-gray-200 border-b-opacity-50 ">
@@ -80,6 +81,7 @@ function Footer() {
       </div>
     </div>
   </footer>
+  </section>
   )
 }
 
