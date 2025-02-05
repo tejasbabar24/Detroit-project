@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import airFilter from "./Assets/airFilter.jpg";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
+import airFilter from "../../Assets/airFilter.jpg";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 
 function DetailedProduct() {
   const [expanded, setExpanded] = useState(false);

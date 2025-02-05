@@ -4,8 +4,8 @@ import './index.css'
 import {RouterProvider ,createBrowserRouter} from  'react-router-dom'
 import App from './App.jsx'
 import LandingPage from './LandingPage.jsx'
-import ProductsPage from './components/ProductsPage.jsx'
-import DetailedProduct from './DetailedProduct.jsx'
+import ProductsPage from './components/Products/ProductsPage'
+import DetailedProduct from './components/Products/DetailedProduct.jsx'
 
 const router = createBrowserRouter([
   {
