@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AdminLogin = ({ onClose, onSubmit }) => {
    const [email,setEmail] = useState('')
    const [password,setPAssword] = useState('')
+   const navigate = useNavigate();
     // Handle form submission
     const handleSubmit = (e) => {
       e.preventDefault();
@@ -51,6 +53,7 @@ const AdminLogin = ({ onClose, onSubmit }) => {
               <button
                 type="submit"
                 className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                onClick={() => navigate(`/AdminPanel`)}
               >
                 Login
               </button>

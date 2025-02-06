@@ -6,6 +6,7 @@ import App from './App.jsx'
 import LandingPage from './LandingPage.jsx'
 import ProductsPage from './components/Products/ProductsPage'
 import DetailedProduct from './components/Products/DetailedProduct.jsx'
+import AdminPage from './components/Admin/AdminPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
   {
     path:"/product",
     element:<DetailedProduct/>
+  },
+  {
+    path:"/AdminPanel",
+    element:<AdminPage/>
   }
 ])
 
