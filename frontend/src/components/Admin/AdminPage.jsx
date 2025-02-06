@@ -10,7 +10,7 @@ import { HiUserGroup } from "react-icons/hi2";
 import { IoCloseSharp, IoMenuSharp } from "react-icons/io5";
 import logo from "../../Assets/detroitLogo.jpg";
 
-import {Input} from "@heroui/react";
+
 
 function AdminPage() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);

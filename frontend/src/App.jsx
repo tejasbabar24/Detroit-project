@@ -2,7 +2,6 @@ import { useState } from 'react'
 import LandingPage from './LandingPage'
 
 
-
 function App() {
   const [count, setCount] = useState(0)
 
