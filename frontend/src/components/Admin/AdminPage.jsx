@@ -9,6 +9,7 @@ import { TiContacts } from "react-icons/ti";
 import { HiUserGroup } from "react-icons/hi2";
 import { IoCloseSharp, IoMenuSharp } from "react-icons/io5";
 import logo from "../../Assets/detroitLogo.jpg";
+import AddProduct from "../Products/AddProduct";
 
 
 
@@ -17,8 +18,9 @@ function AdminPage() {
   const  [currForm , setCurrForm] = useState('view')
 
   return (
-    <div className="bg-[#F5F7FA] h-screen w-full flex flex-col p-6">
+    <div className="bg-[#F5F7FA] h-screen w-full flex flex-col ">
       {/* Header Section */}
+      <div className=" p-5 pb-0">
       <header className="flex items-center justify-between px-6 rounded-full py-4 h-20 shadow-lg bg-[#008080] text-white border border-gray-200 w-full">
         {/* Logo */}
         <img
@@ -56,6 +58,8 @@ function AdminPage() {
           />
         </div>
       </header>
+
+      </div>
 
       {/* Mobile Navigation Drawer */}
       <div
@@ -100,6 +104,9 @@ function AdminPage() {
           </nav>
         </div>
       </aside>
+
+      <AddProduct/>
+
     </div>
   );
 }
