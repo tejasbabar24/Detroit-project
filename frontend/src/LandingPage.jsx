@@ -4,7 +4,6 @@ import filter2 from "./Assets/filter2.jpg";
 import filter3 from "./Assets/filter3.jpg";
 
 
-import AdminLogin from "./components/AdminLogin"
 import ContactForm from "./components/ContactForm/ContactForm";
 // framer imported
 import { motion } from "framer-motion";
@@ -19,7 +18,6 @@ import About from "./components/About/About";
 import Categories from "./components/Categories/Categories";
 
 function LandingPage() {
-  const [modalOpen, setModalOpen] = useState(false); 
 
   const slideImages = [
     {
@@ -38,9 +36,6 @@ function LandingPage() {
     },
   ];
 
-  const handleLoginSubmit = (userData) =>{
-
-  }
   return (
     <>
 
@@ -48,13 +43,6 @@ function LandingPage() {
         {/* Header Section */}
        
        <Header/>
-            
-      {modalOpen && (
-        <AdminLogin
-          onClose={() => setModalOpen(false)}
-          onSubmit={handleLoginSubmit}
-        />
-      )}
 
         {/* Slideshow image animation */}
         <div id="bgImg" className="h-full w-full">
@@ -143,7 +131,7 @@ function LandingPage() {
 
 
       {/* footer is here  */}
-      <Footer setModalOpen={setModalOpen}/>
+      <Footer />
     </>
   );
 }

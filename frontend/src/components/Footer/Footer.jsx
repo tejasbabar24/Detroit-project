@@ -1,34 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { MdEmail } from "react-icons/md";
 import LogoPng from '../../Assets/LogoPng.png'
-import { RiAdminFill } from "react-icons/ri";
 
 import { PiPhoneCallFill } from "react-icons/pi";
 import { FaMapLocationDot  , FaSquareFacebook, FaSquareInstagram, FaLinkedin , FaSquareYoutube} from "react-icons/fa6";
+import AdminLogin from '../AdminLogin';
 
 
-function Footer({setModalOpen}) {
+function Footer() {
   let isScreenSmall = window.innerWidth;
+  const [modalOpen, setModalOpen] = useState(false); 
 
   return (
     <section>
     <footer className=" bg-black h-[500px] " >
+       {modalOpen && (
+              <AdminLogin
+                onClose={() => setModalOpen(false)}
+              />
+        )}
     <div className=" p-10 pt-0  ">
       <div className=" flex flex-col gap-3 sm:gap-0 sm:flex-row  border-t-8 border-green-500 pt-12 p-2 justify-evenly border-b-2 border-b-gray-200 border-b-opacity-50 ">
           <div className="  sm:p-4 text-white  flex gap-4 sm:border-r-2 justify-center items-center " ><PiPhoneCallFill size={isScreenSmall>640 ? 64:32} className="opacity-50 transition-transform duration-300 hover:scale-110" /> 
-              <div gap-2 className=" flex flex-col gap-2 ">
+              <div className=" flex flex-col gap-2 ">
                <span className="text-sm opacity-50 sm:text-xl" >Call  Us </span>
                <span className="text-sm sm:text-2xl font-bold ">+91-129-4281000 </span>
               </div> 
           </div>
           <div className="  sm:p-4 text-white  flex gap-4 sm:border-r-2 justify-center items-center " ><MdEmail size={isScreenSmall>640 ? 64:32} className="opacity-50 transition-transform duration-300 hover:scale-110" /> 
-              <div gap-2 className=" flex flex-col gap-2 ">
+              <div className=" flex flex-col gap-2 ">
                <span className=" text-sm opacity-50 sm:text-xl" >Need  Support </span>
                <span className=" text-sm sm:text-2xl font-bold "> detroit@gmail.com </span>
               </div> 
           </div>
           <div className=" sm:p-4 text-white  flex gap-4  justify-center items-center " ><FaMapLocationDot size={isScreenSmall>640 ? 64:32} className="opacity-50 transition-transform duration-300 hover:scale-110 " /> 
-              <div gap-2 className=" flex flex-col gap-2 ">
+              <div className=" flex flex-col gap-2 ">
                <span className="text-sm opacity-50 sm:text-xl" >Head Office </span>
                <span className="text-sm sm:text-2xl font-bold ">+91-129-4281000 </span>
               </div> 

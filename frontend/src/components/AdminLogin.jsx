@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { login } from "../api/user";
 
-const AdminLogin = ({ onClose, onSubmit }) => {
+const AdminLogin = ({ onClose }) => {
    const [email,setEmail] = useState('')
    const [password,setPAssword] = useState('')
    const navigate = useNavigate();
     // Handle form submission
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
       e.preventDefault();
-      
+      const response = await login({email,password})
+      if(response.status === 200){
+        navigate('/AdminPanel')
+      }
+      alert(response.data.message)
     };
     
     return (
@@ -53,7 +58,6 @@ const AdminLogin = ({ onClose, onSubmit }) => {
               <button
                 type="submit"
                 className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                onClick={() => navigate(`/AdminPanel`)}
               >
                 Login
               </button>
