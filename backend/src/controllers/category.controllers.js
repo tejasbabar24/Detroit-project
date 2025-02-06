@@ -36,6 +36,19 @@ const addCategory = asyncHandler(async (req, res, next) => {
 
 })
 
+const getCategories = asyncHandler(async (req, res) => {
+
+    const categories = await Category.find();
+    if(!categories){
+        return next(new ApiError(400,"No Categories found"))
+    }
+    return res
+        .status(200)
+        .json(new ApiResponse(200, { categories }, "Retrieved"))
+
+
+})
 export{
-    addCategory
+    addCategory,
+    getCategories
 }
