@@ -3,10 +3,10 @@ import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { Product } from "../models/product.models.js";
 import { Category } from "../models/category.models.js";
+import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
 
 const addProduct = asyncHandler(async (req, res, next) => {
-
     const { name,description,price,stock,categoryName} = req.body;
 
     if (
@@ -30,7 +30,7 @@ const addProduct = asyncHandler(async (req, res, next) => {
     if (!uploaded) {
         return next(new ApiError(500, "An error occurred while uploading the file. Please try again later."));
     }
-
+    
     const product = await Product.create({
         name,
         description,
@@ -41,15 +41,17 @@ const addProduct = asyncHandler(async (req, res, next) => {
         categoryName:category.name,
         owner:req.user._id
     });
-    const createdProduct = Product.findById(product._id);
+
+    const createdProduct = await Product.findById(product._id);
+    
     if (!createdProduct) {
         return next(new ApiError(500, "An error occurred while adding product. Please try again later."));
     }
-
+    
     return res
         .status(200)
         .json(
-            new ApiResponse(200, createdProduct, "File uploaded successfully!!")
+            new ApiResponse(200, createdProduct, "Product added successfully")
         )
 });
 
@@ -65,9 +67,22 @@ const getAllProducts = asyncHandler(async (req, res) => {
 
 
 })
+const deleteProduct = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const deletedEmployee = await Product.findByIdAndDelete(id);
+  if (!deletedEmployee) {
+    return next(new ApiError(400,"Deletion Failed!!...Please try again later"))
+  }
+    return res
+        .status(200)
+        .json(new ApiResponse(200, {}, "Product deleted"))
+
+
+})
 
 
 export {
     addProduct,
-    getAllProducts
+    getAllProducts,
+    deleteProduct
 }
