@@ -8,7 +8,6 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
 const addProduct = asyncHandler(async (req, res, next) => {
     const { name,description,price,stock,categoryName} = req.body;
-
     if (
         [name,description,price,stock,categoryName].some((field) =>
             field?.trim() === "")

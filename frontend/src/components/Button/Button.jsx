@@ -1,7 +1,7 @@
 const Button = ({ isOutline, clickAction, icon, text, color = "black", ...rest }) => {
   const colors = {
-    black: "bg-black text-white border-black hover:bg-gray-800",
-    blue: "bg-blue-600 text-white border-blue-600 hover:bg-blue-700",
+    black: "bg-[#253745] text-white border-black hover:bg-gray-800",
+    blue: "bg-blue-500 text-white border-blue-600 hover:bg-blue-700",
     green: "bg-green-600 text-white border-green-600 hover:bg-green-700",
   };
 

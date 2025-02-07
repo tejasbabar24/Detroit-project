@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { addProduct } from "../../api/products";
 
 function AddProduct() {
   const [formData, setFormData] = useState({
@@ -61,12 +62,19 @@ function AddProduct() {
   };
 
   // Handle form submission
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Form Data:", formData);
-
+    const form = new FormData();
+    form.append('name',formData.title)
+    form.append('description',formData.description)
+    form.append('price',formData.price)
+    form.append('categoryName',formData.category)
+    form.append('stock',formData.stock)
+    form.append('productImage',formData.imageFile)
+    const response = await addProduct(form)    
+    console.log(response);
     // Clear the form after submission
-    clearForm();
+    // clearForm();
   };
 
   return (
@@ -88,10 +96,10 @@ function AddProduct() {
               className="border rounded-md p-2 mt-1 focus:border-[#FAD02E] focus:ring-[#FAD02E]"
             >
               <option value="">Select a category</option>
-              <option value="electronics">Electronics</option>
-              <option value="fashion">Fashion</option>
-              <option value="home">Home & Furniture</option>
-              <option value="books">Books</option>
+              <option value="Air Filter">Air Filter</option>
+              <option value="Oil Filter">Oil Filter</option>
+              <option value="Fuel Filter">Fuel Filter</option>
+              <option value="Cabin Filter">Cabin Filter</option>
             </select>
           </div>
 
