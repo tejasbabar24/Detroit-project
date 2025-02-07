@@ -7,15 +7,17 @@ import {
 } from "react-icons/md";
 import { TiContacts } from "react-icons/ti";
 import { HiUserGroup } from "react-icons/hi2";
+import { TbLogout2 } from "react-icons/tb";
 import { IoCloseSharp, IoMenuSharp } from "react-icons/io5";
 import logo from "../../Assets/detroitLogo.jpg";
 import AddProduct from "../Products/AddProduct";
+import RemoveProduct from "../Products/RemoveProduct";
 
 
 
 function AdminPage() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
-  const  [currForm , setCurrForm] = useState('view')
+  const  [currForm , setCurrForm] = useState('add')
 
   return (
     <div className="bg-[#F5F7FA] h-screen w-full flex flex-col ">
@@ -35,6 +37,7 @@ function AdminPage() {
             { name: "Add Product", icon: <MdAddShoppingCart size={26} />, link: "add" },
             { name: "Remove Product", icon: <MdOutlineDeleteSweep size={26} />, link: "remove" },
             
+            
           ].map((item, index) => (
             <button
               key={index}
@@ -46,7 +49,12 @@ function AdminPage() {
             </button>
           ))}
 
-          
+          <button              
+              className="relative flex items-center gap-2 p-2 group text-white hover:text-[#FAD02E] transition-colors"
+            >
+              <TbLogout2 size={36}/>
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FAD02E] transition-all duration-300 group-hover:w-full"></span>
+          </button>          
         </nav>
 
         {/* Mobile Menu Button */}
@@ -105,7 +113,9 @@ function AdminPage() {
         </div>
       </aside>
 
-      <AddProduct/>
+     { 
+      currForm == 'remove' ? <RemoveProduct/> :<AddProduct/>
+     } 
 
     </div>
   );
