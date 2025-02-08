@@ -16,6 +16,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import About from "./components/About/About";
 import Categories from "./components/Categories/Categories";
+import WhatWeOffer from "./components/whatWeOffer/WhatWeOffer";
 
 function LandingPage() {
 
@@ -106,6 +107,8 @@ function LandingPage() {
           </Slide>
         </div>
       </section>
+
+      <WhatWeOffer/>
 
        {/* About Us section */}
 
