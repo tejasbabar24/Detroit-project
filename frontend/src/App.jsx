@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { signin,  signout } from './components/store/authSlice.js'
 import { getUser } from './api/user'
 import { getProducts } from './api/products.js'
+import { addProducts } from './components/store/productSlice.js'
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
     .finally(()=> setLoading(false))
     getProducts()
     .then((data)=>{
-      console.log(data.data.data.products);
+      dispatch(addProducts(data.data.data.products))
     })
     .catch((err)=>{
 
