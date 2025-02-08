@@ -10,6 +10,7 @@ import ProductsPage from './components/Products/ProductsPage'
 import DetailedProduct from './components/Products/DetailedProduct.jsx'
 import AdminPage from './components/Admin/AdminPage.jsx'
 import store from './components/store/store.js'
+import AuthLayout from './components/AuthLayout.jsx'
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,11 @@ const router = createBrowserRouter([
   },
   {
     path:"/AdminPanel",
-    element:<AdminPage/>
+    element:(
+    <AuthLayout authentication>
+      <AdminPage/>
+    </AuthLayout>
+  )
   }
 ])
 

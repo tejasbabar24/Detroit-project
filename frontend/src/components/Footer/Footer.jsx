@@ -5,11 +5,15 @@ import LogoPng from '../../Assets/LogoPng.png'
 import { PiPhoneCallFill } from "react-icons/pi";
 import { FaMapLocationDot  , FaSquareFacebook, FaSquareInstagram, FaLinkedin , FaSquareYoutube} from "react-icons/fa6";
 import AdminLogin from '../AdminLogin';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 
 function Footer() {
   let isScreenSmall = window.innerWidth;
   const [modalOpen, setModalOpen] = useState(false); 
+  const authStatus = useSelector(state => state.auth.status)
+  const navigate = useNavigate();
 
   return (
     <section>
@@ -82,7 +86,14 @@ function Footer() {
 
       </div>
         <div className=''>
-         <button className="flex flex-row gap-2  text-white text-xl  hover:text-red-500 opacity-50" onClick={()=>setModalOpen(true)}> Admin Login</button>  
+          {
+            authStatus === true ? (
+              <button className="flex flex-row gap-2  text-white text-xl  hover:text-red-500 opacity-50" onClick={()=>navigate('/AdminPanel')}> Admin Panel</button>  
+            ) : (
+
+              <button className="flex flex-row gap-2  text-white text-xl  hover:text-red-500 opacity-50" onClick={()=>setModalOpen(true)}> Admin Login</button>  
+            )
+          }
         </div>
       </div>
     </div>

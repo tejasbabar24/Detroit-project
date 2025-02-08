@@ -39,9 +39,10 @@ function RemoveProduct() {
               className="border rounded-md p-2 mt-1 focus:border-red-500 focus:ring-red-500"
             >
               <option value="">Choose a category</option>
-              <option value="electronics">Electronics</option>
-              <option value="fashion">Fashion</option>
-              <option value="books">Books</option>
+              <option value="Air Filter">Air Filter</option>
+              <option value="Oil Filter">Oil Filter</option>
+              <option value="Fuel Filter">Fuel Filter</option>
+              <option value="Cabin Filter">Cabin Filter</option>
             </select>
           </div>
 
