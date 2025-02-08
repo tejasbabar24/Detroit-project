@@ -12,13 +12,28 @@ import { IoCloseSharp, IoMenuSharp } from "react-icons/io5";
 import logo from "../../Assets/detroitLogo.jpg";
 import AddProduct from "../Products/AddProduct";
 import RemoveProduct from "../Products/RemoveProduct";
+import { logout } from "../../api/user";
+import { signout } from "../store/authSlice";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 
 
 function AdminPage() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const  [currForm , setCurrForm] = useState('add')
+  const dispatch = useDispatch()  
+  const navigate = useNavigate();
 
+  const handleLogout = async () =>{
+    const response = await logout()
+    if(response.status === 200){
+      dispatch(signout())
+      navigate('/')
+    }else{
+      alert(response.data.message)
+    }
+  }
   return (
     <div className="bg-[#F5F7FA] h-screen w-full flex flex-col ">
       {/* Header Section */}
@@ -51,6 +66,7 @@ function AdminPage() {
 
           <button              
               className="relative flex items-center gap-2 p-2 group text-white hover:text-[#FAD02E] transition-colors"
+            onClick={handleLogout}
             >
               <TbLogout2 size={36}/>
             <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FAD02E] transition-all duration-300 group-hover:w-full"></span>

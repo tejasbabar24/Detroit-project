@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
 import LandingPage from './LandingPage'
 import { useDispatch } from 'react-redux'
-import { login, logout } from './components/store/authSlice.js'
+import { signin,  signout } from './components/store/authSlice.js'
 import { getUser } from './api/user'
+import { getProducts } from './api/products.js'
 
 
 function App() {
@@ -13,14 +14,20 @@ function App() {
     getUser()
     .then((userData)=>{      
       if(userData){
-        dispatch(login(userData.data.data))
+        dispatch(signin(userData.data.data))
       }
       else{
-        dispatch(logout())
+        dispatch(signout())
       }
     })
     .finally(()=> setLoading(false))
-    
+    getProducts()
+    .then((data)=>{
+      console.log(data.data.data.products);
+    })
+    .catch((err)=>{
+
+    })
   },[])
   return !loading ? (
     <>

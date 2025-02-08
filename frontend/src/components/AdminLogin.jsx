@@ -1,16 +1,21 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../api/user";
+import { useDispatch } from "react-redux";
+import { signin } from '../components/store/authSlice.js'
+
 
 const AdminLogin = ({ onClose }) => {
    const [email,setEmail] = useState('')
    const [password,setPAssword] = useState('')
+   const dispatch = useDispatch()
    const navigate = useNavigate();
     // Handle form submission
     const handleSubmit = async (e) => {
       e.preventDefault();
       const response = await login({email,password})
       if(response.status === 200){
+        dispatch(signin(response.data.user))
         navigate('/AdminPanel')
       }
       alert(response.data.message)
