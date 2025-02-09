@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { deleteProduct } from "../../api/products";
+import { removeProduct } from "../store/productSlice";
 
 function RemoveProduct() {
   const [category, setCategory] = useState("");
   const [selectedProduct, setSelectedProduct] = useState("");
-
+  const dispatch = useDispatch();
   // Sample Products Data
   const products = useSelector(state => state.product.items)
   
@@ -19,6 +20,7 @@ function RemoveProduct() {
       const response = await deleteProduct(selectedProduct)
       if(response.status === 200){
         alert(response.data.message)
+        dispatch(removeProduct(selectedProduct));
         clearForm()
       }
     }

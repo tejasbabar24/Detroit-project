@@ -11,10 +11,10 @@ const productSlice = createSlice({
         addProducts : (state,action)=>{   
             state.items = action.payload
         },
-        updateProdcuts : (state,action)=>{
-            state.items.push(action.payload)
+        removeProduct : (state,action)=>{
+            state.items = state.items.filter((product)=> product._id !==action.payload)
         }
     }
 })
-export const {addProducts,updateProdcuts} = productSlice.actions
+export const {addProducts,removeProduct} = productSlice.actions
 export default productSlice.reducer
