@@ -9,7 +9,7 @@ const API = axios.create({
 export const addProduct = async (data) => API.post('/add', data);
 
 // User login
-export const deleteProduct = async (data) => API.delete('/:id', data);
+export const deleteProduct = async (id) => API.delete(`/${id}`);
 
 // Get user info
 export const getProducts = async () => API.get('/');

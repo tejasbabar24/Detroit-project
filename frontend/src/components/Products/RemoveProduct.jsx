@@ -1,27 +1,28 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { deleteProduct } from "../../api/products";
 
 function RemoveProduct() {
   const [category, setCategory] = useState("");
   const [selectedProduct, setSelectedProduct] = useState("");
 
   // Sample Products Data
-  const [products, setProducts] = useState([
-    { id: "101", name: "Laptop", category: "electronics", img: "https://via.placeholder.com/60" },
-    { id: "102", name: "Smartphone", category: "electronics", img: "https://via.placeholder.com/60" },
-    { id: "103", name: "T-Shirt", category: "fashion", img: "https://via.placeholder.com/60" },
-    { id: "104", name: "Book", category: "books", img: "https://via.placeholder.com/60" },
-  ]);
-
+  const products = useSelector(state => state.product.items)
+  
+  const clearForm = () => {
+   setCategory("");
+   setSelectedProduct("")
+  };
   // Handle Delete Product
-  const handleDelete = () => {
+  const handleDelete = async() => {
     if (selectedProduct) {
-      console.log(`Deleting Product ID: ${selectedProduct}`);
-      alert(`Product ID ${selectedProduct} has been removed.`);
-      setProducts(products.filter((product) => product.id !== selectedProduct));
-      setSelectedProduct(""); // Clear selection
-    } else {
-      alert("Please select a product to delete.");
+      const response = await deleteProduct(selectedProduct)
+      if(response.status === 200){
+        alert(response.data.message)
+        clearForm()
+      }
     }
+
   };
 
   return (
@@ -55,13 +56,22 @@ function RemoveProduct() {
               className="border rounded-md p-2 mt-1 focus:border-red-500 focus:ring-red-500"
             >
               <option value="">Choose a product</option>
-              {products
-                .filter((product) => product.category === category)
-                .map((product) => (
-                  <option key={product.id} value={product.id}>
+              {
+                category === "" ? ( 
+                  products?.map((product) => (
+                  <option key={product._id} value={product._id}>
                     {product.name}
                   </option>
-                ))}
+                ))
+                ): (
+                  products?.filter((product) => product.categoryName === category)
+                .map((product) => (
+                  <option key={product._id} value={product._id}>
+                    {product.name}
+                  </option>
+                ))
+                )
+              }
             </select>
           </div>
 
@@ -70,12 +80,12 @@ function RemoveProduct() {
             {selectedProduct ? (
               <>
                 <img
-                  src={products.find((p) => p.id === selectedProduct)?.img}
+                  src={products.find((p) => p._id === selectedProduct)?.productImage}
                   alt="Product"
                   className="w-12 h-12 object-cover rounded-md"
                 />
                 <span className="text-gray-700 font-medium">
-                  {products.find((p) => p.id === selectedProduct)?.name}
+                  {products.find((p) => p._id === selectedProduct)?.name}
                 </span>
               </>
             ) : (

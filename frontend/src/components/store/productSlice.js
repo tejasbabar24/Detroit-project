@@ -4,13 +4,11 @@ const initialState = {
     items:[]
 }
 
-const authSlice = createSlice({
+const productSlice = createSlice({
     name:'products',
     initialState,
     reducers:{
-        addProducts : (state,action)=>{
-            console.log(action.payload);
-            
+        addProducts : (state,action)=>{   
             state.items = action.payload
         },
         updateProdcuts : (state,action)=>{
@@ -18,5 +16,5 @@ const authSlice = createSlice({
         }
     }
 })
-export const {addProducts,updateProdcuts} = authSlice.actions
-export default authSlice.reducer
+export const {addProducts,updateProdcuts} = productSlice.actions
+export default productSlice.reducer
