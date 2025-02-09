@@ -72,9 +72,10 @@ function AddProduct() {
     form.append('stock',formData.stock)
     form.append('productImage',formData.imageFile)
     const response = await addProduct(form)    
-    console.log(response);
     // Clear the form after submission
-    // clearForm();
+    if(response.status === 200){
+      clearForm();
+    }
   };
 
   return (

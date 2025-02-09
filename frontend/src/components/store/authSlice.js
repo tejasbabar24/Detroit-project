@@ -10,6 +10,7 @@ const authSlice = createSlice({
     initialState,
     reducers:{
         signin : (state,action)=>{
+            
             state.status = true,
             state.userData = action.payload
         },
