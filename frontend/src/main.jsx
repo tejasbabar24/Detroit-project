@@ -18,11 +18,11 @@ const router = createBrowserRouter([
     element:<App/>        
   },
   {
-    path:"/category",
+    path:"/category/:name",
     element:<ProductsPage/>
   },
   {
-    path:"/product",
+    path:"/product/:id",
     element:<DetailedProduct/>
   },
   {

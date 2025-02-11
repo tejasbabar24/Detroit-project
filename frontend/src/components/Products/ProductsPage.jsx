@@ -11,14 +11,36 @@ import Header from '../Header/Header';
 import DownloadBrochure from './DownloadBrochure';
 import ContactLinks from './ContactLinks';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 
 function ProductsPage() {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const [isDrawerOpen, setDrawerOpen] = useState(false); // State for right drawer
-    const activeCategory = 'Air Filters'
+    const {name}= useParams()
+    
     let isScreenSmall = window.innerWidth;
     const products = useSelector(state => state.product.items)
+    const arrObj = [
+        {
+            catName:'Air Filter',
+            img:airFilter
+        },
+        {
+            catName:'Oil Filter',
+            img:oilFilter
+        },
+        {
+            catName:'Fuel Filter',
+            img:fuelFilter
+        },
+        {
+            catName:'Cabin Filter',
+            img:cabinFilter
+        }
+    ]
+
+    const activeCat = arrObj.filter((item)=>item.catName === name)
 
 return (
     <>
@@ -28,7 +50,7 @@ return (
         <div
             className="relative flex justify-center items-end h-96 w-full bg-cover bg-center p-32"
             style={{
-            backgroundImage: `url(${airFilter})`,
+            backgroundImage: `url(${activeCat[0].img})`,
             }}
         >
             {/* Overlay */}
@@ -36,7 +58,7 @@ return (
 
             {/* Content */}
             <div className="relative font-myFont2 text-white text-3xl sm:text-7xl border-b-2 w-full text-start pb-8">
-            {activeCategory}
+            {name}
             </div>
         </div>
         
@@ -59,11 +81,11 @@ return (
             </div>
             {/* right side  */}
             
-            <div className="grid sm:grid-cols-1  grid-cols-1 md:grid-cols-2 gap-4 p-6 place-items-center  sm:ml-12">
+            <div className="grid sm:grid-cols-1  grid-cols-1 md:grid-cols-2 gap-4 p-6 place-items-start  sm:ml-12">
                 {
-                    products.map((item)=>(
-                        <ProductsCards title={item.name} img={item.productImage} />
-
+                    products.filter((item)=> item.categoryName === name).
+                    map((item)=>(
+                        <ProductsCards key={item._id} product={item} />
                     ))
                 }
 
