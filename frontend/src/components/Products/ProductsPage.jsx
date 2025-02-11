@@ -10,6 +10,7 @@ import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import DownloadBrochure from './DownloadBrochure';
 import ContactLinks from './ContactLinks';
+import { useSelector } from 'react-redux';
 
 
 function ProductsPage() {
@@ -17,7 +18,7 @@ function ProductsPage() {
     const [isDrawerOpen, setDrawerOpen] = useState(false); // State for right drawer
     const activeCategory = 'Air Filters'
     let isScreenSmall = window.innerWidth;
-
+    const products = useSelector(state => state.product.items)
 
 return (
     <>
@@ -59,13 +60,12 @@ return (
             {/* right side  */}
             
             <div className="grid sm:grid-cols-1  grid-cols-1 md:grid-cols-2 gap-4 p-6 place-items-center  sm:ml-12">
-                <ProductsCards title="product 1" img={airFilter} />
-                <ProductsCards title="product 2" img={oilFilter} />
-                <ProductsCards title="product 3" img={cabinFilter} />
-                <ProductsCards title="product 4" img={fuelFilter} />
-                <ProductsCards title="product 5" img={fuelFilter} />
-                <ProductsCards title="product 6" img={fuelFilter} />
-                <ProductsCards title="product 7" img={fuelFilter} />
+                {
+                    products.map((item)=>(
+                        <ProductsCards title={item.name} img={item.productImage} />
+
+                    ))
+                }
 
             </div>
             {
