@@ -27,7 +27,7 @@ function Categories() {
       className=" mt-2 h-full flex flex-row w-full  overflow-hidden"
     >
     
-      <div className=" flex flex-row relative z-0 justify-center items-center overflow-hidden " onClick={() => navigate(`/category`)}>
+      <div className=" flex flex-row relative z-0 justify-center items-center overflow-hidden " onClick={() => navigate(`/category/Air Filter`)}>
         <img
           src={airFilter}
           alt="Filter 4"
@@ -43,7 +43,7 @@ function Categories() {
           </span>
         </h1>
       </div>
-      <div className=" flex flex-row relative z-0 justify-center items-center " onClick={() => navigate(`/category`)}>
+      <div className=" flex flex-row relative z-0 justify-center items-center " onClick={() => navigate(`/category/Oil Filter`)}>
         <img
           src={oilFilter}
           alt="Filter 4"
@@ -59,7 +59,7 @@ function Categories() {
           </span>
         </h1>
       </div>
-      <div className=" flex flex-row relative z-0 justify-center items-center " onClick={() => navigate(`/category`)}>
+      <div className=" flex flex-row relative z-0 justify-center items-center " onClick={() => navigate(`/category/Fuel Filter`)}>
         <img
           src={fuelFilter}
           alt="Filter 4"
@@ -75,7 +75,7 @@ function Categories() {
           </span>
         </h1>
       </div>
-      <div className=" flex flex-row relative z-0 justify-center items-center " onClick={() => navigate(`/category`)}>
+      <div className=" flex flex-row relative z-0 justify-center items-center " onClick={() => navigate(`/category/Cabin Filter`)}>
         <img
           src={cabinFilter}
           alt="Filter 4"
