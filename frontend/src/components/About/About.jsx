@@ -4,10 +4,11 @@ import filter3 from "../../Assets/filter3.jpg";
 import { IoLocation } from "react-icons/io5";
 
 function About() {
-  const [isExpanded, setIsExpanded] = useState(false);
+  let isScreenSmall = window.innerWidth;
+  const [isExpanded, setIsExpanded] = useState( isScreenSmall > 640 ? true : false );
 
   return (
-    <section className="min-h-screen h-auto py-10" id="about">
+    <section className="min-h-screen h-auto py-10 bg-gray-100" id="about">
       <div className="flex flex-col lg:flex-row justify-center items-center relative bg-center px-6">
         {/* Left Side */}
         <div className="relative flex items-center w-full lg:w-1/2 p-4">

@@ -5,7 +5,7 @@ function WhatWeOffer() {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-4 bg-gray-100">
       {/* Main Container */}
-      <div className="w-full max-w-7xl">
+      <div className=" flex-col flex sm:flex-row-reverse  w-full max-w-7xl">
         {/* Upper Side Logo (No Changes) */}
         <div className="flex justify-end">
           <div className="flex flex-col justify-center items-center rounded-b-2xl w-56 h-36 bg-blue-700 text-white mr-8 shadow-lg">
@@ -43,7 +43,7 @@ function WhatWeOffer() {
           </div>
 
           {/* Section 2 (Image First, Text Right) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2  gap-12 items-center">
             {/* Left: Image */}
             <div className="flex justify-center">
               <img

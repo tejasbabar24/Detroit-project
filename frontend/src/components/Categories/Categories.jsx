@@ -12,7 +12,7 @@ function Categories() {
 
   return (
     <section
-    className=" h-fit sm:h-screen flex flex-col items-center justify-center"
+    className=" h-fit sm:h-screen flex flex-col items-center justify-center bg-gray-100"
     id="products"
   >
     <div className=" flex mt-6 items-center gap-2 ">

@@ -20,8 +20,8 @@ const ContactForm = () => {
   const onViaEmail = () => alert("Opening Mail...");
 
   return (
-    <section className="min-h-screen pt-5 box-border bg-[#CCDCDF]" id="contact">
-      <div className="max-w-6xl mx-auto px-5 py-10 bg-white rounded-xl shadow-lg">
+    <section className="min-h-screen pt-5 box-border bg-[#CCDCDF] pb-5" id="contact">
+      <div className="max-w-3xl mx-auto px-5 py-10 bg-white rounded-xl shadow-lg">
         
         {/* Header Section */}
         <div className="text-center">
