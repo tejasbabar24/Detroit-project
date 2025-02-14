@@ -14,6 +14,8 @@ import nissantLogo from '../../Assets/nissan logo.png'
 import volkswagenLogo from '../../Assets/volkswagen logo.png'
 import toyotaLogo from '../../Assets/toyota logo.png'
 import skodaLogo from '../../Assets/skoda logo.png'
+import ashokleylandLogo from '../../Assets/ashok leyland logo.png'
+
 
 
 import tataimg from '../../Assets/TataNexon.png'
@@ -29,8 +31,7 @@ import nissantCar from '../../Assets/nissan car.png'
 import volkswagenCar from '../../Assets/volkswagen car.png'
 import toyotaCar from '../../Assets/toyota car.png'
 import skodaCar from '../../Assets/skoda car.png'
-
-
+import ashokleylandCar from '../../Assets/ashok leyland car (1).png'
 
 
 
@@ -48,8 +49,7 @@ const brands = [
   { image: toyotaCar, brandLogo: toyotaLogo, product: "Brake Pad & Brake Disc", discount: 25 },
   { image: skodaCar, brandLogo: skodaLogo, product: "Brake Pad & Brake Disc", discount: 25 },
   { image: fiatCar, brandLogo: fiatLogo, product: "Brake Pad & Brake Disc", discount: 25 },
-
-
+  { image: ashokleylandCar, brandLogo: ashokleylandLogo, product: "Brake Pad & Brake Disc", discount: 25 },
 ];
 
 const BrandGrid = () => {
