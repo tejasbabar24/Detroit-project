@@ -2,7 +2,7 @@ import {MailtrapClient} from "mailtrap"
 import { asyncHandler } from "../utils/asyncHandler.js"
 import { log } from "console";
 
-const client = new MailtrapClient({ token: process.env.MAILTRAP_API_TOKEN ,bulk:true});
+const client = new MailtrapClient({ token: process.env.MAILTRAP_API_TOKEN});
 const sendMail = asyncHandler(async (req, res, next)=>{
 const {senderName,senderEmail,senderPhone,text} = req.body
 
