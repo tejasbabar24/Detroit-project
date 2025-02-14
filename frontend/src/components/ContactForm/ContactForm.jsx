@@ -1,97 +1,116 @@
-import { useState } from "react";
-import Button from "../Button/Button";
-import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
-import { HiMail } from "react-icons/hi";
-
+import React from "react";
+import { MdEmail } from "react-icons/md";
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+import { TbWorld } from "react-icons/tb";
 const ContactForm = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", text: "" });
-
-  const onSubmit = (event) => {
-    event.preventDefault();
-    setFormData({
-      name: event.target.name.value,
-      email: event.target.email.value,
-      text: event.target.text.value,
-    });
-  };
-
-  const onViaCall = () => alert("Calling...");
-  const onViaWp = () => alert("Opening WhatsApp...");
-  const onViaEmail = () => alert("Opening Mail...");
-
   return (
-    <section className="min-h-screen pt-5 box-border bg-[#CCDCDF] pb-5" id="contact">
-      <div className="max-w-3xl mx-auto px-5 py-10 bg-white rounded-xl shadow-lg">
-        
-        {/* Header Section */}
-        <div className="text-center">
-          <h1 className="text-4xl md:text-5xl font-extrabold text-[#253745]">CONTACT US</h1>
-          <p className="text-lg md:text-xl font-medium mt-3 text-[#4A5C6A]">
-            LET’S CONNECT! WE’RE HERE TO HELP. REACH OUT THROUGH THE FORM, PHONE, OR EMAIL.
+    <div className="min-h-screen flex flex-col items-center justify-center p-6">
+      <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-20">
+        {/* Left Side - Contact Details */}
+        <div className="bg-white flex flex-col justify-evenly items-start p-6 rounded-2xl">
+          <div>
+          <h2 className="sm:text-7xl text-5xl font-bold text-gray-800 sm:mb-4 mb-6">Contact Us</h2>
+          <p className="sm:text-2xl text-xl text-gray-600 mb-6">
+            Whether you have questions about our services, need support, or want to
+            share your feedback, our dedicated team is here to assist you every step
+            of the way.
           </p>
+          </div>
+          <div className=" grid sm:grid-cols-2 sm:gap-y-10 sm:gap-x-20 gap-4">
+            <div className="space-x-3 flex">
+              <span className="text-blue-600 bg-[#3e829a] p-1 rounded-lg">
+              <MdEmail className="w-10 h-10 text-white"/>
+              </span>
+              <div className="flex flex-col">
+              <span className="font-bold">Email</span>
+              <p className="text-gray-700">Info@detroitautomotives.com</p>
+              </div>
+            </div>
+            <div className="space-x-3 flex">
+            <span className="text-blue-600 bg-[#3e829a] p-1 rounded-lg">
+              <TbWorld className="w-10 h-10 text-white"/>
+              </span>
+              <div className="flex flex-col">
+              <span className="font-bold">Website</span>
+              <p className="text-gray-700">reallygreatsite.com</p>
+              </div>
+            </div>
+            <div className="space-x-3 flex">
+            <span className="text-blue-600 h-12 bg-[#3e829a] p-1 rounded-lg">
+              <FaPhoneAlt className="w-10 h-8 text-white"/>
+              </span>
+              <div className="flex flex-col">
+              <span className="font-bold">Phone</span>
+              <p className="text-gray-700">+123-456-7890</p>
+
+              </div>
+            </div>
+            <div className="space-x-3 flex">
+            <span className="text-blue-600 h-12 bg-[#3e829a] p-1 rounded-lg">
+              <FaLocationDot className="w-10 h-8 text-white"/>
+              </span>
+
+              <div className="flex flex-col">
+              <span className="font-bold">Location</span>
+              <p className="text-gray-700">123 Anywhere St, Any City</p>
+
+              </div>
+            </div>
+
+          </div>
         </div>
 
-        {/* Contact Options */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8">
-          <Button 
-            text="VIA WHATSAPP" 
-            clickAction={onViaWp} 
-            icon={<FaWhatsapp fontSize="28px" />} 
-            color="green" 
-          />
-          <Button 
-            text="VIA CALL" 
-            clickAction={onViaCall} 
-            icon={<FaPhoneAlt fontSize="24px" />} 
-            color="blue"
-          />
-          <Button 
-            text="VIA EMAIL FORM" 
-            clickAction={onViaEmail} 
-            icon={<HiMail fontSize="24px" />} 
-            color="black"
-          />
-        </div>
-
-        {/* Form Section */}
-        <section className="flex flex-col md:flex-row items-center mt-10">
-          <form className="flex flex-col gap-6 w-full md:w-3/5 bg-[#F8F9FA] p-6 shadow-md rounded-lg">
-            
-            <div className="relative">
-              <label className="text-sm absolute top-[-12px] left-2 bg-[#F8F9FA] px-2 text-[#253745]" htmlFor="name">Name</label>
-              <input className="h-12 px-4 border border-[#9BA8AB] rounded-lg focus:outline-[#4A5C6A] w-full transition duration-200" type="text" name="name" required />
+        {/* Right Side - Contact Form */}
+        <div className="bg-[#162651] text-white p-12 rounded-2xl shadow-lg">
+          <h2 className="text-4xl font-bold mb-8">Get in touch.</h2>
+          <form className="space-y-4 flex flex-col">
+            <div>
+            <label htmlFor="" className="opacity-80">
+              Your Name
+            </label>
+            <input
+              type="text"
+              className="w-full p-3 rounded-2xl border-none focus:ring-2 focus:ring-blue-400 text-gray-800"
+            />
             </div>
-
-            <div className="relative">
-              <label className="text-sm absolute top-[-12px] left-2 bg-[#F8F9FA] px-2 text-[#253745]" htmlFor="email">Email</label>
-              <input className="h-12 px-4 border border-[#9BA8AB] rounded-lg focus:outline-[#4A5C6A] w-full transition duration-200" type="email" name="email" required />
+            <div>
+            <label htmlFor="" className="opacity-80">
+              Email Address
+            </label>
+            <input
+              type="email"
+              className="w-full p-3 rounded-2xl border-none focus:ring-2 focus:ring-blue-400 text-gray-800"
+            />
             </div>
-
-            <div className="relative">
-              <label className="text-sm absolute top-[-12px] left-2 bg-[#F8F9FA] px-2 text-[#253745]" htmlFor="text">Message</label>
-              <textarea className="p-4 border border-[#9BA8AB] rounded-lg focus:outline-[#4A5C6A] w-full h-32 resize-none transition duration-200" name="text" required />
+            <div>
+            <label htmlFor="" className="opacity-80">
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              className="w-full p-3 rounded-2xl border-none focus:ring-2 focus:ring-blue-400 text-gray-800"
+            />
             </div>
-
-            <div className="flex justify-end">
-              <Button text="SUBMIT" color="blue" />
+            <div>
+            <label htmlFor="" className="opacity-80">
+              Message
+            </label>
+            <textarea
+              className="w-full p-3 rounded-2xl border-none focus:ring-2 focus:ring-blue-400 text-gray-800"
+              rows="4"
+            ></textarea>
             </div>
+            <button
+              type="submit"
+              className=" w-36 bg-[#3e829a] hover:bg-blue-700 transition duration-300 text-white p-2 rounded-xl font-semibold"
+            >
+              Submit
+            </button>
           </form>
-
-          {/* Contact Image */}
-          <div className="hidden md:block w-2/5">
-            <img src="/images/contact.svg" alt="Contact" className="w-full" />
-          </div>
-        </section>
-
-        {/* Displaying Form Data */}
-        {formData.name && (
-          <div className="mt-6 p-4 bg-[#E7ECEF] border border-[#9BA8AB] rounded-lg text-center text-[#253745]">
-            <p className="font-semibold text-lg">Submitted Data:</p>
-            <p>{formData.name} | {formData.email} | {formData.text}</p>
-          </div>
-        )}
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
