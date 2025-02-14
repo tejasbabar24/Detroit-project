@@ -1,11 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { TbWorld } from "react-icons/tb";
+import { sendMail } from "../../api/mail";
 const ContactForm = () => {
+  const [emailData,setEmailData] = useState({
+    senderName: "",
+    senderEmail: "",
+    senderPhone: "",
+    text:""
+  })
+  const handleChange = (e) => {
+    setEmailData({ ...emailData, [e.target.name]: e.target.value });
+  };
+  const handleSubmit = async (e)  => {
+    e.preventDefault();
+    const response = await sendMail(emailData);
+   
+  }
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center p-6">
+    <div id="contact" className="min-h-screen flex flex-col items-center justify-center p-6">
       <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-20">
         {/* Left Side - Contact Details */}
         <div className="bg-white flex flex-col justify-evenly items-start p-6 rounded-2xl">
@@ -64,13 +79,16 @@ const ContactForm = () => {
         {/* Right Side - Contact Form */}
         <div className="bg-[#162651] text-white p-12 rounded-2xl shadow-lg">
           <h2 className="text-4xl font-bold mb-8">Get in touch.</h2>
-          <form className="space-y-4 flex flex-col">
+          <form className="space-y-4 flex flex-col" onSubmit={handleSubmit}>
             <div>
             <label htmlFor="" className="opacity-80">
               Your Name
             </label>
             <input
+            name="senderName"
+            onChange={handleChange}
               type="text"
+              value={emailData.senderName}
               className="w-full p-3 rounded-2xl border-none focus:ring-2 focus:ring-blue-400 text-gray-800"
             />
             </div>
@@ -79,6 +97,10 @@ const ContactForm = () => {
               Email Address
             </label>
             <input
+            name="senderEmail"
+            value={emailData.senderEmail}
+
+            onChange={handleChange}
               type="email"
               className="w-full p-3 rounded-2xl border-none focus:ring-2 focus:ring-blue-400 text-gray-800"
             />
@@ -88,6 +110,10 @@ const ContactForm = () => {
               Phone Number
             </label>
             <input
+            name="senderPhone"
+            value={emailData.senderPhone}
+
+            onChange={handleChange}
               type="tel"
               className="w-full p-3 rounded-2xl border-none focus:ring-2 focus:ring-blue-400 text-gray-800"
             />
@@ -97,6 +123,11 @@ const ContactForm = () => {
               Message
             </label>
             <textarea
+            name="text"
+
+            onChange={handleChange}
+            value={emailData.text}
+
               className="w-full p-3 rounded-2xl border-none focus:ring-2 focus:ring-blue-400 text-gray-800"
               rows="4"
             ></textarea>
