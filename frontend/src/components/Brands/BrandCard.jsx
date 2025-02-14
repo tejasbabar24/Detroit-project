@@ -16,11 +16,11 @@ const BrandCard = ({ image, brandLogo, product, discount }) => {
       </div>
 
       {/* Brand Logo & Product Name */}
-      <div className="mt-4 border-t pt-2 text-center bg-gray-200 ">
+      <div className=" flex flex-col mt-4 border-t justify-center items-center  text-center bg-gray-200 h-36 ">
         <img src={brandLogo} alt="Brand Logo" className="w-24 mx-auto" />
         <p className="text-gray-700 font-medium">{product}</p>
       </div>
-    </div>
+    </div>  
   );
 };
 
