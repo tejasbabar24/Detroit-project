@@ -7,7 +7,7 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
 
 const addProduct = asyncHandler(async (req, res, next) => {
-    const { name,description,price,stock,categoryName} = req.body;
+    const { name,description,price,stock,categoryName,brand,model,productId} = req.body;
     if (
         [name,description,price,stock,categoryName].some((field) =>
             field?.trim() === "")
@@ -35,10 +35,13 @@ const addProduct = asyncHandler(async (req, res, next) => {
         description,
         productImage:uploaded.secure_url,
         price,
-        stock,
+        brand,
+        model,
+        productId,
         category:category._id,
         categoryName:category.name,
         owner:req.user._id
+
     });
 
     const createdProduct = await Product.findById(product._id);

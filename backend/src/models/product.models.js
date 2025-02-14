@@ -18,8 +18,16 @@ const productSchema = new mongoose.Schema(
       type: Number,
       default:0
     },
-    stock: {
-      type: Number,
+    brand: {
+      type: String,
+      default:0
+    },
+    model: {
+      type: String,
+      default:0
+    },
+    productId:{
+      type: String,
       default:0
     },
     category:{
