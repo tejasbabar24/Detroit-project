@@ -1,8 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const BrandCard = ({ image, brandLogo, product, discount }) => {
+  const navigate = useNavigate();
   return (
-    <div className="relative bg-white rounded-xl shadow-lg w-full max-w-xs">
+    <div className="relative bg-white rounded-xl shadow-lg w-full max-w-xs"
+    onClick={() => navigate(`/brands`)}
+    >
       {/* Discount Badge */}
       {discount && (
         <span className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
