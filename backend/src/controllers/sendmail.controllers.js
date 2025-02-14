@@ -16,7 +16,7 @@ const sender = {
     }
   ];
   
- client.bulk
+ client
     .send({
       from: sender,
       to: recipients,
