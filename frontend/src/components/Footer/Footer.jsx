@@ -96,10 +96,10 @@ function Footer() {
         </nav>
       </div>
       <div className=' flex flex-col gap-2 items-center text-white '>
-        <a href="" className=' opacity-50 hover:opacity-100 text-start' onClick={() => navigate(`/category/Cabin Filter`)} > Cabin Filters </a>
-        <a href="" className=' opacity-50 hover:opacity-100 text-start' onClick={() => navigate(`/category/Fuel Filter`)} > Fuel Filters </a>
-        <a href="" className=' opacity-50 hover:opacity-100 text-start' onClick={() => navigate(`/category/Oil Filter`)} > Oil Filters </a>
-        <a href="" className=' opacity-50 hover:opacity-100 text-start' onClick={() => navigate(`/category/Air Filter`)} > Air Filters </a>
+        <p href="" className=' opacity-50 hover:opacity-100 text-start' onClick={() => navigate(`/category/Cabin Filter`)} > Cabin Filters </p>
+        <p href="" className=' opacity-50 hover:opacity-100 text-start' onClick={() => navigate(`/category/Fuel Filter`)} > Fuel Filters </p>
+        <p href="" className=' opacity-50 hover:opacity-100 text-start' onClick={() => navigate(`/category/Oil Filter`)} > Oil Filters </p>
+        <p href="" className=' opacity-50 hover:opacity-100 text-start' onClick={() => navigate(`/category/Air Filter`)} > Air Filters </p>
       </div>
         <div className=''>
           {

@@ -4,9 +4,8 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 
-function BrandInnerCardGrid() {
+function BrandInnerCardGrid({id}) {
   const products = useSelector(state => state.product.items)
-  const {id} = useParams()
 
   let activeBrand =  products.filter((item)=> item.brand.toLowerCase() === id)
 
