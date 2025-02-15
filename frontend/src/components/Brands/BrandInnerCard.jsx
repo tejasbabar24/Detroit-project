@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const BrandInnerCard = ( { product } ) => {
   const navigate = useNavigate()
   return (
-    <div className="w-full max-w-md bg-white shadow-lg rounded-lg overflow-hidden border relative" 
+    <div className="w-full max-w-md bg-white shadow-lg rounded-lg overflow-hidden border relative hover:cursor-pointer" 
     onClick={()=> navigate(`/product/${product._id}`)}
     >
       {/* Top Blue Header */}

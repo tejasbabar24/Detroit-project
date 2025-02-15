@@ -5,11 +5,13 @@ import React, { useState } from 'react'
   import logo from '../../Assets/detroitLogo.jpg'
 import BrandInnerCardGrid from './BrandInnerCardGrid';
 import { useParams } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 
 function BrandsPage() {
   const {id} = useParams()
      
   return (
+    <>
     <div className="bg-[#F5F7FA] h-screen w-full flex flex-col ">
     {/* Header Section */}
     <div className=" p-5 pb-0">
@@ -29,6 +31,8 @@ function BrandsPage() {
 
     <BrandInnerCardGrid id={id}/>
   </div>
+    <Footer/>
+    </>
   )
 }
 
