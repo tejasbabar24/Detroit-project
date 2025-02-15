@@ -17,10 +17,15 @@ function RemoveProduct() {
   // Handle Delete Product
   const handleDelete = async() => {
     if (selectedProduct) {
+      try {
       const response = await deleteProduct(selectedProduct)
       if(response.status === 200){
         alert(response.data.message)
         dispatch(removeProduct(selectedProduct));
+        clearForm()
+      }
+      } catch (error) {
+        alert(error.response.data.message)
         clearForm()
       }
     }

@@ -88,7 +88,9 @@ function AddProduct() {
       clearForm();
     }
    } catch (error) {
-    alert(error.message)
+    alert(error.response.data.message)
+    clearForm()
+
    }
   };
 
@@ -163,7 +165,7 @@ function AddProduct() {
               <input
                 type="text"
                 name="model"
-                value={formData.stock}
+                value={formData.model}
                 onChange={handleChange}
                 className="border rounded-md p-2 mt-1 focus:border-[#FAD02E] focus:ring-[#FAD02E]"
                 placeholder="Enter model name"
