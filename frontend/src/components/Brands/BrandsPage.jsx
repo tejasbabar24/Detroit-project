@@ -4,11 +4,11 @@ import React, { useState } from 'react'
   import { IoCloseSharp, IoMenuSharp } from "react-icons/io5";
   import logo from '../../Assets/detroitLogo.jpg'
 import BrandInnerCardGrid from './BrandInnerCardGrid';
+import { useParams } from 'react-router-dom';
 
 function BrandsPage() {
+  const {id} = useParams()
      
-      const [ currentBrand , setCurrentBrand ] = useState("TATA")
-    
   return (
     <div className="bg-[#F5F7FA] h-screen w-full flex flex-col ">
     {/* Header Section */}
@@ -23,7 +23,7 @@ function BrandsPage() {
 
       {/* Desktop Navigation */}
       <nav className=" flex gap-8 items-center justify-center w-full text-2xl  font-bold font-myFont">
-        <h1>{currentBrand} Parts </h1>      
+        <h1>{id.toUpperCase()} Parts </h1>      
       </nav>
      
     </header>
@@ -31,7 +31,7 @@ function BrandsPage() {
     </div>
 
 
-    <BrandInnerCardGrid/>
+    <BrandInnerCardGrid id={id}/>
   </div>
   )
 }

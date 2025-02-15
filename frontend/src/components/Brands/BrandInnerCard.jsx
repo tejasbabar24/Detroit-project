@@ -16,7 +16,7 @@ const BrandInnerCard = ( { product } ) => {
               <span className="text-yellow-600 font-bold text-sm">🛢️</span>
             </div>
             <span className="text-yellow-600 font-semibold text-sm">
-              {product.category}
+              {product.categoryName}
             </span>
           </div>
         {/* Left Side - Icon and Details */}
