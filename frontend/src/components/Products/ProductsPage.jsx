@@ -49,7 +49,7 @@ function ProductsPage() {
   
   return (
     <>
-      <Header />
+      <Header condition ={false}  />
       <div>
         {/* Banner  section */}
         <div
