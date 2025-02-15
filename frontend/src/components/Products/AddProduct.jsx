@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { addProduct } from "../../api/products";
 
 function AddProduct() {
+  const [isDisable,setIsDisable] = useState(false)
   const [formData, setFormData] = useState({
     category: "",
     title: "",
     description: "",
     price: "",
-    stock: "",
+    brand:"",
+    model: "",
+    productId:"",
     imageFile: null,
   });
   const [imagePreview, setImagePreview] = useState(null);
@@ -55,27 +58,38 @@ function AddProduct() {
       title: "",
       description: "",
       price: "",
-      stock: "",
+      brand:"",
+      model: "",
+      productId:"",
       imageFile: null,
     });
+    setIsDisable(false)
     setImagePreview(null);
   };
 
   // Handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setIsDisable(true)
     const form = new FormData();
     form.append('name',formData.title)
     form.append('description',formData.description)
     form.append('price',formData.price)
     form.append('categoryName',formData.category)
-    form.append('stock',formData.stock)
+    form.append('model',formData.model)
+    form.append('brand',formData.brand)
+    form.append('productId',formData.productId)
     form.append('productImage',formData.imageFile)
-    const response = await addProduct(form)    
-    // Clear the form after submission
-    if(response.status === 200){
+    try {
+      const response = await addProduct(form)    
+      if(response.status === 200){
+        alert(response.data.message)
+        // Clear the form after submission
       clearForm();
     }
+   } catch (error) {
+    alert(error.message)
+   }
   };
 
   return (
@@ -129,8 +143,49 @@ function AddProduct() {
             ></textarea>
           </div>
 
-          {/* Price & Stock Fields */}
           <div className="flex gap-4">
+            {/* Price Input */}
+            <div className="flex flex-col w-1/2">
+              <label className="font-medium text-gray-700">Brand</label>
+              <input
+                type="text"
+                name="brand"
+                value={formData.brand}
+                onChange={handleChange}
+                className="border rounded-md p-2 mt-1 focus:border-[#FAD02E] focus:ring-[#FAD02E]"
+                placeholder="Enter brand name"
+              />
+            </div>
+
+            {/* Model Input */}
+            <div className="flex flex-col w-1/2">
+              <label className="font-medium text-gray-700">Model</label>
+              <input
+                type="text"
+                name="model"
+                value={formData.stock}
+                onChange={handleChange}
+                className="border rounded-md p-2 mt-1 focus:border-[#FAD02E] focus:ring-[#FAD02E]"
+                placeholder="Enter model name"
+              />
+            </div>
+          </div>
+
+          {/* Price & Stock Fields */}
+
+          <div className="flex gap-4">
+            {/* ProductId Input */}
+            <div className="flex flex-col w-1/2">
+              <label className="font-medium text-gray-700">Product ID</label>
+              <input
+                type="text"
+                name="productId"
+                value={formData.productId}
+                onChange={handleChange}
+                className="border rounded-md p-2 mt-1 focus:border-[#FAD02E] focus:ring-[#FAD02E]"
+                placeholder="Enter Product id"
+              />
+            </div>
             {/* Price Input */}
             <div className="flex flex-col w-1/2">
               <label className="font-medium text-gray-700">Price ($)</label>
@@ -144,18 +199,7 @@ function AddProduct() {
               />
             </div>
 
-            {/* Stock Input */}
-            <div className="flex flex-col w-1/2">
-              <label className="font-medium text-gray-700">Stock</label>
-              <input
-                type="number"
-                name="stock"
-                value={formData.stock}
-                onChange={handleChange}
-                className="border rounded-md p-2 mt-1 focus:border-[#FAD02E] focus:ring-[#FAD02E]"
-                placeholder="Available stock"
-              />
-            </div>
+            
           </div>
 
           {/* Image Upload */}
@@ -188,8 +232,9 @@ function AddProduct() {
           {/* Submit & Reset Buttons */}
           <div className="flex gap-4">
             <button
+              disabled={isDisable}
               type="submit"
-              className="w-1/2 bg-[#008080] text-white p-2 rounded-md hover:bg-[#006666] transition font-semibold"
+              className={`w-1/2 bg-[#008080] text-white p-2 rounded-md ${isDisable ? 'bg-[#006666]' : 'hover:bg-[#006666]'} transition font-semibold`}
             >
               Add Product
             </button>
@@ -208,3 +253,4 @@ function AddProduct() {
 }
 
 export default AddProduct;
+
