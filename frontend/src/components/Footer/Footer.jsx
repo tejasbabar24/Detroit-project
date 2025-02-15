@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { MdEmail } from "react-icons/md";
 import LogoPng from '../../Assets/LogoPng.png'
-
+import { Link } from "react-scroll"; // Import smooth scrolling
 import { PiPhoneCallFill } from "react-icons/pi";
 import { FaMapLocationDot  , FaSquareFacebook, FaSquareInstagram, FaLinkedin , FaSquareYoutube} from "react-icons/fa6";
 import AdminLogin from '../AdminLogin';
@@ -88,11 +88,21 @@ function Footer() {
       <div className=' flex flex-col justify-center items-center gap-4 text-white'>
         <h1 className=' opacity-90 text-2xl' >Quick Links</h1>
         <nav className='grid grid-cols-2 gap-4  text-xl'>
-          <a href="#home" className=' opacity-50 hover:opacity-100'>Home</a>
-          <a href="#products" className=' opacity-50 hover:opacity-100'>Products</a>
-          <a href="#brands" className=' opacity-50 hover:opacity-100'>Brands</a>
-          <a href="#about" className=' opacity-50 hover:opacity-100'>About Us</a>
-          <a href="#contact" className=' opacity-50 hover:opacity-100'>Contact</a>
+          <Link to='home'
+                smooth={true}
+                duration={800} className=' opacity-50 hover:opacity-100 hover:cursor-pointer'>Home</Link>
+          <Link to='products'
+                smooth={true}
+                duration={800} className=' opacity-50 hover:opacity-100 hover:cursor-pointer'>Products</Link>
+          <Link to='brands'
+                smooth={true}
+                duration={800} className=' opacity-50 hover:opacity-100 hover:cursor-pointer'>Brands</Link>
+          <Link to='about'
+                smooth={true}
+                duration={800} className=' opacity-50 hover:opacity-100 hover:cursor-pointer'>About Us</Link>
+          <Link to='contact'
+                smooth={true}
+                duration={800} className=' opacity-50 hover:opacity-100 hover:cursor-pointer'>Contact</Link>
         </nav>
       </div>
       <div className=' flex flex-col gap-2 items-center text-white '>
