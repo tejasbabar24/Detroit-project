@@ -8,7 +8,12 @@ function About() {
   const [isExpanded, setIsExpanded] = useState( isScreenSmall > 640 ? true : false );
 
   return (
-    <section className="min-h-screen h-auto py-10 bg-gray-100" id="about">
+    <section className="min-h-screen h-auto py-10 bg-white" id="about">
+      <div className="flex w-full justify-center items-center pb-8 gap-2">
+            <div className="w-16 h-2.5 rounded-lg bg-red-500"></div>
+            <p className="text-4xl font-bold">About Us</p>
+            <div className="w-12 h-2.5 rounded-lg bg-blue-500"></div>
+          </div>
       <div className="flex flex-col lg:flex-row justify-center items-center relative bg-center px-6">
         {/* Left Side */}
         <div className="relative flex items-center w-full lg:w-1/2 p-4">
@@ -31,11 +36,7 @@ function About() {
 
         {/* Right Side */}
         <div className="mt-10 lg:mt-0 w-full lg:w-1/2 flex flex-col justify-center items-center lg:items-start gap-6 px-4 lg:px-10">
-          <div className="flex items-center gap-2">
-            <div className="w-16 h-2.5 rounded-lg bg-red-500"></div>
-            <p className="text-2xl font-bold">About Us</p>
-            <div className="w-12 h-2.5 rounded-lg bg-blue-500"></div>
-          </div>
+          
 
           <p className="text-2xl lg:text-3xl font-bold leading-snug text-center lg:text-left">
             Welcome to Detroit Automotives!

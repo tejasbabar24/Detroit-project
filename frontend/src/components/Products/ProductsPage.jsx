@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import airFilter from "../../Assets/airFilter.jpg";
 import cabinFilter from "../../Assets/cabinFilter.webp";
 import fuelFilter from "../../Assets/fuelFilter.jpg";
@@ -40,7 +40,10 @@ function ProductsPage() {
         }
     ]
 
-    const activeCat = arrObj.filter((item)=>item.catName === name)
+    let activeCat = []
+    useEffect(()=>{
+        activeCat=arrObj.filter((item)=>item.catName === name)
+    },[name])
 
 return (
     <>
@@ -50,7 +53,7 @@ return (
         <div
             className="relative flex justify-center items-end h-96 w-full bg-cover bg-center p-32"
             style={{
-            backgroundImage: `url(${activeCat[0].img})`,
+            backgroundImage: `url(${activeCat[0]?.img})`,
             }}
         >
             {/* Overlay */}

@@ -24,10 +24,10 @@ function Header() {
             <a
               key={index}
               href={item.link}
-              className="relative flex items-center gap-2 p-2 group text-gray-700 hover:text-red-500 transition-colors"
+              className="relative flex items-center gap-2 p-2 group text-gray-700  transition-colors"
             >
               {item.icon} {item.name}
-              <span className="absolute bottom-0  left-0 w-0 h-[1.5px] bg-red-500 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute bottom-0  left-0 w-0 h-[1.5px] bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
             </a>
           ))}
         </div>

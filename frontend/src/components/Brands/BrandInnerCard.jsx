@@ -1,11 +1,11 @@
 import React from "react";
 
-const BrandInnerCard = ( { productId , category , img , brand , model ,price } ) => {
+const BrandInnerCard = ( { product } ) => {
   return (
     <div className="w-full max-w-md bg-white shadow-lg rounded-lg overflow-hidden border relative">
       {/* Top Blue Header */}
       <div className="bg-blue-900 text-white px-4 py-2 text-lg font-bold">
-        {productId}
+        {product.productId}
       </div>
 
       <div className="p-4 flex items-center justify-center gap-4">
@@ -16,7 +16,7 @@ const BrandInnerCard = ( { productId , category , img , brand , model ,price } )
               <span className="text-yellow-600 font-bold text-sm">🛢️</span>
             </div>
             <span className="text-yellow-600 font-semibold text-sm">
-              {category}
+              {product.category}
             </span>
           </div>
         {/* Left Side - Icon and Details */}
@@ -25,18 +25,18 @@ const BrandInnerCard = ( { productId , category , img , brand , model ,price } )
           
            {/* Vehicle brand */}
            <div className=" flex gap-2 items-center mt-3">
-            <p className="text-gray-600 font-semibold text-sm"> Brand : {brand} </p>
+            <p className="text-gray-600 font-semibold text-sm"> Brand : {product.brand} </p>
           </div>
 
           {/* Vehicle Model */}
           <div className=" flex gap-2 items-center mt-3">
-            <p className="text-gray-600 font-semibold text-sm"> MODEL : {model} </p>
+            <p className="text-gray-600 font-semibold text-sm"> MODEL : {product.model} </p>
           </div>
 
           {/* Price */}
           <div className="mt-3">
             <p className="text-black font-bold">
-              <span className="text-black font-bold">M.R.P : {price} </span>
+              <span className="text-black font-bold">M.R.P : {product.price} </span>
               
             </p>
           </div>
@@ -45,7 +45,7 @@ const BrandInnerCard = ( { productId , category , img , brand , model ,price } )
         {/* Right Side - Product Image */}
         <div className="flex-1 flex justify-center items-center">
           <img
-            src={img}  // Replace with actual path
+            src={product.productImage}  // Replace with actual path
             alt="Fuel Filter"
             className="h-20 object-contain"
           />

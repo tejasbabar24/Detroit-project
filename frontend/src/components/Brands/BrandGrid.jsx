@@ -36,20 +36,20 @@ import ashokleylandCar from '../../Assets/ashok leyland car (1).png'
 
 
 const brands = [
-  { image: tataimg, brandLogo: tata, product: "Brake Pad & Brake Disc", discount: 25 },
-  { image: marutiCar, brandLogo: maruti, product: "Brake Pad & Brake Disc", discount: 25 },
-  { image: hyundaiCar, brandLogo: hyundaiLogo, product: "Brake Pad & Brake Disc", discount: 25 },
-  { image: hondaCar, brandLogo: hondaLogo, product: "Brake Pad & Brake Disc", discount: 25 },
-  { image: bajajCar, brandLogo: bajajLogo, product: "Brake Pad & Brake Disc", discount: 25 },
-  { image: mahindraCar, brandLogo: mahindraLogo, product: "Brake Pad & Brake Disc", discount: 25 },
-  { image: fordCar, brandLogo: fordLogo, product: "Brake Pad & Brake Disc", discount: 25 },
-  { image: chevroletCar, brandLogo: chevroletLogo, product: "Brake Pad & Brake Disc", discount: 25 },
-  { image: nissantCar, brandLogo: nissantLogo, product: "Brake Pad & Brake Disc", discount: 25 },
-  { image: volkswagenCar, brandLogo: volkswagenLogo, product: "Brake Pad & Brake Disc", discount: 25 },
-  { image: toyotaCar, brandLogo: toyotaLogo, product: "Brake Pad & Brake Disc", discount: 25 },
-  { image: skodaCar, brandLogo: skodaLogo, product: "Brake Pad & Brake Disc", discount: 25 },
-  { image: fiatCar, brandLogo: fiatLogo, product: "Brake Pad & Brake Disc", discount: 25 },
-  { image: ashokleylandCar, brandLogo: ashokleylandLogo, product: "Brake Pad & Brake Disc", discount: 25 },
+  { image: tataimg, brandLogo: tata, product: "Brake Pad & Brake Disc", discount: 25 ,name:"tata"},
+  { image: marutiCar, brandLogo: maruti, product: "Brake Pad & Brake Disc", discount: 25 ,name:"suzuki"},
+  { image: hyundaiCar, brandLogo: hyundaiLogo, product: "Brake Pad & Brake Disc", discount: 25 ,name:"hyundai"},
+  { image: hondaCar, brandLogo: hondaLogo, product: "Brake Pad & Brake Disc", discount: 25 ,name:"honda"},
+  { image: bajajCar, brandLogo: bajajLogo, product: "Brake Pad & Brake Disc", discount: 25 ,name:"bajaj"},
+  { image: mahindraCar, brandLogo: mahindraLogo, product: "Brake Pad & Brake Disc", discount: 25 ,name:"mahindra"},
+  { image: fordCar, brandLogo: fordLogo, product: "Brake Pad & Brake Disc", discount: 25 ,name:"ford"},
+  { image: chevroletCar, brandLogo: chevroletLogo, product: "Brake Pad & Brake Disc", discount: 25 ,name:"chevrolet"},
+  { image: nissantCar, brandLogo: nissantLogo, product: "Brake Pad & Brake Disc", discount: 25 ,name:"nissan"},
+  { image: volkswagenCar, brandLogo: volkswagenLogo, product: "Brake Pad & Brake Disc", discount: 25 ,name:"volkswagen"},
+  { image: toyotaCar, brandLogo: toyotaLogo, product: "Brake Pad & Brake Disc", discount: 25 ,name:"toyota"},
+  { image: skodaCar, brandLogo: skodaLogo, product: "Brake Pad & Brake Disc", discount: 25 ,name:"skoda"},
+  { image: fiatCar, brandLogo: fiatLogo, product: "Brake Pad & Brake Disc", discount: 25 ,name:"fiat"},
+  { image: ashokleylandCar, brandLogo: ashokleylandLogo, product: "Brake Pad & Brake Disc", discount: 25 ,name:"ashokleyland"},
 ];
 
 const BrandGrid = () => {

@@ -79,12 +79,10 @@ function LandingPage() {
                         }} //repeatDelay:3 , repeatType:"loop"  , repeat:Infinity
                         className=" text-3xl sm:text-5xl text-blue-900 font-myFont2 mt-10 "
                       >
-                        DETROIT
-                        <span className=" text-red-500"> AUTOMOTIVE</span>
                       </motion.p>
                       <div className=" flex flex-row  justify-start gap-2 mt-2">
-                        <div className="w-24 h-3 rounded-lg bg-red-500"></div>
-                        <div className="w-16 h-3 rounded-lg bg-white"></div>
+                        <div className="w-24 h-3 rounded-lg bg-[#A67B00]"></div>
+                        <div className="w-16 h-3 rounded-lg bg-gray-200"></div>
                       </div>
                     </div>
                     <div className=" flex justify-start ">
@@ -108,32 +106,19 @@ function LandingPage() {
           </Slide>
         </div>
       </section>
+       <About/>
 
       <WhatWeOffer/>
 
        {/* About Us section */}
 
-       <About/>
 
 
       {/* Our Products Section */}
       
       <Categories/>
-      
-        <ContactForm />
-
-      {/* <section className=" h-screen flex gap-12 items-center flex-col bg-[rgba(244,215,147,0.78)]  ">
-        <div className=" flex mt-6 items-center gap-2 ">
-          <div className=" flex flex-row items-center  justify-start gap-2 mt-2">
-            <div className="w-20 h-2.5 rounded-lg bg-red-500"></div>
-            <p className=" text-2xl font-myFont2   ">Products </p>
-            <div className="w-16 h-2.5 rounded-lg bg-blue-500"></div>
-          </div>
-        </div>
-        <ProductSlider />
-      </section> */}
-
       <BrandGrid/>
+      <ContactForm />
 
       {/* footer is here  */}
       <Footer />
