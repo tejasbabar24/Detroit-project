@@ -46,7 +46,7 @@ function Footer() {
           <div></div>
           <div></div>
       </div>
-      <div className=' flex sm:flex-row  flex-col justify-start  gap-6 sm:gap-20 items-center' >
+      <div className=' flex sm:flex-row  flex-col justify-evenly  gap-6 sm:gap-20 items-center' >
         {/* logo and social media icons  */}
         <div className="flex sm:flex-col  gap-4">
           {/* Logo */}
