@@ -14,8 +14,6 @@ import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
 function ProductsPage() {
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const [isDrawerOpen, setDrawerOpen] = useState(false); // State for right drawer
   const [activeCategory, setActiveCategory] = useState([]);
   const { name } = useParams();
   const navigate = useNavigate();
@@ -78,7 +76,7 @@ function ProductsPage() {
                 All Products
               </span>
               <p
-                className="flex items-center justify-start h-12  hover:bg-blue-200 "
+                className="flex items-center justify-start h-12  hover:bg-blue-200 hover:cursor-pointer"
                 onClick={() => navigate(`/category/Air Filter`)}
               >
                 {" "}
@@ -89,7 +87,7 @@ function ProductsPage() {
                 <IoIosArrowForward className=" ml-28" />{" "}
               </p>
               <p
-                className="flex items-center justify-start h-12  hover:bg-blue-200 "
+                className="flex items-center justify-start h-12  hover:bg-blue-200 hover:cursor-pointer"
                 onClick={() => navigate(`/category/Oil Filter`)}
               >
                 {" "}
@@ -100,7 +98,7 @@ function ProductsPage() {
                 <IoIosArrowForward className=" ml-28" />{" "}
               </p>
               <p
-                className="flex items-center justify-start h-12  hover:bg-blue-200 "
+                className="flex items-center justify-start h-12  hover:bg-blue-200 hover:cursor-pointer"
                 onClick={() => navigate(`/category/Fuel Filter`)}
               >
                 {" "}
@@ -111,7 +109,7 @@ function ProductsPage() {
                 <IoIosArrowForward className=" ml-24" />{" "}
               </p>
               <p
-                className="flex items-center justify-start h-12  hover:bg-blue-200 "
+                className="flex items-center justify-start h-12  hover:bg-blue-200 hover:cursor-pointer"
                 onClick={() => navigate(`/category/Cabin Filter`)}
               >
                 {" "}
