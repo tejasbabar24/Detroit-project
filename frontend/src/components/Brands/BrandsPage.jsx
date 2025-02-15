@@ -25,7 +25,6 @@ function BrandsPage() {
       <nav className=" flex gap-8 items-center justify-center w-full text-2xl  font-bold font-myFont">
         <h1>{currentBrand} Parts </h1>      
       </nav>
-
      
     </header>
 

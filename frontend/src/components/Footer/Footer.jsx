@@ -17,7 +17,7 @@ function Footer() {
 
   return (
     <section>
-    <footer className=" bg-black h-[500px] " >
+    <footer className=" bg-black  " >
        {modalOpen && (
               <AdminLogin
                 onClose={() => setModalOpen(false)}
@@ -34,7 +34,7 @@ function Footer() {
           <div className="  sm:p-4 text-white  flex gap-4 sm:border-r-2 justify-center items-center " ><MdEmail size={isScreenSmall>640 ? 64:32} className="opacity-50 transition-transform duration-300 hover:scale-110" /> 
               <div className=" flex flex-col gap-2 ">
                <span className=" text-sm opacity-50 sm:text-xl" >Need  Support </span>
-               <span className=" text-sm sm:text-2xl font-bold "> detroit@gmail.com </span>
+               <span className=" text-sm sm:text-2xl font-bold "> Info@detroitautomotives.com </span>
               </div> 
           </div>
           <div className=" sm:p-4 text-white  flex gap-4  justify-center items-center " ><FaMapLocationDot size={isScreenSmall>640 ? 64:32} className="opacity-50 transition-transform duration-300 hover:scale-110 " /> 
@@ -46,13 +46,13 @@ function Footer() {
           <div></div>
           <div></div>
       </div>
-      <div className=' flex sm:flex-row  flex-col justify-start gap-10 items-center' >
+      <div className=' flex sm:flex-row  flex-col justify-start  gap-6 sm:gap-20 items-center' >
         {/* logo and social media icons  */}
         <div className="flex sm:flex-col  gap-4">
           {/* Logo */}
           <img
             src={LogoPng}
-            className="h-16 w-32 sm:h-36 sm:w-64 transition-transform duration-300 hover:scale-105"
+            className="h-20 w-32 sm:h-36 sm:w-64 transition-transform duration-300 hover:scale-105"
             alt="Logo"
           />
 
@@ -84,6 +84,22 @@ function Footer() {
             </a>
           </div>          
 
+      </div>
+      <div className=' flex flex-col justify-center items-center gap-4 text-white'>
+        <h1 className=' opacity-90 text-2xl' >Quick Links</h1>
+        <nav className='grid grid-cols-2 gap-4  text-xl'>
+          <a href="#home" className=' opacity-50 hover:opacity-100'>Home</a>
+          <a href="#products" className=' opacity-50 hover:opacity-100'>Products</a>
+          <a href="#brands" className=' opacity-50 hover:opacity-100'>Brands</a>
+          <a href="#about" className=' opacity-50 hover:opacity-100'>About Us</a>
+          <a href="#contact" className=' opacity-50 hover:opacity-100'>Contact</a>
+        </nav>
+      </div>
+      <div className=' flex flex-col gap-2 items-center text-white '>
+        <a href="" className=' opacity-50 hover:opacity-100 text-start' onClick={() => navigate(`/category/Cabin Filter`)} > Cabin Filters </a>
+        <a href="" className=' opacity-50 hover:opacity-100 text-start' onClick={() => navigate(`/category/Fuel Filter`)} > Fuel Filters </a>
+        <a href="" className=' opacity-50 hover:opacity-100 text-start' onClick={() => navigate(`/category/Oil Filter`)} > Oil Filters </a>
+        <a href="" className=' opacity-50 hover:opacity-100 text-start' onClick={() => navigate(`/category/Air Filter`)} > Air Filters </a>
       </div>
         <div className=''>
           {
