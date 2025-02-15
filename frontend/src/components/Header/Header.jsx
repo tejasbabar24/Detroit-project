@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
-import { MdHome, MdOutlineProductionQuantityLimits, MdEmail } from "react-icons/md";
+import { MdHome, MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { TiContacts } from "react-icons/ti";
 import { HiUserGroup } from "react-icons/hi2";
 import { IoCloseSharp, IoMenuSharp } from "react-icons/io5";
+import { Link } from "react-scroll"; // Import smooth scrolling
 import logo from '../../Assets/detroitLogo.jpg';
 
 function Header() {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
-  
+
+  const menuItems = [
+    { name: "Home", icon: <MdHome size={30} />, link: "home" },
+    { name: "Products", icon: <MdOutlineProductionQuantityLimits size={30} />, link: "products" },
+    { name: "About Us", icon: <HiUserGroup size={30} />, link: "about" },
+    { name: "Contact Us", icon: <TiContacts size={30} />, link: "contact" }
+  ];
+
   return (
     <>
       <header className="flex items-center justify-between p-4 h-20 shadow-lg text-xl bg-white">
@@ -15,20 +23,17 @@ function Header() {
         
         {/* Desktop Navigation */}
         <div className="hidden sm:flex flex-row gap-10 items-center text-blue-900">
-          {[
-            { name: "Home", icon: <MdHome size={30} />, link: "#home" },
-            { name: "Products", icon: <MdOutlineProductionQuantityLimits size={30} />, link: "#products" },
-            { name: "About Us", icon: <HiUserGroup size={30} />, link: "#about" },
-            { name: "Contact Us", icon: <TiContacts size={30} />, link: "#contact" }
-          ].map((item, index) => (
-            <a
+          {menuItems.map((item, index) => (
+            <Link
               key={index}
-              href={item.link}
-              className="relative flex items-center gap-2 p-2 group text-gray-700  transition-colors"
+              to={item.link} 
+              smooth={true} 
+              duration={800} // Adjust scrolling speed
+              className="relative flex items-center gap-2 p-2 group text-gray-700 hover:text-blue-900 transition-colors cursor-pointer"
             >
               {item.icon} {item.name}
-              <span className="absolute bottom-0  left-0 w-0 h-[1.5px] bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
-            </a>
+              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
+            </Link>
           ))}
         </div>
         
@@ -40,25 +45,25 @@ function Header() {
 
       {/* Mobile Navigation Drawer */}
       <div
-        className={`fixed inset-y-0 right-0 z-40 w-64 bg-white shadow-2xl transition-transform duration-300 transform ${isDrawerOpen ? "translate-x-0" : "translate-x-full"}`}
+        className={`fixed inset-y-0 right-0 z-40 w-64 bg-white shadow-2xl transition-transform duration-300 transform ${
+          isDrawerOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <div className="p-4">
           <IoCloseSharp size={25} onClick={() => setDrawerOpen(false)} className="cursor-pointer text-gray-600 hover:text-gray-900" />
           <div className="flex flex-col gap-6 mt-4">
-            {[
-              { name: "Home", icon: <MdHome size={30} />, link: "#home" },
-              { name: "Products", icon: <MdOutlineProductionQuantityLimits size={30} />, link: "#products" },
-              { name: "About Us", icon: <HiUserGroup size={30} />, link: "#about" },
-              { name: "Contact Us", icon: <TiContacts size={30} />, link: "#contact" }
-            ].map((item, index) => (
-              <a
+            {menuItems.map((item, index) => (
+              <Link
                 key={index}
-                href={item.link}
-                className="relative flex items-center gap-2 group text-gray-700 hover:text-red-500 transition-colors"
+                to={item.link}
+                smooth={true}
+                duration={800}
+                onClick={() => setDrawerOpen(false)} // Close drawer after clicking
+                className="relative flex items-center gap-2 group text-gray-700 hover:text-blue-900 transition-colors cursor-pointer"
               >
                 {item.icon} {item.name}
-                <span className="absolute  bottom-0 left-0 w-0 h-[2px] bg-red-500 transition-all duration-300 group-hover:w-full"></span>
-              </a>
+                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
+              </Link>
             ))}
           </div>
         </div>
