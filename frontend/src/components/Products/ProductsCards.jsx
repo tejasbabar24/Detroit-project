@@ -4,18 +4,30 @@ import { useNavigate } from 'react-router-dom';
 function ProductsCards({ product }) {
   const navigate = useNavigate();
 
+
+  console.log(product);
+  
+
   return (
-    <div className="text-center border-2 border-black w-full sm:w-80 md:w-96 p-4 rounded-md shadow-lg transition-transform ">
-      <div className="flex flex-col justify-start bg-blue-200 w-full rounded-md overflow-hidden">
+    <div className="text-center border-2 border-black w-full sm:w-80 border-opacity-50  rounded-sm shadow-lg transition-transform ">
+      <div className="flex flex-col justify-start w-full  overflow-hidden">
         
         {/* Image Section */}
         <div
-          className="relative flex justify-center w-full h-48 bg-cover bg-center"
+          className="relative flex justify-center w-full h-52 bg-cover bg-center"
           style={{ backgroundImage: `url(${product.productImage})` }}
         ></div>
 
         {/* Title Section */}
-        <h1 className="font-semibold font-myFont text-xl sm:text-2xl p-2">{product.name}</h1>
+        <h1 className="font-bold text-blue-900  text-xl sm:text-xl p-2 ">{product.name}</h1>
+        <div className=' text-start text-lg pl-2  '>
+           <p> <span className=' font-bold  '> Part Number : </span>  {product.productId}</p>
+           <p> <span className=' font-bold  '> Vehicle Type : </span>  {product.vehicleType}</p>
+           <p> <span className=' font-bold  '> Compatible with : </span>  {product.brand}</p>
+           <p> <span className=' font-bold  '> Price : </span> ₹ {product.price} </p>
+           
+        </div>
+
       </div>
 
       {/* Explore More Link */}
