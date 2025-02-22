@@ -41,13 +41,16 @@ function LandingPage() {
   return (
     <>
 
-      <section className="h-screen " id="home">
+      <section className="h-screen relative z-10 " id="home">
         {/* Header Section */}
        
-       <Header/>
+       
+  <Header />
+
+
 
         {/* Slideshow image animation */}
-        <div id="bgImg" className="h-full w-full">
+        <div id="bgImg" className="h-full w-full mt-20 ">
           <Slide
             autoplay={true}
             duration={3000}

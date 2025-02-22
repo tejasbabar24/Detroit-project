@@ -15,6 +15,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function ProductsPage() {
   const [activeCategory, setActiveCategory] = useState([]);
+  const [price, setPrice] = useState(2500); 
   const { name } = useParams();
   const navigate = useNavigate();
 
@@ -107,9 +108,34 @@ function ProductsPage() {
                   <option value="honda">Honda</option>
                 </select>
               </div>
+              {/* price selector */}
+              <div className="bg-gray-100 border border-gray-300 p-4 rounded-lg w-full max-w-md mx-auto">
+                <h2 className="text-lg font-semibold text-blue-900 mb-3">Filter By Price</h2>
+
+                {/* Price Range Slider */}
+                <input
+                  type="range"
+                  min="11"
+                  max="5000"
+                  value={price}
+                  onChange={(e) => setPrice(e.target.value)}
+                  className="w-full appearance-none bg-blue-500 h-1 rounded-lg cursor-pointer"
+                  style={{
+                    accentColor: "blue",
+                  }}
+                />
+
+                {/* Price Display */}
+                <div className="flex justify-between text-gray-800 text-sm mt-2">
+                  <span>₹11</span>
+                  <span className="font-bold text-blue-900">₹{price}</span>
+                  <span>₹5000</span>
+                </div>
+
+              </div>
 
               {/* Filter Button */}
-              <button className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition">
+              <button className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition mt-2">
                 Apply Filters
               </button>
             </div>
