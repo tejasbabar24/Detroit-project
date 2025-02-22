@@ -6,6 +6,7 @@ import {
   MdOutlineDeleteSweep
 } from "react-icons/md";
 import { TiContacts } from "react-icons/ti";
+import { GiWhiteBook } from "react-icons/gi";
 import { HiUserGroup } from "react-icons/hi2";
 import { TbLogout2 } from "react-icons/tb";
 import { IoCloseSharp, IoMenuSharp } from "react-icons/io5";
@@ -16,6 +17,7 @@ import { logout } from "../../api/user";
 import { signout } from "../store/authSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import AddRemoveBrochure from "../Products/AddRemoveBrochure";
 
 
 
@@ -34,6 +36,22 @@ function AdminPage() {
       alert(response.data.message)
     }
   }
+
+  const activePage = () =>{
+    switch (currForm) {
+
+      case 'remove' : return <RemoveProduct/>
+      break;
+      
+      case 'brochure' :  return <AddRemoveBrochure/>
+      break;
+
+      default : return <AddProduct/>
+
+
+    }
+  }
+
   return (
     <div className="bg-[#F5F7FA] min-h-screen w-full flex flex-col ">
       {/* Header Section */}
@@ -51,6 +69,7 @@ function AdminPage() {
           {[
             { name: "Add Product", icon: <MdAddShoppingCart size={26} />, link: "add" },
             { name: "Remove Product", icon: <MdOutlineDeleteSweep size={26} />, link: "remove" },
+            { name: " Brochure", icon: <GiWhiteBook size={23} />, link: "brochure" },
             
             
           ].map((item, index) => (
@@ -112,25 +131,25 @@ function AdminPage() {
           {/* Navigation Links */}
           <nav className="mt-6 space-y-5">
             {[
-              { name: "Home", icon: <MdHome size={26} />, link: "#home" },
-              { name: "Products", icon: <MdOutlineProductionQuantityLimits size={26} />, link: "#products" },
-              { name: "About Us", icon: <HiUserGroup size={26} />, link: "#about" },
-              { name: "Contact Us", icon: <TiContacts size={26} />, link: "#contact" },
+              { name: "Add Product", icon: <MdAddShoppingCart size={26} />, link: "add" },
+            { name: "Remove Product", icon: <MdOutlineDeleteSweep size={26} />, link: "remove" },
+            { name: " Brochure", icon: <GiWhiteBook size={23} />, link: "brochure" },
             ].map((item, index) => (
-              <a
-                key={index}
-                href={item.link}
-                className="flex items-center gap-3 p-3 rounded-lg text-gray-700 hover:bg-[#008080] hover:text-white transition duration-300"
-              >
-                {item.icon} {item.name}
-              </a>
+              <button
+              key={index}
+              onClick={()=>setCurrForm(item.link)}
+              className="relative flex items-center gap-2 p-2 group  hover:text-[#FAD02E] transition-colors"
+            >
+              {item.icon} {item.name}
+              <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FAD02E] transition-all duration-300 group-hover:w-full"></span>
+            </button>
             ))}
           </nav>
         </div>
       </aside>
 
      { 
-      currForm == 'remove' ? <RemoveProduct/> :<AddProduct/>
+        activePage()
      } 
 
     </div>
