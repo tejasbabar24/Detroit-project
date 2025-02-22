@@ -71,55 +71,50 @@ function ProductsPage() {
         <div className=" flex sm:flex-row flex-col   ">
           {/* left side */}
           <div className=" flex flex-col w-full sm:w-1/3 border-r-2 border-gray-200  justify-start items-center p-8 sm:p-12 gap-6 ">
-            <div className=" bg-blue-100 rounded-lg w-full justify-center font-myFont items-center text-center gap-8 sm:p-12 p-2 sm:text-xl ">
-              <span className=" text-3xl font-myFont font-semibold border-b-2 border-black">
-                All Products
-              </span>
-              <p
-                className="flex items-center justify-start h-12  hover:bg-blue-200 hover:cursor-pointer"
-                onClick={() => navigate(`/category/Air Filter`)}
-              >
-                {" "}
-                <span className="flex items-center gap-2 sm:ml-12">
-                  {" "}
-                  <IoIosSquare size={12} color="green" /> Air Fliters
-                </span>{" "}
-                <IoIosArrowForward className=" ml-28" />{" "}
-              </p>
-              <p
-                className="flex items-center justify-start h-12  hover:bg-blue-200 hover:cursor-pointer"
-                onClick={() => navigate(`/category/Oil Filter`)}
-              >
-                {" "}
-                <span className="flex items-center gap-2 sm:ml-12">
-                  {" "}
-                  <IoIosSquare size={12} color="green" /> Oil Fliters
-                </span>{" "}
-                <IoIosArrowForward className=" ml-28" />{" "}
-              </p>
-              <p
-                className="flex items-center justify-start h-12  hover:bg-blue-200 hover:cursor-pointer"
-                onClick={() => navigate(`/category/Fuel Filter`)}
-              >
-                {" "}
-                <span className="flex items-center gap-2 sm:ml-12">
-                  {" "}
-                  <IoIosSquare size={12} color="green" /> Fuel Fliters
-                </span>{" "}
-                <IoIosArrowForward className=" ml-24" />{" "}
-              </p>
-              <p
-                className="flex items-center justify-start h-12  hover:bg-blue-200 hover:cursor-pointer"
-                onClick={() => navigate(`/category/Cabin Filter`)}
-              >
-                {" "}
-                <span className="flex items-center gap-2 sm:ml-12">
-                  {" "}
-                  <IoIosSquare size={12} color="green" /> Cabin Fliters
-                </span>{" "}
-                <IoIosArrowForward className=" ml-20" />{" "}
-              </p>
+            {/* search bar */}
+            <div className="flex items-center bg-white shadow-md rounded-lg  w-full max-w-lg">
+              <input 
+                type="text" 
+                placeholder="Search by Part Number ..." 
+                className="w-full px-4 py-2 text-gray-700 border-none focus:ring-0 focus:outline-none rounded-l-lg"
+              />
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg">
+                🔍 Search
+              </button>
             </div>
+
+            <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-lg mx-auto">
+              <h2 className="text-2xl font-semibold text-gray-800  w-full text-center mb-4 flex items-center gap-2">
+                <span className="text-blue-600">🔍</span> Filter By
+              </h2>
+
+              {/* Type of Vehicle */}
+              <div className="mb-4">
+                <label className="block text-gray-700 font-medium mb-2"> Type of Vehicle:</label>
+                <select className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                  <option value="two_wheeler">Two Wheeler</option>
+                  <option value="three_wheeler">Three Wheeler</option>
+                  <option value="four_wheeler">Four Wheeler</option>
+                </select>
+              </div>
+
+              {/* Compatible With */}
+              <div className="mb-4">
+                <label className="block text-gray-700 font-medium mb-2"> Compatible With:</label>
+                <select className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                  <option value="suzuki">Suzuki</option>
+                  <option value="tata">Tata</option>
+                  <option value="honda">Honda</option>
+                </select>
+              </div>
+
+              {/* Filter Button */}
+              <button className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition">
+                Apply Filters
+              </button>
+            </div>
+
+
             {isScreenSmall < 640 ? null : (
               <>
                 <ContactLinks /> <DownloadBrochure />{" "}
@@ -128,7 +123,7 @@ function ProductsPage() {
           </div>
           {/* right side  */}
 
-          <div className="grid sm:grid-cols-1  grid-cols-1 md:grid-cols-2 gap-4 p-6 place-items-start  sm:ml-12">
+          <div className="grid sm:grid-cols-1  grid-cols-1 md:grid-cols-3 gap-10 p-8  place-items-start  ">
             {activeCategory.map((item) => (
               <ProductsCards key={item._id} product={item} />
             ))}

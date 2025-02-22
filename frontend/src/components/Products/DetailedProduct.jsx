@@ -10,39 +10,44 @@ function DetailedProduct() {
   const { id } = useParams();
   const products = useSelector((state) => state.product.items);
   const product = products.find((item) => item._id == id);
+  console.log(product);
+  
 
   return (
     <>
-      <Header />
+      <Header condition={false} />
       <section className=" bg-gray-100 container mx-auto p-6 min-h-screen flex flex-col items-center">
-        <div className="bg-white shadow-2xl rounded-lg p-6 flex flex-col md:flex-row w-full max-w-5xl gap-6">
+        <div className="bg-white shadow-2xl rounded-lg p-6 flex flex-col md:flex-row  w-full max-w-5xl gap-6">
           {/* Left Section - Product Image & Info */}
-          <div className="md:w-1/2 bg-gray-100 p-4 rounded-lg shadow-md">
+          <div className="md:w-1/2 bg-gray-100 p-2 rounded-lg shadow-md">
             <img
               src={product.productImage}
               alt={product.name}
-              className="rounded-lg w-full h-auto max-h-[400px] object-cover "
+              className="rounded-lg w-full h-auto max-h-[500px] object-cover "
             />
-            <div className=" grid grid-cols-2 mt-4 text-gray-700 space-y-2 text-lg">
+            {/* <div className=" grid grid-cols-2 mt-4 text-gray-700 space-y-2 text-lg">
               <p className="flex items-center gap-2 font-semibold"><FaRupeeSign className="text-green-500" /> Price: <span className="font-bold">₹{product.price}</span></p>
               <p className="flex items-center gap-2"><FaTag className="text-blue-500" /> Model: {product.model}</p>
               <p className="flex items-center gap-2"><FaIndustry className="text-purple-500" /> Brand: {product.brand}</p>
               <p className="flex items-center gap-2"><FaIdBadge className="text-red-500" /> Product ID: {product.productId}</p>
-            </div>
+            </div> */}
           </div>
           
           {/* Right Section - Description */}
-          <div className="md:w-1/2 flex flex-col justify-between">
-            <h1 className="text-4xl font-bold text-gray-900 flex items-center gap-2">
-              {product.name}
-            </h1>
-            <p className="text-gray-700 text-lg leading-relaxed mt-4 flex gap-2 items-start">
-              <MdDescription className="text-gray-500 text-2xl" /> {product.description}
-            </p>
-            
-            {/* Enquiry Button */}
+          <div className="md:w-1/2 flex flex-col justify-evenly ">
+            <div className=" w-full flex flex-row items-center border-b-2 p-6">
+              <p className=" w-full text-2xl text-blue-900 hover:text-blue-950" >{product.name}</p>
+              <div className=" bg-red-500 text-xl text-white p-2">₹{product.price}</div>
+            </div>
+
+            <div>
+              <p className=" w-full  bg-blue-50 p-2 border-b-2 border-opacity-50"><span className=" font-semibold text-blue-900">Product Part Number : </span>{product.productId}</p>
+              <p className=" w-full  bg-gray-50 p-2 border-b-2 border-opacity-50"><span className=" font-semibold text-blue-900">Compatible With : </span>{product.brand}</p>
+              <p className=" w-full  bg-blue-50 p-2 border-b-2 border-opacity-50"><span className=" font-semibold text-blue-900">Vehicle Type : </span>{product.vehicleType}</p>
+              <p className=" w-full  bg-gray-50  p-2 border-b-2 border-opacity-50"><span className=" font-semibold text-blue-900">Product Type : </span>{product.categoryName}</p>
+            </div>
             <button className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-lg text-lg flex items-center gap-2 hover:bg-blue-700 transition">
-              <FaShoppingCart /> Enquiry Form
+              <FaShoppingCart /> Buy Now
             </button>
           </div>
         </div>
