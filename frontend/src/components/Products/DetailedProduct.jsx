@@ -25,12 +25,7 @@ function DetailedProduct() {
               alt={product.name}
               className="rounded-lg w-full h-auto max-h-[500px] object-cover "
             />
-            {/* <div className=" grid grid-cols-2 mt-4 text-gray-700 space-y-2 text-lg">
-              <p className="flex items-center gap-2 font-semibold"><FaRupeeSign className="text-green-500" /> Price: <span className="font-bold">₹{product.price}</span></p>
-              <p className="flex items-center gap-2"><FaTag className="text-blue-500" /> Model: {product.model}</p>
-              <p className="flex items-center gap-2"><FaIndustry className="text-purple-500" /> Brand: {product.brand}</p>
-              <p className="flex items-center gap-2"><FaIdBadge className="text-red-500" /> Product ID: {product.productId}</p>
-            </div> */}
+            
           </div>
           
           {/* Right Section - Description */}
