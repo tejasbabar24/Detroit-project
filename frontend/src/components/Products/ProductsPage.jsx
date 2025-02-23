@@ -51,7 +51,7 @@ function ProductsPage() {
   return (
     <>
       <Header condition ={false}  />
-      <div>
+      <div className=" mt-20">
         {/* Banner  section */}
         <div
           className="relative flex justify-center items-end h-96 w-full bg-cover bg-center p-32"
