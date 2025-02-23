@@ -6,7 +6,7 @@ function AddProduct() {
   const [formData, setFormData] = useState({
     category: "",
     title: "",
-    description: "",
+    vehicletype: "",
     price: "",
     brand:"",
     model: "",
@@ -56,7 +56,7 @@ function AddProduct() {
     setFormData({
       category: "",
       title: "",
-      description: "",
+      vehicletype: "",
       price: "",
       brand:"",
       model: "",
@@ -73,7 +73,7 @@ function AddProduct() {
     setIsDisable(true)
     const form = new FormData();
     form.append('name',formData.title)
-    form.append('description',formData.description)
+    form.append('vehicleType',formData.vehicletype)
     form.append('price',formData.price)
     form.append('categoryName',formData.category)
     form.append('model',formData.model)
@@ -135,14 +135,18 @@ function AddProduct() {
 
           {/* Product Description */}
           <div className="flex flex-col">
-            <label className="font-medium text-gray-700">Product Description</label>
-            <textarea
-              name="description"
-              value={formData.description}
+            <label className="font-medium text-gray-700">Select Vehicle Type</label>
+            <select
+              name="vehicletype"
+              value={formData.vehicletype}
               onChange={handleChange}
-              className="border rounded-md p-2 mt-1 h-20 resize-none focus:border-[#FAD02E] focus:ring-[#FAD02E]"
-              placeholder="Enter description"
-            ></textarea>
+              className="border rounded-md p-2 mt-1 focus:border-[#FAD02E] focus:ring-[#FAD02E]"
+            >
+              <option value="">Select a category</option>
+              <option value="two wheeler">Two Wheeler</option>
+              <option value="three wheeler">Three Wheeler</option>
+              <option value="four wheeler">Four Wheeler</option>
+            </select>
           </div>
 
           <div className="flex gap-4">
@@ -178,14 +182,14 @@ function AddProduct() {
           <div className="flex gap-4">
             {/* ProductId Input */}
             <div className="flex flex-col w-1/2">
-              <label className="font-medium text-gray-700">Product ID</label>
+              <label className="font-medium text-gray-700">Part Number</label>
               <input
                 type="text"
                 name="productId"
                 value={formData.productId}
                 onChange={handleChange}
                 className="border rounded-md p-2 mt-1 focus:border-[#FAD02E] focus:ring-[#FAD02E]"
-                placeholder="Enter Product id"
+                placeholder="Enter part number"
               />
             </div>
             {/* Price Input */}

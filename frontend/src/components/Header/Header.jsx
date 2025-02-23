@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdHome, MdOutlineProductionQuantityLimits } from "react-icons/md";
 import { TiContacts } from "react-icons/ti";
 import { HiUserGroup } from "react-icons/hi2";
@@ -7,11 +7,13 @@ import { FaDownload } from "react-icons/fa";
 import { Link } from "react-scroll";
 import { useNavigate } from "react-router-dom";
 import logo from "../../Assets/detroitLogo.jpg";
+import { getBrochures } from "../../api/brochure";
 
 function Header({ condition = true }) {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const [isDropdownOpenProducts, setDropdownOpenProducts] = useState(false);
   const [isMobileDropdownOpen, setMobileDropdownOpen] = useState(false);
+  const [brochures,setBrochures] = useState([])
   const navigate = useNavigate();
 
   const menuItems = [
@@ -21,6 +23,13 @@ function Header({ condition = true }) {
     { name: "Contact Us", icon: <TiContacts size={25} />, link: "contact", link2: "/", product: false },
   ];
 
+  useEffect(()=>{
+    const fetchBrochures = async ()=>{
+      const response = await getBrochures();
+      setBrochures(response.data.data.brochures);
+    }
+    fetchBrochures()
+  },[])
   return (
     <>
       {/* HEADER */}
@@ -113,12 +122,17 @@ function Header({ condition = true }) {
             {isMobileDropdownOpen && (
               <div className="absolute left-0 mt-2 w-44 bg-white shadow-lg rounded-b-md z-50">
                 <ul className="py-2 flex flex-col gap-2 text-sm">
-                  <li className="px-4 py-2 hover:bg-gray-100 border-l-4 border-red-500 cursor-pointer">
-                    <a href="/files/sample1.pdf" download>File 1</a>
-                  </li>
-                  <li className="px-4 py-2 hover:bg-gray-100 border-l-4 border-red-500 cursor-pointer">
-                    <a href="/files/sample2.pdf" download>File 2</a>
-                  </li>
+                  {
+                    brochures.map((brochure)=>(
+                      <li key={brochure._id} className="px-4 py-2 hover:bg-gray-100 border-l-4 border-red-500 cursor-pointer">
+                      <a href={brochure.document} download target="_blank" rel="noopener noreferrer">
+                        <button>
+                        {brochure.name}
+                        </button>
+                      </a>
+                      </li>
+                    ))
+                  }
                 </ul>
               </div>
             )}

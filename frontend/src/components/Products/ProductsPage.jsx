@@ -4,23 +4,22 @@ import cabinFilter from "../../Assets/cabinFilter.webp";
 import fuelFilter from "../../Assets/fuelFilter.jpg";
 import oilFilter from "../../Assets/oilFilter.jpg";
 
-import { IoIosArrowForward, IoIosSquare } from "react-icons/io";
 import ProductsCards from "./ProductsCards";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import DownloadBrochure from "./DownloadBrochure";
 import ContactLinks from "./ContactLinks";
 import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 function ProductsPage() {
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [activeCategory, setActiveCategory] = useState([]);
   const [price, setPrice] = useState(2500); 
   const [compatibleBrand, setCompatibleBrand] = useState(""); 
   const [typeVechicle, setTypeVechicle] = useState(""); 
   const [searchByPart, setSearchByPart] = useState(""); 
   const { name } = useParams();
-  const navigate = useNavigate();
 
   let isScreenSmall = window.innerWidth;
   const products = useSelector((state) => state.product.items);
@@ -48,14 +47,34 @@ function ProductsPage() {
     setActiveCategory(products.filter((item) => item.categoryName === name));    
   },[name]);  
   
-  const handleFilters = () =>{
-    console.log(price);
-    console.log(compatibleBrand);
-    console.log(typeVechicle);
-    
+  useEffect(() => {
+    setFilteredProducts(products.filter((item) => item.categoryName === name));
+  }, [name, products]);
 
-    
-  }
+  const handleFilters = () => {
+    let updatedProducts = products.filter((item) => item.categoryName === name);
+
+    // if (typeVechicle) {
+    //   updatedProducts = updatedProducts.filter((item) => item.vehicleType === typeVechicle);
+    // }
+    if (compatibleBrand) {
+      updatedProducts = updatedProducts.filter((item) => item.brand.toLowerCase() === compatibleBrand.toLowerCase());
+      
+    }
+    if (price) {
+      updatedProducts = updatedProducts.filter((item) => item.price <= price);
+    console.log(updatedProducts);
+
+    }
+
+    setFilteredProducts(updatedProducts);
+  };
+
+  const handleSearch = () => {
+    if (searchByPart) {
+      setFilteredProducts(products.filter((item) => item.productId.includes(searchByPart)));
+    }
+  };
   return (
     <>
       <Header condition ={false}  />
@@ -90,9 +109,8 @@ function ProductsPage() {
                 onChange={(e)=>setSearchByPart(e.target.value)}
               />
               <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg"
-                onClick={()=>console.log(searchByPart)}
+                onClick={handleSearch}
               >
-
                 🔍 Search
               </button>
             </div>
@@ -176,7 +194,7 @@ function ProductsPage() {
           {/* right side  */}
 
           <div className="grid sm:grid-cols-1  grid-cols-1 md:grid-cols-3 gap-10 p-8  place-items-start  ">
-            {activeCategory.map((item) => (
+            {filteredProducts.map((item) => (
               <ProductsCards key={item._id} product={item} />
             ))}
           </div>

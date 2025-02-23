@@ -6,7 +6,7 @@ import { upload } from "../middlewares/multer.middlewares.js";
 
 const router = Router();
 
-router.route('/addBrochure').post(verifyJWT,upload.single('document'),dowloadBrochure)
+router.route('/add').post(verifyJWT,upload.single('document'),dowloadBrochure)
 router.route('/:id').delete(verifyJWT,deleteBrochure)
 router.route('/').get(getBrochures)
 

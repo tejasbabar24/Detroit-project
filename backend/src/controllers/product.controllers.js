@@ -7,13 +7,14 @@ import { uploadOnCloudinary } from "../utils/cloudinary.js";
 
 
 const addProduct = asyncHandler(async (req, res, next) => {
-    const { name,description,price,stock,categoryName,brand,model,productId} = req.body;
+    const { name,price,categoryName,brand,model,productId,vehicleType} = req.body;
     if (
-        [name,description,price,stock,categoryName].some((field) =>
+        [name,price,categoryName,brand,model,productId,vehicleType].some((field) =>
             field?.trim() === "")
     ) {
         return next(new ApiError(400, "Please fill out all the required fields before submitting"));
     }
+    
     const category = await Category.findOne({ name:categoryName })
 
     if(!category) return next(new ApiError(400,"Category not found"))
@@ -32,7 +33,6 @@ const addProduct = asyncHandler(async (req, res, next) => {
     
     const product = await Product.create({
         name,
-        description,
         productImage:uploaded.secure_url,
         price,
         brand,
@@ -40,6 +40,7 @@ const addProduct = asyncHandler(async (req, res, next) => {
         productId,
         category:category._id,
         categoryName:category.name,
+        vehicleType,
         owner:req.user._id
 
     });
