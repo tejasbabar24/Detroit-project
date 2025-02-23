@@ -6,12 +6,11 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily :{
-        myFont:['ubuntu','serif'],
-        myFont2:["Bowlby One SC", 'serif']
+      fontFamily: {
+        myFont: ['Montserrat', 'sans-serif'],  // Changed to Montserrat
+        myFont2: ['Montserrat', 'sans-serif']
       }
     },
   },
   plugins: [],
 }
-
