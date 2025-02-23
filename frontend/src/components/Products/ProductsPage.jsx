@@ -16,6 +16,9 @@ import { useNavigate, useParams } from "react-router-dom";
 function ProductsPage() {
   const [activeCategory, setActiveCategory] = useState([]);
   const [price, setPrice] = useState(2500); 
+  const [compatibleBrand, setCompatibleBrand] = useState(""); 
+  const [typeVechicle, setTypeVechicle] = useState(""); 
+  const [searchByPart, setSearchByPart] = useState(""); 
   const { name } = useParams();
   const navigate = useNavigate();
 
@@ -43,15 +46,20 @@ function ProductsPage() {
   const activeCat = arrObj.filter((item) => item.catName === name);
   useEffect(() => {
     setActiveCategory(products.filter((item) => item.categoryName === name));    
-  },[name]);
-  console.log(activeCategory);
-  console.log(products);
+  },[name]);  
   
-  
+  const handleFilters = () =>{
+    console.log(price);
+    console.log(compatibleBrand);
+    console.log(typeVechicle);
+    
+
+    
+  }
   return (
     <>
       <Header condition ={false}  />
-      <div className=" mt-20">
+      <div>
         {/* Banner  section */}
         <div
           className="relative flex justify-center items-end h-96 w-full bg-cover bg-center p-32"
@@ -78,8 +86,13 @@ function ProductsPage() {
                 type="text" 
                 placeholder="Search by Part Number ..." 
                 className="w-full px-4 py-2 text-gray-700 border-none focus:ring-0 focus:outline-none rounded-l-lg"
+                value={searchByPart}
+                onChange={(e)=>setSearchByPart(e.target.value)}
               />
-              <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-r-lg"
+                onClick={()=>console.log(searchByPart)}
+              >
+
                 🔍 Search
               </button>
             </div>
@@ -92,17 +105,29 @@ function ProductsPage() {
               {/* Type of Vehicle */}
               <div className="mb-4">
                 <label className="block text-gray-700 font-medium mb-2"> Type of Vehicle:</label>
-                <select className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
-                  <option value="two_wheeler">Two Wheeler</option>
-                  <option value="three_wheeler">Three Wheeler</option>
-                  <option value="four_wheeler">Four Wheeler</option>
+                <select 
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  name=""  
+                  value={typeVechicle}
+                  onChange={(e)=>setTypeVechicle(e.target.value)}
+                >
+                  <option value="">Select</option>
+                  <option value="two wheeler">Two Wheeler</option>
+                  <option value="three wheeler">Three Wheeler</option>
+                  <option value="four wheeler">Four Wheeler</option>
                 </select>
               </div>
 
               {/* Compatible With */}
               <div className="mb-4">
                 <label className="block text-gray-700 font-medium mb-2"> Compatible With:</label>
-                <select className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                <select 
+                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  name="compatibleBrand"
+                  value={compatibleBrand}
+                  onChange={(e)=>setCompatibleBrand(e.target.value)}
+                >
+                  <option value="">Select</option>
                   <option value="suzuki">Suzuki</option>
                   <option value="tata">Tata</option>
                   <option value="honda">Honda</option>
@@ -135,7 +160,8 @@ function ProductsPage() {
               </div>
 
               {/* Filter Button */}
-              <button className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition mt-2">
+              <button onClick={handleFilters} className="w-full bg-blue-600 text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition mt-2">
+                
                 Apply Filters
               </button>
             </div>
