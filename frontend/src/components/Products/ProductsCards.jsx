@@ -2,11 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function ProductsCards({ product }) {
-  const navigate = useNavigate();
-
-
-  console.log(product);
-  
+  const navigate = useNavigate();  
 
   return (
     <div className="text-center border-2 border-black w-full sm:w-80 border-opacity-50  rounded-sm shadow-lg transition-transform ">
