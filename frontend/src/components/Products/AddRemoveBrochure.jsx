@@ -1,29 +1,59 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { addBrochure, deleteBrochure, getBrochures } from "../../api/brochure";
 
 function AddRemoveBrochure() {
-  const [category, setCategory] = useState("");
-  const [selectedProduct, setSelectedProduct] = useState("");
+  const [selectedBrochure, setSelectedBrochure] = useState("");
   const [brochureName, setBrochureName] = useState("");
   const [uploadedFile, setUploadedFile] = useState(null);
   const [dragging, setDragging] = useState(false);
+  const [brochures,setBrochures] = useState([])
 
   // Sample Products Data
-  const [products, setProducts] = useState([
-    { id: "101", name: "Laptop", category: "electronics", img: "https://via.placeholder.com/60" },
-    { id: "102", name: "Smartphone", category: "electronics", img: "https://via.placeholder.com/60" },
-    { id: "103", name: "T-Shirt", category: "fashion", img: "https://via.placeholder.com/60" },
-    { id: "104", name: "Book", category: "books", img: "https://via.placeholder.com/60" },
-  ]);
-
-  // Handle Delete Product
-  const handleDelete = () => {
-    if (selectedProduct) {
-      alert(`Product ID ${selectedProduct} has been removed.`);
-      setProducts(products.filter((product) => product.id !== selectedProduct));
-      setSelectedProduct(""); // Clear selection
-    } else {
-      alert("Please select a product to remove.");
+  
+  const clearForm = () => {
+    setSelectedBrochure("");
+   };
+   const handleSubmit = async (e)=>{
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('name',brochureName)
+    formData.append('document',uploadedFile)
+  
+    try {
+      const response = await addBrochure(formData)
+      if(response.status === 200){
+        alert(response.data.message)
+        // Clear the form after submission
+        clearAddForm();
+        }
+    } 
+    catch (error) {
+        alert(error.response.data.message)
+        clearAddForm();
     }
+  }
+  useEffect(()=>{
+      const fetchBrochures = async ()=>{
+        const response = await getBrochures();
+        setBrochures(response.data.data.brochures);
+      }
+      fetchBrochures()
+    },[handleSubmit])
+  // Handle Delete Product
+  const handleDelete = async () => {
+     if (selectedBrochure) {
+         try {
+         const response = await deleteBrochure(selectedBrochure)
+         if(response.status === 200){
+           alert(response.data.message)
+           setBrochures((prev)=> prev.filter((item)=> item._id !== selectedBrochure))
+           clearForm()
+         }
+         } catch (error) {
+           alert(error.response.data.message)
+           clearForm()
+         }
+       }
   };
 
   // Handle File Upload
@@ -49,6 +79,13 @@ function AddRemoveBrochure() {
     }
   };
 
+const clearAddForm = () =>{
+  setBrochureName("")
+  setUploadedFile(null)
+}
+
+
+
   return (
     <div className="flex flex-col md:flex-row justify-center items-start md:items-center min-h-screen w-full p-6 gap-6 bg-gray-50">
       
@@ -60,16 +97,15 @@ function AddRemoveBrochure() {
           <div className="flex flex-col">
             <label className="font-medium text-gray-700">Select Product</label>
             <select
-              value={selectedProduct}
-              onChange={(e) => setSelectedProduct(e.target.value)}
+              value={selectedBrochure}
+              onChange={(e) => setSelectedBrochure(e.target.value)}
               className="border rounded-md p-2 mt-1 focus:border-red-500 focus:ring-red-500"
             >
-              <option value="">Choose a product</option>
-              {products
-                .filter((product) => product.category === category)
-                .map((product) => (
-                  <option key={product.id} value={product.id}>
-                    {product.name}
+              <option value="">Choose a brochure</option>
+              {brochures
+                .map((item) => (
+                  <option key={item._id} value={item._id}>
+                    {item.name}
                   </option>
                 ))}
             </select>
@@ -77,19 +113,19 @@ function AddRemoveBrochure() {
 
           {/* Product Preview */}
           <div className="flex items-center gap-4 p-4 border rounded-md bg-gray-100">
-            {selectedProduct ? (
+            {selectedBrochure ? (
               <>
                 <img
-                  src={products.find((p) => p.id === selectedProduct)?.img}
+                  src={brochures.find((item) => item.id === selectedBrochure)?.document}
                   alt="Product"
                   className="w-16 h-16 object-cover rounded-md"
                 />
                 <span className="text-gray-700 font-medium">
-                  {products.find((p) => p.id === selectedProduct)?.name}
+                  {brochures.find((item) => item.id === selectedBrochure)?.name}
                 </span>
               </>
             ) : (
-              <span className="text-gray-500 text-sm">No product selected</span>
+              <span className="text-gray-500 text-sm">No brochure selected</span>
             )}
           </div>
 
@@ -105,7 +141,9 @@ function AddRemoveBrochure() {
       </form>
 
       {/* Upload Brochure Form */}
-      <form className="bg-white p-6 rounded-xl shadow-lg w-full max-w-lg flex-grow h-full border-t-4 border-blue-500">
+      <form
+      onSubmit={handleSubmit}
+      className="bg-white p-6 rounded-xl shadow-lg w-full max-w-lg flex-grow h-full border-t-4 border-blue-500">
         <h1 className="text-center text-2xl font-semibold text-blue-600">Upload Brochure</h1>
 
         <div className="space-y-4 mt-4">
