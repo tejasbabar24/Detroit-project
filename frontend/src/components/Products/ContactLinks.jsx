@@ -14,7 +14,7 @@ function ContactLinks() {
                         <div className=" sm:p-4 text-white  flex gap-4  justify-start items-center border-b-2 border-opacity-50 " ><TiContacts size={44} className=" text-green-500 opacity-80 transition-transform duration-300 hover:scale-110 " /> 
                                       <div gap-2 className=" flex flex-col gap-1 ">
                                        <span className="text-sm opacity-70 sm:text-lg" >Call us  </span>
-                                       <span className="text-sm sm:text-xl font-bold ">+91-129-4281000 </span>
+                                       <span className="text-sm sm:text-xl font-bold ">+91 82187 98061 </span>
                                       </div> 
                         </div>
                         <div className=" sm:p-4 text-white  flex gap-4  justify-start items-center border-b-2 border-opacity-50 " ><MdEmail size={44} className=" text-green-500 opacity-80 transition-transform duration-300 hover:scale-110 " /> 
@@ -25,7 +25,7 @@ function ContactLinks() {
                         </div><div className=" sm:p-4 text-white  flex gap-4  justify-start items-center border-b-2 border-opacity-50 " ><FaMapLocationDot size={44} className=" text-green-500 opacity-80 transition-transform duration-300 hover:scale-110 " /> 
                                       <div gap-2 className=" flex flex-col gap-1 ">
                                        <span className="text-sm opacity-70 sm:text-lg" >Meet us  </span>
-                                       <span className="text-sm sm:text-xl font-bold ">Our location </span>
+                                       <span className="text-sm sm:text-xl font-bold ">Plot No B3, Sec B2, Trans Delhi Signature City,   Ghaziabad, Uttar Pradesh 201102  </span>
                                       </div> 
                         </div>
                     </div>

@@ -28,7 +28,7 @@ function Footer() {
           <div className="  sm:p-4 text-white  flex gap-4 sm:border-r-2 justify-center items-center " ><PiPhoneCallFill size={isScreenSmall>640 ? 64:32} className="opacity-50 transition-transform duration-300 hover:scale-110" /> 
               <div className=" flex flex-col gap-2 ">
                <span className="text-sm opacity-50 sm:text-xl" >Call  Us </span>
-               <span className="text-sm sm:text-2xl font-bold ">+91-129-4281000 </span>
+               <span className="text-sm sm:text-2xl font-bold ">+91 82187 98061 </span>
               </div> 
           </div>
           <div className="  sm:p-4 text-white  flex gap-4 sm:border-r-2 justify-center items-center " ><MdEmail size={isScreenSmall>640 ? 64:32} className="opacity-50 transition-transform duration-300 hover:scale-110" /> 
@@ -40,7 +40,7 @@ function Footer() {
           <div className=" sm:p-4 text-white  flex gap-4  justify-center items-center " ><FaMapLocationDot size={isScreenSmall>640 ? 64:32} className="opacity-50 transition-transform duration-300 hover:scale-110 " /> 
               <div className=" flex flex-col gap-2 ">
                <span className="text-sm opacity-50 sm:text-xl" >Head Office </span>
-               <span className="text-sm sm:text-2xl font-bold ">+91-129-4281000 </span>
+               <span className="text-sm sm:text-lg font-bold ">Plot No B3, Sec B2, <br /> Trans Delhi Signature City, <br />  Ghaziabad, Uttar Pradesh 201102 </span>
               </div> 
           </div>
           <div></div>
