@@ -33,17 +33,17 @@ function Header({ condition = true }) {
   return (
     <>
       {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full flex items-center justify-between p-4 h-20 shadow-lg text-xl bg-white z-50">
+      <header className="fixed top-0 left-0 w-full flex items-center justify-between  h-20 shadow-lg text-xl bg-white z-50">
         <img src={logo} className="h-16 ml-4 sm:ml-16" alt="Company Logo" />
 
         {/* Desktop Navigation */}
-        <div className="hidden sm:flex flex-row gap-8 items-center text-blue-900">
+        <div className="hidden sm:flex flex-row gap-8 items-center pl-4 pr-4 h-full  text-blue-900">
           {menuItems.map((item, index) =>
             condition ? (
               item.product ? (
                 <div
                   key={index}
-                  className="relative"
+                  className="relative h-full flex items-center"
                   onMouseEnter={() => setDropdownOpenProducts(true)}
                   onMouseLeave={() => setDropdownOpenProducts(false)}
                 >
@@ -54,11 +54,12 @@ function Header({ condition = true }) {
                     className="relative flex items-center gap-2 p-2 group text-gray-700 hover:text-blue-900 transition-all cursor-pointer"
                   >
                     {item.icon} {item.name}
+                    <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
                   </Link>
 
                   {/* Products Dropdown */}
                   {isDropdownOpenProducts && (
-                    <div className="absolute left-0 mt-2 w-44 bg-white shadow-lg rounded-b-md z-50">
+                    <div className="absolute left-0 mt-64 w-44 bg-white shadow-lg rounded-b-md z-50">
                       <ul className="py-2 flex flex-col gap-2 text-sm">
                         <li className="px-4 py-2 hover:bg-gray-100 border-l-4 border-red-500 cursor-pointer" onClick={() => navigate(`/category/Air Filter`)}>
                           <p>Air  Filter</p>
@@ -84,6 +85,7 @@ function Header({ condition = true }) {
                   className="relative flex items-center gap-2 p-2 group text-gray-700 hover:text-blue-900 transition-all cursor-pointer"
                 >
                   {item.icon} {item.name}
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
               )
             ) : (
@@ -111,16 +113,16 @@ function Header({ condition = true }) {
 
           {/* Downloads Dropdown */}
           <div
-            className="relative group"
+            className="relative group h-full"
             onMouseEnter={() => setMobileDropdownOpen(true)}
             onMouseLeave={() => setMobileDropdownOpen(false)}
           >
-            <span className="flex items-center gap-2 p-2 text-gray-700 hover:text-blue-900 transition-all cursor-pointer">
+            <span className="flex items-center h-full gap-2 p-2 text-gray-700 hover:text-blue-900 transition-all cursor-pointer">
               <FaDownload size={25} /> Downloads
             </span>
 
             {isMobileDropdownOpen && (
-              <div className="absolute left-0 mt-2 w-44 bg-white shadow-lg rounded-b-md z-50">
+              <div className="absolute left-0  w-44 bg-white bg-op shadow-lg rounded-b-md z-50">
                 <ul className="py-2 flex flex-col gap-2 text-sm">
                   {
                     brochures.map((brochure)=>(
