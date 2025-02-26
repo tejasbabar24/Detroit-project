@@ -120,7 +120,7 @@ function LandingPage() {
       {/* Our Products Section */}
       
       <Categories/>
-      <BrandGrid/>
+      {/* <BrandGrid/> */}
       <ContactForm />
 
       {/* footer is here  */}
