@@ -14,16 +14,24 @@ const ContactForm = () => {
   const handleChange = (e) => {
     setEmailData({ ...emailData, [e.target.name]: e.target.value });
   };
+  const clearForm = ()=>{
+    setEmailData({
+      senderName: "",
+      senderEmail: "",
+      senderPhone: "",
+      text:""
+    })
+  }
   const handleSubmit = async (e)  => {
     e.preventDefault();
     try {
           const response = await sendMail(emailData);
           if(response.status === 200){
             alert(response.data.message)
+            clearForm()
           }
        } catch (error) {
         alert(error.response.data.message)
-    
        }
 
   }
