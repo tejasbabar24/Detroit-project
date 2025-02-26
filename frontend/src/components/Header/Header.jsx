@@ -83,6 +83,8 @@ function Header({ condition = true }) {
                   smooth={true}
                   duration={800}
                   className="relative flex items-center gap-2 p-2 group text-gray-700 hover:text-blue-900 transition-all cursor-pointer"
+                  onMouseEnter={() => setDropdownOpenProducts(true)}
+                  onMouseLeave={() => setDropdownOpenProducts(false)}
                 >
                   {item.icon} {item.name}
                   <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
@@ -96,7 +98,7 @@ function Header({ condition = true }) {
                 onClick={() => navigate(item.link2)}
                 className="relative flex items-center gap-2 p-2 group text-gray-700 hover:text-blue-900 transition-all cursor-pointer"
                 onMouseEnter={() => setDropdownOpenProducts(true)}
-                  onMouseLeave={() => setDropdownOpenProducts(false)}
+                onMouseLeave={() => setDropdownOpenProducts(false)}
               >
                 {item.icon} {item.name}
               </button> 
