@@ -16,8 +16,16 @@ const ContactForm = () => {
   };
   const handleSubmit = async (e)  => {
     e.preventDefault();
-    const response = await sendMail(emailData);
-   
+    try {
+          const response = await sendMail(emailData);
+          if(response.status === 200){
+            alert(response.data.message)
+          }
+       } catch (error) {
+        alert(error.response.data.message)
+    
+       }
+
   }
   return (
     <div id="contact" className="min-h-screen flex flex-col items-center justify-center p-6">
