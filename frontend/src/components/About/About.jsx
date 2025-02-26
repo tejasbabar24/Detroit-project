@@ -81,7 +81,7 @@ function About() {
 
           <p className="flex items-center gap-3 font-semibold hover:text-red-500 transition duration-300">
             <IoLocation className="text-2xl" />
-            Lorem, ipsum. Lorem ipsum dolor sit amet.
+            Plot No B3, Sec B2, Trans Delhi Signature City, Ghaziabad, Uttar Pradesh 201102
           </p>
         </div>
       </div>
