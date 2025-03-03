@@ -16,7 +16,7 @@ function DetailedProduct() {
   return (
     <>
       <Header condition={false} />
-      <section className=" bg-gray-100 container mx-auto p-6 min-h-screen flex flex-col items-center mt-20">
+      <section className=" bg-gray-100 container mx-auto p-6  flex flex-col items-center mt-20">
         <div className="bg-white shadow-2xl rounded-lg p-6 flex flex-col md:flex-row  w-full max-w-5xl gap-6">
           {/* Left Section - Product Image & Info */}
           <div className="md:w-1/2 bg-gray-100 p-2 rounded-lg shadow-md">
