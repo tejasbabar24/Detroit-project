@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { addBrochure, deleteBrochure, getBrochures } from "../../api/brochure";
 
 function AddRemoveBrochure() {
+  const [isDisable,setIsDisable] = useState(false)
   const [selectedBrochure, setSelectedBrochure] = useState("");
   const [brochureName, setBrochureName] = useState("");
   const [uploadedFile, setUploadedFile] = useState(null);
@@ -16,6 +17,7 @@ function AddRemoveBrochure() {
    const handleSubmit = async (e)=>{
     e.preventDefault();
     const formData = new FormData();
+    setIsDisable(true)
     formData.append('name',brochureName)
     formData.append('document',uploadedFile)
   
@@ -82,6 +84,7 @@ function AddRemoveBrochure() {
 const clearAddForm = () =>{
   setBrochureName("")
   setUploadedFile(null)
+  setIsDisable(false)
 }
 
 
