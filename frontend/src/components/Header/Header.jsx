@@ -12,6 +12,7 @@ import { getBrochures } from "../../api/brochure";
 function Header({ condition = true }) {
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const [isDropdownOpenProducts, setDropdownOpenProducts] = useState(false);
+  const [isDropdownOpenProducts2, setDropdownOpenProducts2] = useState(false);
   const [isMobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const [brochures,setBrochures] = useState([])
   const navigate = useNavigate();
@@ -83,8 +84,8 @@ function Header({ condition = true }) {
                   smooth={true}
                   duration={800}
                   className="relative flex items-center gap-2 p-2 group text-gray-700 hover:text-blue-900 transition-all cursor-pointer"
-                  onMouseEnter={() => setDropdownOpenProducts(true)}
-                  onMouseLeave={() => setDropdownOpenProducts(false)}
+                  
+                  
                 >
                   {item.icon} {item.name}
                   <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-blue-900 transition-all duration-300 group-hover:w-full"></span>
@@ -95,18 +96,38 @@ function Header({ condition = true }) {
               item.product ?
               <button
                 key={index}
-                onClick={() => navigate(item.link2)}
+               
                 className="relative flex items-center gap-2 p-2 group text-gray-700 hover:text-blue-900 transition-all cursor-pointer"
-                onMouseEnter={() => setDropdownOpenProducts(true)}
-                onMouseLeave={() => setDropdownOpenProducts(false)}
+                onMouseEnter={() => setDropdownOpenProducts2(true)}
+                onMouseLeave={() => setDropdownOpenProducts2(false)}
               >
                 {item.icon} {item.name}
+
+                {isDropdownOpenProducts2 && (
+                    <div className="absolute left-0 mt-56 w-44 bg-white shadow-lg rounded-b-md z-50">
+                      <ul className="py-2 flex flex-col gap-2 text-sm">
+                        <li className="px-4 py-2 hover:bg-gray-100 border-l-4 border-red-500 cursor-pointer" onClick={() => navigate(`/category/Air Filter`)}>
+                          <p>Air  Filter</p>
+                        </li>
+                        <li className="px-4 py-2 hover:bg-gray-100 border-l-4 border-red-500 cursor-pointer" onClick={() => navigate(`/category/Fuel Filter`)}>
+                          <p>Fuel  Filter</p>
+                        </li>
+                        <li className="px-4 py-2 hover:bg-gray-100 border-l-4 border-red-500 cursor-pointer" onClick={() => navigate(`/category/Oil Filter`)} >
+                          <p>Oil  Filter</p>
+                        </li><li className="px-4 py-2 hover:bg-gray-100 border-l-4 border-red-500 cursor-pointer" onClick={() => navigate(`/category/Cabin Filter`)}>
+                          <p>Cabin  Filter</p>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
               </button> 
+              
               :
               <button
                 key={index}
                 onClick={() => navigate(item.link2)}
                 className="relative flex items-center gap-2 p-2 group text-gray-700 hover:text-blue-900 transition-all cursor-pointer"
+                
               >
                 {item.icon} {item.name}
               </button> 
