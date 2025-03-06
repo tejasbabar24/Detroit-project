@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://localhost:8000/api/brochure', // Your backend URL
+  baseURL: `${import.meta.env.VITE_BACKEND_URL}/api/brochure`, // Your backend URL
   withCredentials: true, // Ensure cookies are sent
 });
 
