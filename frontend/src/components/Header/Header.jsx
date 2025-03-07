@@ -17,6 +17,27 @@ function Header({ condition = true }) {
   const [brochures,setBrochures] = useState([])
   const navigate = useNavigate();
 
+  const downloadFile = async (fileUrl, fileName) => {
+    try {
+      const response = await fetch(fileUrl);
+      if (!response.ok) throw new Error(`Failed to fetch file: ${response.statusText}`);
+  
+      const blob = await response.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+  
+      const a = document.createElement("a");
+      a.href = blobUrl;
+      a.download = fileName || "downloaded_file"; // Set default filename if none provided
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+  
+      window.URL.revokeObjectURL(blobUrl); // Clean up memory
+    } catch (error) {
+      console.error("Download error:", error);
+    }
+  };
+
   const menuItems = [
     { name: "Home", icon: <MdHome size={25} />, link: "home", link2: "/", product: false },
     { name: "About Us", icon: <HiUserGroup size={25} />, link: "about", link2: "/", product: false },
@@ -149,12 +170,9 @@ function Header({ condition = true }) {
                 <ul className="py-2 flex flex-col gap-2 text-sm">
                   {
                     brochures.map((brochure)=>(
-                      <li key={brochure._id} className="px-4 py-2 hover:bg-gray-100 border-l-4 border-red-500 cursor-pointer">
-                      <a href={brochure.document} download target="_blank" rel="noopener noreferrer">
-                        <button>
-                        {brochure.name}
-                        </button>
-                      </a>
+                      <li key={brochure._id} className="px-4 py-2 hover:bg-gray-100 border-l-4 border-red-500 cursor-pointer"
+                      onClick={()=>{downloadFile(brochure.document , brochure.name)}}>
+                          {brochure.name}
                       </li>
                     ))
                   }
@@ -188,7 +206,7 @@ function Header({ condition = true }) {
                   to={item.link}
                   smooth={true}
                   duration={800}
-                  onClick={() => setDrawerOpen(false)}
+                  onClick={() => setDrawerOpen(!isDrawerOpen)}
                   className="relative flex items-center gap-2 group text-gray-700 hover:text-blue-900 transition-all cursor-pointer"
                 >
                   {item.icon} {item.name}
@@ -198,7 +216,7 @@ function Header({ condition = true }) {
                   key={index}
                   onClick={() => {
                     navigate(item.link2);
-                    setDrawerOpen(false);
+                    setDrawerOpen(!isDrawerOpen);
                   }}
                   className="relative flex items-center gap-2 group text-gray-700 hover:text-blue-900 transition-all cursor-pointer"
                 >

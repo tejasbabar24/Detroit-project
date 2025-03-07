@@ -137,7 +137,7 @@ function AdminPage() {
             ].map((item, index) => (
               <button
               key={index}
-              onClick={()=>setCurrForm(item.link)}
+              onClick={()=>{setCurrForm(item.link) , setDrawerOpen(false)}}
               className="relative flex items-center gap-2 p-2 group  hover:text-[#FAD02E] transition-colors"
             >
               {item.icon} {item.name}
@@ -145,6 +145,13 @@ function AdminPage() {
             </button>
             ))}
           </nav>
+          <button              
+              className="relative flex items-center gap-2 p-2 group  hover:text-[#FAD02E] transition-colors mt-8"
+            onClick={handleLogout}
+            >
+              <TbLogout2 size={36}/> Log Out
+            <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#FAD02E] transition-all duration-300 group-hover:w-full"></span>
+          </button>  
         </div>
       </aside>
 
