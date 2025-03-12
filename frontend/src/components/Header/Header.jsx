@@ -237,12 +237,14 @@ function Header({ condition = true }) {
               {isMobileDropdownOpen && (
                 <div className="bg-white shadow-lg rounded-lg mt-2">
                   <ul className="py-2">
-                    <li className="px-4 py-2 hover:bg-gray-100 border-l-4 border-red-500 cursor-pointer">
-                      <a href="/files/sample1.pdf" download>File 1</a>
-                    </li>
-                    <li className="px-4 py-2 hover:bg-gray-100 border-l-4 border-red-500 cursor-pointer">
-                      <a href="/files/sample2.pdf" download>File 2</a>
-                    </li>
+                    {
+                    brochures.map((brochure)=>(
+                      <li key={brochure._id} className="px-4 py-2 hover:bg-gray-100 border-l-4 border-red-500 cursor-pointer"
+                      onClick={()=>{downloadFile(brochure.document , brochure.name)}}>
+                          {brochure.name}
+                      </li>
+                    ))
+                  }
                   </ul>
                 </div>
               )}
