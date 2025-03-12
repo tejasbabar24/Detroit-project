@@ -12,7 +12,7 @@ import ProductsPage from './components/Products/ProductsPage';
 import DetailedProduct from './components/Products/DetailedProduct.jsx';
 import AdminPage from './components/Admin/AdminPage.jsx';
 import AuthLayout from './components/AuthLayout.jsx';
-import BrandsPage from './components/Brands/BrandsPage.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -26,10 +26,6 @@ const router = createBrowserRouter([
   {
     path: "/product/:id",
     element: <DetailedProduct />
-  },
-  {
-    path: "/brands/:id",
-    element: <BrandsPage />
   },
   {
     path: "/AdminPanel",

@@ -17,7 +17,6 @@ import Footer from "./components/Footer/Footer";
 import About from "./components/About/About";
 import Categories from "./components/Categories/Categories";
 import WhatWeOffer from "./components/whatWeOffer/WhatWeOffer";
-import BrandGrid from "./components/Brands/BrandGrid";
 
 function LandingPage() {
 

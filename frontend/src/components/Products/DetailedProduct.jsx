@@ -3,8 +3,8 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { FaRupeeSign, FaTag, FaIndustry, FaIdBadge, FaShoppingCart } from "react-icons/fa";
-import { MdDescription } from "react-icons/md";
+import { FaShoppingCart } from "react-icons/fa";
+
 
 function DetailedProduct() {
   const { id } = useParams();

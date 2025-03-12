@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import {
-  MdHome,
-  MdOutlineProductionQuantityLimits,
   MdAddShoppingCart,
   MdOutlineDeleteSweep
 } from "react-icons/md";
-import { TiContacts } from "react-icons/ti";
+
 import { GiWhiteBook } from "react-icons/gi";
-import { HiUserGroup } from "react-icons/hi2";
 import { TbLogout2 } from "react-icons/tb";
 import { IoCloseSharp, IoMenuSharp } from "react-icons/io5";
 import logo from "../../Assets/detroitLogo.jpg";
