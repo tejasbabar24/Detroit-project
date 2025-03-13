@@ -64,7 +64,7 @@ const ContactForm = () => {
               </span>
               <div className="flex flex-col">
               <span className="font-bold">Website</span>
-              <p className="text-gray-700">reallygreatsite.com</p>
+              <p className="text-gray-700">detroitautomotives.com</p>
               </div>
             </div>
             <div className="space-x-3 flex">
@@ -73,7 +73,7 @@ const ContactForm = () => {
               </span>
               <div className="flex flex-col">
               <span className="font-bold">Phone</span>
-              <p className="text-gray-700">+123-456-7890</p>
+              <p className="text-gray-700">+91 82187 98061</p>
 
               </div>
             </div>
@@ -84,7 +84,7 @@ const ContactForm = () => {
 
               <div className="flex flex-col">
               <span className="font-bold">Location</span>
-              <p className="text-gray-700">123 Anywhere St, Any City</p>
+              <p className="text-gray-700">Trans Delhi Signature City, Ghaziabad,  Uttar Pradesh 201102</p>
 
               </div>
             </div>
