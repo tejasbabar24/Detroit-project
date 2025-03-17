@@ -33,7 +33,7 @@ function LandingPage() {
     {
       img: filter3,
       caption:
-        "Breathe Clean, Live Clean – Air Filters That Protect What Matters.",
+        "Breathe Clean, Live  Clean – Air Filters That Protect What Matters.",
     },
   ];
 
